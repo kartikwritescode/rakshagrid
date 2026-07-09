@@ -1,3 +1,14 @@
 .env
 .venv
 data/sources
+artifacts/scam-transformer/
+artifacts/scam-distilbert/
+artifacts/ensemble_meta.joblib
+artifacts/tfidf_logreg.joblib
+artifacts/tfidf_vectorizer.joblib
+training_output/
+logs/
+__pycache__/
+*.pyc
+*.npy
+*.joblib

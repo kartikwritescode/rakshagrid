@@ -1,6 +1,7 @@
 # models/rules.py
 import re
 from typing import List, Dict
+from utils.helpers import get_risk_band
 
 LEXICON = {
     "authority_impersonation": {
@@ -33,6 +34,6 @@ def score_lexicon(transcript: str) -> dict:
             score += cfg["weight"]
 
     score = min(score, 1.0)
-    band = "high" if score > 0.6 else "medium" if score > 0.3 else "low"
+    band = get_risk_band(score)
 
     return {"score": score, "band": band, "fired": fired}
