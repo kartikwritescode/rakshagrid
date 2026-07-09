@@ -7,7 +7,12 @@ from groq import Groq
 _client = None
 
 SYSTEM_PROMPT = """You are a scam-detection assistant. Given a call transcript, analyze it for potential scam/fraud indicators.
-Look for: authority impersonation, urgency, isolation instructions, requests to switch payment channels (UPI/crypto/gift cards).
+Look for actual requests for money, OTPs, credentials, remote access (TeamViewer/AnyDesk), digital arrests, or legal/disconnection threats.
+
+CRITICAL INSTRUCTIONS:
+1. Do NOT flag a call as a scam if it only contains greetings, introductions, or generic cold-opens (e.g., "hello this is Alex from Microsoft", "DHL courier package for you") without any actual scam action, threat, or request. A simple introduction is NOT a scam.
+2. If the text is very short or is just a greeting/introduction, classify it as "low" risk.
+3. If you are not completely sure, set "risk_band" to "needs_review".
 
 Respond ONLY with a valid JSON object matching this schema exactly:
 {
@@ -15,9 +20,7 @@ Respond ONLY with a valid JSON object matching this schema exactly:
   "confidence": number,
   "reasons": ["short phrase 1", "short phrase 2"],
   "risk_band": "high" or "low" or "needs_review"
-}
-
-Note: If you are not completely sure, set "risk_band" to "needs_review"."""
+}"""
 
 def _get_client():
     global _client

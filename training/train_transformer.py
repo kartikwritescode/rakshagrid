@@ -130,9 +130,49 @@ def main():
     print("Starting training...")
     trainer.train()
 
-    print("Evaluating best model on test set...")
-    eval_results = trainer.evaluate(eval_dataset=test_ds)
-    print(f"Test evaluation results: {eval_results}")
+    from sklearn.metrics import confusion_matrix, classification_report
+
+    def print_detailed_metrics(dataset, name):
+        preds = trainer.predict(dataset)
+        logits = torch.tensor(preds.predictions)
+        probs = torch.softmax(logits, dim=1).numpy()
+        pred_labels = np.argmax(logits, axis=1)
+        true_labels = preds.label_ids
+        
+        print(f"\n=== DETAILED EVALUATION ON {name.upper()} SET ===")
+        print("Confusion Matrix:")
+        print(confusion_matrix(true_labels, pred_labels))
+        print("\nClassification Report (per class):")
+        print(classification_report(true_labels, pred_labels, target_names=["Legit", "Scam"]))
+        
+        scam_probs = probs[:, 1]
+        print(f"\nPredicted Probability Distribution on {name.upper()} (Scam Class):")
+        print(f"  Min:  {np.min(scam_probs):.4f}")
+        print(f"  Max:  {np.max(scam_probs):.4f}")
+        print(f"  Mean: {np.mean(scam_probs):.4f}")
+        print(f"  Std:  {np.std(scam_probs):.4f}")
+        return scam_probs
+
+    print_detailed_metrics(val_ds, "validation")
+    test_probs_for_eval = print_detailed_metrics(test_ds, "test")
+
+    print("\n=== RUNNING HAND-WRITTEN SENTENCES SANITY CHECK ===")
+    test_sentences = [
+        "hello this is alex from microsoft",
+        "This is Delhi Police Headquarters. A case of money laundering has been registered under your name. You are under digital arrest. You must transfer funds immediately.",
+        "Hi, are we still meeting for lunch today?",
+        "Please transfer the money to our verification bank account immediately or your connection will be blocked."
+    ]
+    model.eval()
+    orig_device = model.device
+    model.cpu()
+    for sentence in test_sentences:
+        inputs = tokenizer(sentence, return_tensors="pt", truncation=True, max_length=512)
+        with torch.no_grad():
+            outputs = model(**inputs)
+            prob = torch.softmax(outputs.logits, dim=1)[0][1].item()
+            print(f"Text: '{sentence}' -> Scam Prob: {prob:.4f}")
+    model.to(orig_device)
 
     # Save best model
     save_path = "artifacts/scam-transformer"
@@ -159,12 +199,16 @@ def main():
     print("Saved predicted probabilities to artifacts/metrics/")
 
     # Save metrics report
+    from sklearn.metrics import accuracy_score, precision_recall_fscore_support
+    y_test = test_df["label"].values
+    pred_labels = (test_probs >= 0.5).astype(int)
+    precision, recall, f1, _ = precision_recall_fscore_support(y_test, pred_labels, average="binary")
     metrics_report = {
         "model_name": args.model,
-        "test_accuracy": eval_results["eval_accuracy"],
-        "test_precision": eval_results["eval_precision"],
-        "test_recall": eval_results["eval_recall"],
-        "test_f1": eval_results["eval_f1"],
+        "test_accuracy": float(accuracy_score(y_test, pred_labels)),
+        "test_precision": float(precision),
+        "test_recall": float(recall),
+        "test_f1": float(f1),
     }
     
     with open("artifacts/metrics/transformer_eval.json", "w") as f:

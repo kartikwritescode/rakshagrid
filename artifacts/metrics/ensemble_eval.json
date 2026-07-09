@@ -1,24 +1,21 @@
 {
-    "tfidf_metrics": {
-        "accuracy": 0.9924242424242424,
-        "precision": 0.9930555555555556,
-        "recall": 0.9930555555555556,
-        "f1": 0.9930555555555556
+    "accuracy": 0.9962121212121212,
+    "precision": 1.0,
+    "recall": 0.9930555555555556,
+    "f1": 0.9965156794425087,
+    "coefficients": {
+        "tfidf_prob": 2.7175896124329646,
+        "transformer_prob": 4.226684712402635,
+        "rules_score": 0.11125978246524489,
+        "turn_count": -0.1594735779575952,
+        "char_len": 0.0008985107811135114,
+        "word_count": -0.0011035220806668445,
+        "placeholder_count": -0.4548074885740158,
+        "urgency_word_count": 0.24801771441883563,
+        "money_word_count": 0.9039577054350362,
+        "authority_word_count": -0.10625586131215639,
+        "has_phone_number": 0.00429918941276974,
+        "exclaim_count": -0.008492493639961393
     },
-    "transformer_metrics": {
-        "model_name": "distilbert-base-uncased",
-        "test_accuracy": 0.5946969696969697,
-        "test_precision": 0.5737051792828686,
-        "test_recall": 1.0,
-        "test_f1": 0.7291139240506329,
-        "latency_standard_ms": 164.91,
-        "latency_quantized_ms": 117.93
-    },
-    "ensemble_metrics": {
-        "accuracy": 0.9886363636363636,
-        "precision": 0.993006993006993,
-        "recall": 0.9861111111111112,
-        "f1": 0.9895470383275261
-    },
-    "beats_both": false
+    "intercept": -2.978762612567671
 }

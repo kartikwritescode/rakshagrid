@@ -38,3 +38,6 @@ def score_tfidf(transcript: str) -> dict:
     prob = get_scam_probability(transcript)
     band = get_risk_band(prob)
     return {"score": prob, "band": band}
+
+# Load the model eagerly at import time to prevent OpenMP collision with PyTorch
+_load_model()

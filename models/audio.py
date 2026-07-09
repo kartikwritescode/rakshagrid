@@ -9,8 +9,8 @@ def _load_model():
     global _model
     if _model is None:
         try:
-            device = config.WHISPER_DEVICE
-            compute_type = config.WHISPER_COMPUTE_TYPE
+            device = config.get_whisper_device()
+            compute_type = config.get_whisper_compute_type()
             
             # CPU fallback if CUDA requested but not available
             if "cuda" in device and not torch.cuda.is_available():

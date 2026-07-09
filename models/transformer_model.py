@@ -15,22 +15,13 @@ def _load_model():
         if os.path.exists(config.TRANSFORMER_MODEL_PATH):
             try:
                 _tokenizer = AutoTokenizer.from_pretrained(config.TRANSFORMER_MODEL_PATH)
-                quantized_path = os.path.join(config.TRANSFORMER_MODEL_PATH, "quantized_model.pt")
-                
-                # Check for PyTorch dynamically quantized model first
-                if os.path.exists(quantized_path):
-                    # Load quantized model on CPU (PyTorch quantization is CPU-only)
-                    _model = torch.load(quantized_path, map_location="cpu")
-                    _model.eval()
-                    _is_quantized = True
-                else:
-                    from transformers import AutoModelForSequenceClassification
-                    _model = AutoModelForSequenceClassification.from_pretrained(config.TRANSFORMER_MODEL_PATH)
-                    device = config.TRANSFORMER_DEVICE
-                    device_str = "cuda" if "cuda" in device and torch.cuda.is_available() else "cpu"
-                    _model = _model.to(device_str)
-                    _model.eval()
-                    _is_quantized = False
+                from transformers import AutoModelForSequenceClassification
+                _model = AutoModelForSequenceClassification.from_pretrained(config.TRANSFORMER_MODEL_PATH)
+                device = config.get_transformer_device()
+                device_str = "cuda" if "cuda" in device and torch.cuda.is_available() else "cpu"
+                _model = _model.to(device_str)
+                _model.eval()
+                _is_quantized = False
             except Exception as e:
                 print(f"Error loading transformer model: {e}")
         else:

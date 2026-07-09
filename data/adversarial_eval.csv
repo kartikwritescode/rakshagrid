@@ -1,0 +1,35 @@
+text,label,category,source
+"hello this is alex from microsoft",0,legitimate_cold_open,handwritten_adversarial
+"Hi, I am calling from Amazon Customer Service. I noticed a charge of $499 on your account for a laptop purchase. Did you make this purchase?",1,support_impersonation,handwritten_adversarial
+"Hello, this is DHL Courier. We have a package for you but the address label is partially smudged. Can you confirm your zip code?",0,legitimate_delivery,handwritten_adversarial
+"This is Officer Kumar from the Delhi Police Headquarters. A package containing illegal narcotics and passports was intercepted under your name. You must stay on this video call for digital arrest.",1,digital_arrest,handwritten_adversarial
+"Hello! I am calling from ICICI Bank. There is an unusual transaction of 25,000 rupees on your credit card. Please confirm if you authorized this.",0,legitimate_bank_alert,handwritten_adversarial
+"To verify this transaction, I need you to share the 6-digit OTP sent to your mobile phone right now.",1,financial_scam,handwritten_adversarial
+"Hi there, this is absolute support. Your computer has been infected with a Trojan virus. Please download TeamViewer so we can clean it.",1,tech_support_scam,handwritten_adversarial
+"Hello, is this Mrs. Gupta? I'm calling from your child's school. They had a minor fall on the playground and are in the medical room. They are fine, but can you pick them up?",0,legitimate_emergency,handwritten_adversarial
+"Mom, I got arrested! The police caught me with drugs. They need 50,000 rupees for bail immediately. Don't tell dad!",1,family_emergency_scam,handwritten_adversarial
+"Hey Rajesh, are we still on for tennis at 5 PM today? Let me know if you can make it.",0,personal_conversation,handwritten_adversarial
+"Your bank account is compromised. To secure your funds, you must immediately transfer all your money to our safe government verification account via UPI.",1,digital_arrest,handwritten_adversarial
+"Sir, your LPG gas subsidy is on hold. Please download this App called QuickSupport to reactivate it.",1,remote_access_scam,handwritten_adversarial
+"Hi, this is a callback from Maruti Suzuki Service Center. You booked a service for your Baleno tomorrow. Can we confirm the time?",0,legitimate_appointment,handwritten_adversarial
+"This is a final notice from the Customs Department at Mumbai Airport. A parcel in your name contains illegal substances. You will face legal action unless you cooperate right now.",1,customs_impersonation,handwritten_adversarial
+"Hello, I'm calling from the Blood Bank. There is an urgent need for O-negative blood for a patient in surgery. Could you donate today?",0,legitimate_donation,handwritten_adversarial
+"You have won a lottery of 25 lakhs from KBC! To claim your prize money, please transfer 15,000 rupees for registration fees.",1,lottery_scam,handwritten_adversarial
+"Hey, did you get the email about the corporate policy changes? Let me know if you have questions.",0,workplace_communication,handwritten_adversarial
+"Hi, this is HDFC credit card division. We are offering a pre-approved lifetime free credit card with no joining fees. Would you be interested?",0,legitimate_telemarketing,handwritten_adversarial
+"This is Mumbai Cyber Cell. We have found your IP address involved in child pornography. Keep your camera on. Do not disconnect.",1,digital_arrest,handwritten_adversarial
+"Hello, this is Microsoft Support. We received an automated error report from your Windows PC. Is your computer nearby?",1,tech_support_scam,handwritten_adversarial
+"Your mobile SIM card is going to be blocked by TRAI in 2 hours because of illegal advertisement complaints. Dial 9 to connect to an executive.",1,sim_blocking_scam,handwritten_adversarial
+"Your order has been shipped via BlueDart. You can track your package using the tracking link in the SMS.",0,legitimate_notification,handwritten_adversarial
+"This is a verification call from the Telecom Department. We noticed multiple SIM cards registered under your Aadhaar card. Please visit your nearest gallery to verify.",0,legitimate_telecom_warning,handwritten_adversarial
+"Hi, I am calling from the Prime Minister Relief Fund. We are raising money to help flood victims. You can donate via our official website.",0,legitimate_charity,handwritten_adversarial
+"This is the Income Tax Department. You have an outstanding tax liability of 45,000 rupees. You must pay this fine immediately or a warrant will be issued for your arrest.",1,tax_scam,handwritten_adversarial
+"Dear customer, your KYC is suspended. Please click on the link in the message to update your Aadhaar card within 24 hours.",1,kyc_scam,handwritten_adversarial
+"Hello, this is a call from Netflix support. Your payment method failed and your subscription is paused. Can we update your credit card details over the phone?",1,subscription_phishing,handwritten_adversarial
+"Hi, this is a follow-up from the doctor's office. Your lab test results are ready. Please log in to your portal to view them.",0,legitimate_healthcare,handwritten_adversarial
+"Hello, this is Rajesh from your bank. We noticed some suspicious activity on your card, and we need to verify your identity. Can you confirm the last 4 digits of your Aadhaar card?",0,borderline_bank_check,handwritten_adversarial
+"Sir, your parcel from Fedex was returned because of an address issue. There is a re-delivery charge of 50 rupees. Can you pay it online?",0,borderline_fedex_redelivery,handwritten_adversarial
+"Congratulations, you have won a coupon from Amazon for shopping last month. Can you confirm your email address so we can send it?",0,borderline_promo,handwritten_adversarial
+"Hi, this is the society security gate. A visitor named Amit is here to see you. Should I let him in?",0,legitimate_gate,handwritten_adversarial
+"We have sent a link to your phone to confirm your address. Please click on it and verify.",0,borderline_link_verification,handwritten_adversarial
+"Hi, this is Rajesh calling from your local electric department. Your electricity bill is unpaid and we will disconnect your power in the next 30 minutes unless you pay right now.",1,utility_scam,handwritten_adversarial

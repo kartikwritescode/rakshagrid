@@ -25,9 +25,19 @@ def train():
     X_val, y_val = val_df["text"], val_df["label"]
     X_test, y_test = test_df["text"], test_df["label"]
     
-    # 2. Vectorize text
-    print("Vectorizing text...")
-    vectorizer = TfidfVectorizer(max_features=3000, ngram_range=(1, 2), stop_words="english")
+    # 2. Vectorize text with custom stop words to prevent shortcut learning
+    print("Vectorizing text with custom stop words...")
+    from sklearn.feature_extraction import text
+    conversational_fillers = {
+        "hello", "hi", "hey", "greetings", "caller", "receiver", "yes", "okay", "ok", "uh", "um", 
+        "ah", "yeah", "john", "david", "alex", "acme", "corp", "company", "xyz", "abc", "mr", "mrs", 
+        "thanks", "thank", "good", "morning", "afternoon", "evening", "expecting", "expect", "expecting today",
+        "stargazing", "telescopes", "cocoa", "guidance",
+        "microsoft", "amazon", "netflix", "walmart"
+    }
+    stop_words = list(text.ENGLISH_STOP_WORDS.union(conversational_fillers))
+    
+    vectorizer = TfidfVectorizer(max_features=3000, ngram_range=(1, 2), stop_words=stop_words)
     X_train_vec = vectorizer.fit_transform(X_train)
     X_val_vec = vectorizer.transform(X_val)
     X_test_vec = vectorizer.transform(X_test)

@@ -52,3 +52,6 @@ def score_ensemble(tfidf_prob: float, transformer_prob: float, rules_score: floa
     weighted_score = (rules_score * 0.20) + (tfidf_prob * 0.30) + (transformer_prob * 0.50)
     band = get_risk_band(weighted_score)
     return {"score": weighted_score, "band": band, "method": "weighted_average_fallback"}
+
+# Load the model eagerly at import time to prevent OpenMP collision with PyTorch
+_load_model()
