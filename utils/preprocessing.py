@@ -1,9 +1,5 @@
 import re
-
-# Exact regexes from notebooks/prep_data.ipynb
-URGENCY_WORDS = r"\b(immediately|urgent|now|verify|suspend|arrest|warrant|legal action|fine|penalty|act now|limited time|final notice)\b"
-MONEY_WORDS = r"\b(gift card|wire transfer|bitcoin|crypto|bank account|social security|ssn|routing number|card number|cvv|otp|one[- ]time password)\b"
-AUTHORITY_WORDS = r"\b(irs|police|fbi|government|officer|department|agent|court|federal)\b"
+from utils.scam_lexicon import URGENCY_WORDS, MONEY_WORDS, AUTHORITY_WORDS
 
 def count_turns(text: str) -> int:
     """Count number of conversational turns based on caller: or receiver: prefixes."""

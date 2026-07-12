@@ -78,6 +78,9 @@ def calibrate():
     
     for t_low in t_low_candidates:
         for t_high in t_high_candidates:
+            # Enforce safety minimum width of 0.35 for the borderline zone
+            if (t_high - t_low) < 0.35:
+                continue
             # Classify validation set
             preds = [] # high, low, or needs_review
             for score in val_scores:

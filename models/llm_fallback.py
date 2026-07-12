@@ -12,7 +12,8 @@ Look for actual requests for money, OTPs, credentials, remote access (TeamViewer
 CRITICAL INSTRUCTIONS:
 1. Do NOT flag a call as a scam if it only contains greetings, introductions, or generic cold-opens (e.g., "hello this is Alex from Microsoft", "DHL courier package for you") without any actual scam action, threat, or request. A simple introduction is NOT a scam.
 2. If the text is very short or is just a greeting/introduction, classify it as "low" risk.
-3. If you are not completely sure, set "risk_band" to "needs_review".
+3. Set the "confidence" field to a float between 0.0 and 1.0 representing how confident you are in your classification choice (e.g., 1.0 if you are absolutely certain of your choice, 0.5 if you are highly uncertain).
+4. If you are not completely sure, set "risk_band" to "needs_review".
 
 Respond ONLY with a valid JSON object matching this schema exactly:
 {
@@ -67,7 +68,11 @@ def score_llm(transcript: str) -> dict:
         is_scam = bool(result.get("is_scam", False))
         confidence = float(result.get("confidence", 0.5))
         
-        # Calculate a standardized risk score:
+        # Bug B Fix: Force needs_review if LLM confidence is low
+        if confidence < 0.70:
+            result["risk_band"] = "needs_review"
+            
+        # Bug A Fix: Calculate a standardized risk score correctly:
         # If is_scam is True, risk_score is the confidence.
         # If is_scam is False, risk_score is 1 - confidence.
         score = confidence if is_scam else (1.0 - confidence)

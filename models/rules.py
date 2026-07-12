@@ -3,24 +3,8 @@ import re
 from typing import List, Dict
 from utils.helpers import get_risk_band
 
-LEXICON = {
-    "authority_impersonation": {
-        "patterns": [r"\b(cbi|ed|customs|income tax dept|cyber cell)\b", r"\bwarrant\b", r"\bfir\b"],
-        "weight": 0.30,
-    },
-    "isolation_secrecy": {
-        "patterns": [r"don'?t (disconnect|hang up|tell anyone)", r"stay on (the )?call", r"video verification"],
-        "weight": 0.25,
-    },
-    "urgency": {
-        "patterns": [r"immediately", r"within (the next )?\d+ (minutes|hours)", r"right now"],
-        "weight": 0.15,
-    },
-    "payment_channel_switch": {
-        "patterns": [r"\bupi\b", r"gift card", r"crypto|bitcoin", r"transfer.*account"],
-        "weight": 0.30,
-    },
-}
+from utils.scam_lexicon import LEXICON
+
 
 def score_lexicon(transcript: str) -> dict:
     text = transcript.lower()

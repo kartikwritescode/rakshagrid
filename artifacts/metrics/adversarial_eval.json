@@ -1,18 +1,36 @@
 {
-    "dataset_size": 34,
+    "dataset_size": 62,
     "needs_review_pct": 0.0,
     "decisive_pct": 100.0,
     "decisive_metrics": {
-        "accuracy": 0.7352941176470589,
-        "precision": 0.6842105263157895,
-        "recall": 0.8125,
-        "f1": 0.7428571428571429,
-        "fpr": 0.3333333333333333
+        "accuracy": 0.9193548387096774,
+        "precision": 0.8571428571428571,
+        "recall": 0.96,
+        "f1": 0.9056603773584906,
+        "fpr": 0.10810810810810811
     },
     "overall_strict_metrics": {
-        "accuracy": 0.7352941176470589,
-        "precision": 0.6842105263157895,
-        "recall": 0.8125,
-        "f1": 0.7428571428571429
+        "accuracy": 0.9193548387096774,
+        "precision": 0.8571428571428571,
+        "recall": 0.96,
+        "f1": 0.9056603773584906
+    },
+    "format_metrics": {
+        "single": {
+            "accuracy": 0.8857142857142857,
+            "precision": 0.7777777777777778,
+            "recall": 1.0,
+            "f1": 0.875,
+            "fpr": 0.19047619047619047,
+            "decisive_count": 35
+        },
+        "dialogue": {
+            "accuracy": 0.9629629629629629,
+            "precision": 1.0,
+            "recall": 0.9090909090909091,
+            "f1": 0.9523809523809523,
+            "fpr": 0.0,
+            "decisive_count": 27
+        }
     }
 }

@@ -1,21 +1,21 @@
 {
-    "accuracy": 0.9962121212121212,
-    "precision": 1.0,
-    "recall": 0.9930555555555556,
-    "f1": 0.9965156794425087,
+    "accuracy": 0.9970414201183432,
+    "precision": 0.9941520467836257,
+    "recall": 1.0,
+    "f1": 0.9970674486803519,
     "coefficients": {
-        "tfidf_prob": 2.7175896124329646,
-        "transformer_prob": 4.226684712402635,
-        "rules_score": 0.11125978246524489,
-        "turn_count": -0.1594735779575952,
-        "char_len": 0.0008985107811135114,
-        "word_count": -0.0011035220806668445,
-        "placeholder_count": -0.4548074885740158,
-        "urgency_word_count": 0.24801771441883563,
-        "money_word_count": 0.9039577054350362,
-        "authority_word_count": -0.10625586131215639,
-        "has_phone_number": 0.00429918941276974,
-        "exclaim_count": -0.008492493639961393
+        "tfidf_prob": 2.962895465175563,
+        "transformer_prob": 4.318127875911561,
+        "rules_score": 0.12161489772123582,
+        "turn_count": -0.2816239333160968,
+        "char_len": 0.002772714696798637,
+        "word_count": -0.00198065753945088,
+        "placeholder_count": -0.09244099485044416,
+        "urgency_word_count": 0.16246682355224354,
+        "money_word_count": 1.3122025010104872,
+        "authority_word_count": 0.19316357248336227,
+        "has_phone_number": 0.005984539271827232,
+        "exclaim_count": 0.056709606990214274
     },
-    "intercept": -2.978762612567671
+    "intercept": -4.456552514125803
 }

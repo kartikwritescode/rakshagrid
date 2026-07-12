@@ -1,27 +1,27 @@
 {
     "thresholds": {
-        "low": 0.22,
+        "low": 0.16,
         "high": 0.55,
-        "needs_review_low": 0.22,
+        "needs_review_low": 0.16,
         "needs_review_high": 0.55
     },
     "test_metrics": {
-        "precision": 1.0,
-        "recall": 0.9861111111111112,
-        "fpr": 0.0,
-        "accuracy_decisive": 1.0,
+        "precision": 0.9941176470588236,
+        "recall": 0.9941176470588236,
+        "fpr": 0.005952380952380952,
+        "accuracy_decisive": 0.9970059880239521,
         "needs_review_count": 4,
-        "needs_review_rate": 0.015151515151515152
+        "needs_review_rate": 0.011834319526627219
     },
     "confusion_matrix": {
-        "tp": 142,
-        "fp": 0,
-        "tn": 118,
+        "tp": 169,
+        "fp": 1,
+        "tn": 164,
         "fn": 0
     },
     "comparison_to_baselines": {
         "ieee_lstm_baseline_accuracy": 0.8561,
-        "our_decisive_accuracy": 1.0,
-        "improvement_pct": 0.14390000000000003
+        "our_decisive_accuracy": 0.9970059880239521,
+        "improvement_pct": 0.14090598802395216
     }
 }

@@ -94,13 +94,17 @@ def run_adversarial_eval():
             "final_band": final_band,
             "stage": stage,
             "pred_label": pred_label,
-            "llm_triggered": llm_triggered
+            "llm_triggered": llm_triggered,
+            "format": str(row.format)
         })
         
     results_df = pd.DataFrame(results)
     
     # 2. Analyze Decisive vs Needs Review rates
     total = len(results_df)
+    ensemble_review_count = sum(results_df["ensemble_band"] == "needs_review")
+    ensemble_review_pct = (ensemble_review_count / total) * 100
+    
     needs_review_count = sum(results_df["final_band"] == "needs_review")
     needs_review_pct = (needs_review_count / total) * 100
     
@@ -109,9 +113,10 @@ def run_adversarial_eval():
     decisive_pct = (decisive_count / total) * 100
     
     print(f"\n--- BAND DISTRIBUTION ---")
-    print(f"  Low Risk    : {sum(results_df['final_band'] == 'low')} / {total}")
-    print(f"  High Risk   : {sum(results_df['final_band'] == 'high')} / {total}")
-    print(f"  Needs Review: {needs_review_count} / {total} ({needs_review_pct:.2f}%)")
+    print(f"  Low Risk                 : {sum(results_df['final_band'] == 'low')} / {total}")
+    print(f"  High Risk                : {sum(results_df['final_band'] == 'high')} / {total}")
+    print(f"  Ensemble Borderline Rate : {ensemble_review_count} / {total} ({ensemble_review_pct:.2f}%)")
+    print(f"  Final Needs Review Rate  : {needs_review_count} / {total} ({needs_review_pct:.2f}%)")
     
     # 3. Calculate metrics on decisive cases
     print(f"\n--- DECISIVE PERFORMANCE (Excluding Needs Review) ---")
@@ -175,6 +180,39 @@ def run_adversarial_eval():
             
     print(f"\nTotal misclassified or reviewed examples: {misclassified_count} / {total}")
     
+    # 6. Format-specific metrics check
+    print("\n--- FORMAT ROBUSTNESS COMPARISON ---")
+    format_metrics = {}
+    for fmt in results_df["format"].unique():
+        fmt_df = results_df[results_df["format"] == fmt]
+        fmt_decisive = fmt_df[fmt_df["final_band"] != "needs_review"]
+        
+        if len(fmt_decisive) > 0:
+            y_t_fmt = fmt_decisive["true_label"].values
+            y_p_fmt = fmt_decisive["pred_label"].values
+            
+            acc_fmt = accuracy_score(y_t_fmt, y_p_fmt)
+            p_fmt, r_fmt, f1_fmt, _ = precision_recall_fscore_support(y_t_fmt, y_p_fmt, average="binary", zero_division=0)
+            tn_fmt, fp_fmt, fn_fmt, tp_fmt = confusion_matrix(y_t_fmt, y_p_fmt, labels=[0, 1]).ravel()
+            fpr_fmt = fp_fmt / (tn_fmt + fp_fmt) if (tn_fmt + fp_fmt) > 0 else 0.0
+            
+            print(f"Format: {fmt:<8} (Decisive count: {len(fmt_decisive)} / {len(fmt_df)})")
+            print(f"  Accuracy : {acc_fmt*100:.2f}%")
+            print(f"  Precision: {p_fmt*100:.2f}%")
+            print(f"  Recall   : {r_fmt*100:.2f}%")
+            print(f"  FPR      : {fpr_fmt*100:.2f}%")
+            
+            format_metrics[fmt] = {
+                "accuracy": float(acc_fmt),
+                "precision": float(p_fmt),
+                "recall": float(r_fmt),
+                "f1": float(f1_fmt),
+                "fpr": float(fpr_fmt),
+                "decisive_count": int(len(fmt_decisive))
+            }
+        else:
+            print(f"Format: {fmt} - No decisive cases.")
+
     # Save adversarial evaluation results
     adversarial_report = {
         "dataset_size": total,
@@ -192,7 +230,8 @@ def run_adversarial_eval():
             "precision": float(overall_p),
             "recall": float(overall_r),
             "f1": float(overall_f1)
-        }
+        },
+        "format_metrics": format_metrics
     }
     
     os.makedirs("artifacts/metrics", exist_ok=True)
