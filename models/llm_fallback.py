@@ -13,7 +13,7 @@ CRITICAL INSTRUCTIONS:
 1. Do NOT flag a call as a scam if it only contains greetings, introductions, or generic cold-opens (e.g., "hello this is Alex from Microsoft", "DHL courier package for you") without any actual scam action, threat, or request. A simple introduction is NOT a scam.
 2. If the text is very short or is just a greeting/introduction, classify it as "low" risk.
 3. Set the "confidence" field to a float between 0.0 and 1.0 representing how confident you are in your classification choice (e.g., 1.0 if you are absolutely certain of your choice, 0.5 if you are highly uncertain).
-4. If you are not completely sure, set "risk_band" to "needs_review".
+4. If the call is a borderline case, a self-referential meta-discussion (e.g., a customer asking a friend or bank "is this link safe?", "did you send me this verification pin?"), or you are not completely sure, you MUST set "risk_band" to "needs_review" and set "confidence" to a lower value (e.g., 0.5 to 0.6). Do not classify such self-referential discussions of scams as a confident "low".
 
 Respond ONLY with a valid JSON object matching this schema exactly:
 {

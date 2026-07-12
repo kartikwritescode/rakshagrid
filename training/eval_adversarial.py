@@ -57,9 +57,13 @@ def run_adversarial_eval():
         final_band = ensemble_band
         stage = ensemble_res["method"]
         
-        # 6. LLM Fallback (if final_band is needs_review)
+        # Route self-referential queries (asking if something is a scam/safe) to LLM fallback
+        text_lower = text.lower()
+        is_self_referential = "is it a scam" in text_lower or "is it safe" in text_lower or "is this a scam" in text_lower
+        
+        # 6. LLM Fallback (if final_band is needs_review or self-referential query)
         llm_triggered = False
-        if final_band == "needs_review":
+        if final_band == "needs_review" or is_self_referential:
             llm_triggered = True
             llm_res = score_llm(text)
             if llm_res.get("risk_band") in ["high", "low"]:
@@ -68,7 +72,8 @@ def run_adversarial_eval():
                 stage = "llm_fallback"
             else:
                 final_band = "needs_review"
-                stage = "llm_fallback_uncertain"
+                stage = llm_res.get("method", "llm_fallback_uncertain")
+                final_score = llm_res.get("score", final_score)
                 
         # Map final band to a binary predicted label:
         # High -> 1
