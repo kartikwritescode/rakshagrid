@@ -56,6 +56,11 @@ def run_adversarial_eval():
         final_score = ensemble_score
         final_band = ensemble_band
         stage = ensemble_res["method"]
+
+        # Rules Safety Override: if rules layer fires hard but ensemble is "low", force to needs_review
+        if rules_score >= 0.40 and final_band == "low":
+            final_band = "needs_review"
+            stage = "rules_safety_override"
         
         # Route self-referential queries (asking if something is a scam/safe) to LLM fallback
         text_lower = text.lower()

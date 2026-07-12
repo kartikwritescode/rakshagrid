@@ -81,6 +81,11 @@ def analyze_text(req: TextRequest):
     final_band = ensemble_res["band"]
     stage = ensemble_res["method"] # "ensemble_stacking" or fallback
 
+    # Rules Safety Override: if rules layer fires hard but ensemble is "low", force to needs_review
+    if rules_score >= 0.40 and final_band == "low":
+        final_band = "needs_review"
+        stage = "rules_safety_override"
+
     # Route self-referential queries (asking if something is a scam/safe) to LLM fallback
     text_lower = transcript.lower()
     is_self_referential = "is it a scam" in text_lower or "is it safe" in text_lower or "is this a scam" in text_lower

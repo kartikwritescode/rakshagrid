@@ -183,6 +183,47 @@ credential_harvesting_scams = [
     "caller: This is support. Can you verify your CVV code? receiver: It is 123. caller: Thank you.",
 ] + [f"Hello, this is your bank security verification team. We have sent a verification code to your mobile phone. Please read the code to verify your profile details. The code is a {num}-digit number." for num in range(3, 33)]
 
+# Define 15 new legitimate bank alert examples (Label 0) to prevent false positives
+new_bank_alerts = [
+    "Hello, this is an automated alert from Capital One. We detected a payment of $89 at a Target store. If this is a valid transaction, no action is needed. To report unrecognized activity, please use the card lock feature in your mobile app.",
+    "This is an IVR notification from Chase. We registered a charge of 45 dollars at Starbucks. If you authorized this purchase, please press 1, otherwise press 2 to block your card. No personal details are required.",
+    "Hello, Citibank security check. A transaction of 150 dollars has been successfully processed at Walmart. If this was you, no action is needed. Review your statement on our official website.",
+    "Hi, this is Wells Fargo automated transaction alert. Your debit card was used for 12.99 dollars at Netflix. If this is correct, please ignore this message. We will never ask for your login or PIN.",
+    "This is an automated call from HDFC Bank. A transaction of 2,000 rupees was completed on your card ending in 5678. If valid, no action is required. If unrecognized, please visit hdfcbank.com/card-lock.",
+    "Hello, this is SBI Card Alert. Your credit card ending in 1234 has been charged 1,500 rupees. If you authorized this payment, no action is required on your part.",
+    "This is an automated notification from Bank of America. A login attempt was detected from a verified browser. If this was you, no action is needed. To report unrecognized login, lock your profile in the app.",
+    "Hi, this is Barclays Fraud Check. We noticed a recurring monthly bill of 15 euros for Spotify. If this is correct, no action is required.",
+    "This is an IVR alert from Axis Bank. We processed a transaction of 500 rupees at a local grocery store. If valid, press 1. If not, press 2. Axis Bank will never ask for your PIN or OTP.",
+    "Hello, calling from ICICI Bank security department. A transaction of 10,000 rupees has been initiated. If you authorized this, please approve it on your ICICI mobile app under pending transactions.",
+    "This is an automated transaction confirmation from American Express. A charge of 250 dollars was processed at Delta Air Lines. If correct, no action is needed. To report issues, log in to your account.",
+    "Hello, this is Standard Chartered. We detected a purchase of 75 dollars on your credit card. If you initiated this, no action is required. Track your spending via the SC Mobile app.",
+    "This is an IVR call from Kotak Bank. A payment of 1,200 rupees has been authorized. Press 1 if you made this payment. Press 2 to report unauthorized activity.",
+    "Hello, this is PNC Bank transaction alert. A charge of 60 dollars was approved at a Shell gas station. If this is valid, no action is needed.",
+    "This is HSBC automated security. We registered a login to your net banking. If this was you, no action is needed. To secure your account, visit hsbc.com/secure."
+]
+
+# Define 15 new legitimate verification examples (Label 0) to prevent false positives
+legitimate_verifications = [
+    "Hello, this is a standard automated system verification call. We need to verify if you wish to maintain your active account status. Please press 1 to confirm.",
+    "This is an automated verification message. We have sent a link to your phone to confirm your delivery address. Please click on the link to verify your details. No personal info is requested.",
+    "Hello, this is an automated profile update check. If you recently updated your account email, no action is required. To report unauthorized changes, visit our official website.",
+    "This is an IVR check from our security system. We are verifying your active status. Please press 1 to confirm you are the owner of this number. No passcode is required.",
+    "Hello, system status check. We need to confirm your active status on our portal. Please log in to your account dashboard to verify. No action is needed if you are already logged in.",
+    "This is an automated address verification alert. We sent a secure link to confirm your redelivery address. Click the link to update. We do not require any PIN or password.",
+    "Hello, system status check. We need to confirm your active status on our portal. Please log in to your account dashboard to verify. No action is needed if you are already logged in.",
+    "This is an automated IVR verification. To confirm your appointment for tomorrow, please press 1. To reschedule, press 2. No personal information will be asked.",
+    "Hello, this is an automated shipping confirmation. We have sent a link to verify your package delivery preferences. Please verify your choices on the portal link.",
+    "This is a system status verification. We need to confirm if you wish to continue receiving automated SMS alerts. If yes, press 1. If no, press 2.",
+    "Hello, this is an automated gate access check. To verify your visitor access request, please press 1 to approve, or 2 to deny.",
+    "This is an automated link verification. We sent a text to confirm your contact details. Click on the official link to complete verification.",
+    "Hello, this is an automated security check. Your device has been successfully registered. If this is correct, no action is needed.",
+    "This is an IVR account verification. To verify your email subscription preference, please press 1 to opt in, or press 2 to opt out.",
+    "Hello, this is an automated system confirmation. We need to verify your primary contact number. Click on the verification link sent to your inbox to confirm."
+]
+
+# Append the new alerts to the existing bank alerts list
+legitimate_bank_alerts = legitimate_bank_alerts + new_bank_alerts
+
 def augment():
     print("=== AUGMENTING DATASET WITH BENIGN HARD NEGATIVES AND SCAMS ===")
     
@@ -191,6 +232,14 @@ def augment():
     val_df = pd.read_csv("data/val.csv")
     test_df = pd.read_csv("data/test.csv")
     
+    # Idempotency Filter: Filter out previously custom_augmented rows
+    if "source_url" in train_df.columns:
+        train_df = train_df[train_df["source_url"] != "custom_augmented"]
+    if "source_url" in val_df.columns:
+        val_df = val_df[val_df["source_url"] != "custom_augmented"]
+    if "source_url" in test_df.columns:
+        test_df = test_df[test_df["source_url"] != "custom_augmented"]
+        
     # 2. Package all new examples
     new_data = []
     
@@ -210,6 +259,7 @@ def augment():
     add_examples(legitimate_telecom_notices, 0, "legitimate_telecom_notice", "custom_augmented_benign")
     add_examples(charity_volunteer_coordination, 0, "charity_volunteer_coordination", "custom_augmented_benign")
     add_examples(casual_conversations, 0, "casual_conversation", "custom_augmented_benign")
+    add_examples(legitimate_verifications, 0, "legitimate_verification", "custom_augmented_benign")
     
     add_examples(tech_support_scams, 1, "tech_support_scam", "custom_augmented_scam")
     add_examples(utility_disconnect_scams, 1, "utility_disconnect_scam", "custom_augmented_scam")
