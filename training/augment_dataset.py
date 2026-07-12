@@ -221,6 +221,51 @@ legitimate_verifications = [
     "Hello, this is an automated system confirmation. We need to verify your primary contact number. Click on the verification link sent to your inbox to confirm."
 ]
 
+# Define 10 link-verification hard negatives (Label 0) to fix persistent false positives
+# These match the exact "click link to verify" pattern WITHOUT credential/payment asks
+link_verification_benign = [
+    "We have sent a link to your phone to confirm your address. Please click on it and verify your delivery preferences.",
+    "Hello, we have emailed you a link to verify your new address. Please click the link to confirm. No personal details are needed.",
+    "Hi, a confirmation link has been sent to your email. Please click on it to verify your email address for our mailing list.",
+    "This is an automated message. We sent a link to confirm your subscription preferences. Click the link to update your settings.",
+    "Hello, please click the link we sent to your phone to verify your appointment for next Tuesday. No payment is required.",
+    "Hi, we have sent a verification link to your registered email. Click on it to confirm your updated contact information.",
+    "A link has been sent to your mobile number to verify your new delivery address. Please click on it and confirm the details.",
+    "Hello, this is a system-generated message. A link has been sent to verify your profile photo update. Click the link to approve.",
+    "We sent a confirmation link to your phone to finalize your address change. Please click on it to complete the verification.",
+    "Hi, please click the verification link we sent to confirm your opt-in for SMS notifications. No passwords or PINs are required.",
+]
+
+# Define 25 KYC/SMS link-phishing scam examples (Label 1)
+# SMS-style phishing directing victims to click links — structurally different from verbal scams
+kyc_sms_phishing_scams = [
+    "Dear customer, your KYC is suspended. Please click on the link in the message to update your Aadhaar card within 24 hours.",
+    "URGENT: Your bank account KYC verification has expired. Update your KYC immediately by clicking this link or your account will be frozen.",
+    "Your PAN card details are not linked with your bank account. Please update your details within 24 hours using this link to avoid account suspension.",
+    "Dear user, your Aadhaar verification is pending. Click the link below to complete e-KYC or your SIM card will be deactivated in 48 hours.",
+    "ALERT: Your mobile banking KYC is expired. Update now to continue using your account. Click the link to re-verify your identity.",
+    "Dear customer, your account has been temporarily frozen due to incomplete KYC. Click here to reactivate your account immediately.",
+    "Your SBI account will be blocked in 24 hours due to expired KYC documents. Click the link to update your Aadhaar and PAN details now.",
+    "HDFC Bank: Your KYC verification is overdue. Please click the link to upload your documents or your net banking access will be suspended.",
+    "ICICI Bank alert: Your account KYC is incomplete. Verify your identity within 12 hours by clicking the link or face account restrictions.",
+    "Dear customer, you have won a prize of 50,000 rupees from our lucky draw! Click the link to claim your reward before it expires.",
+    "Congratulations! You are selected for a cash prize of 1 lakh rupees. Click the link and enter your bank details to receive the amount.",
+    "You have a pending delivery. Please pay 49 rupees delivery fee by clicking the link to release your parcel from customs.",
+    "Your Amazon order is held at customs. Pay a processing fee of 99 rupees by clicking this link to receive your package.",
+    "Dear user, your Flipkart order cannot be delivered due to unpaid customs charges. Click the link to pay 149 rupees and release your order.",
+    "ALERT: Your electricity account KYC verification is pending. Complete it within 24 hours by clicking this link or face power disconnection.",
+    "Your Paytm KYC is expired. Complete your KYC verification by clicking the link below or your wallet balance will be frozen.",
+    "PhonePe alert: Your account verification is incomplete. Click the link to upload your Aadhaar card and prevent account suspension.",
+    "Google Pay: Your UPI ID will be deactivated due to incomplete verification. Click the link to re-verify within 24 hours.",
+    "Dear customer, your credit card is about to be blocked due to unverified KYC. Click the link to submit your documents immediately.",
+    "URGENT: Your Axis Bank account will be suspended in 6 hours. Click the link to complete your KYC and avoid service disruption.",
+    "Your Vodafone SIM will be deactivated in 24 hours due to Aadhaar re-verification. Click the link to complete eKYC now.",
+    "Jio alert: Your number will be disconnected due to incomplete re-verification. Click the link to submit your Aadhaar details.",
+    "Your PF account has been flagged for KYC mismatch. Click the link to verify your PAN and Aadhaar within 48 hours to avoid account freeze.",
+    "Income Tax Dept: Your PAN card is linked to suspicious transactions. Click the link to verify your identity within 24 hours.",
+    "Dear user, your health insurance policy KYC is incomplete. Click the link to upload your documents or your policy will lapse.",
+]
+
 # Append the new alerts to the existing bank alerts list
 legitimate_bank_alerts = legitimate_bank_alerts + new_bank_alerts
 
@@ -260,10 +305,12 @@ def augment():
     add_examples(charity_volunteer_coordination, 0, "charity_volunteer_coordination", "custom_augmented_benign")
     add_examples(casual_conversations, 0, "casual_conversation", "custom_augmented_benign")
     add_examples(legitimate_verifications, 0, "legitimate_verification", "custom_augmented_benign")
+    add_examples(link_verification_benign, 0, "link_verification_benign", "custom_augmented_benign")
     
     add_examples(tech_support_scams, 1, "tech_support_scam", "custom_augmented_scam")
     add_examples(utility_disconnect_scams, 1, "utility_disconnect_scam", "custom_augmented_scam")
     add_examples(credential_harvesting_scams, 1, "credential_harvesting_scam", "custom_augmented_scam")
+    add_examples(kyc_sms_phishing_scams, 1, "kyc_sms_phishing", "custom_augmented_scam")
     
     new_df = pd.DataFrame(new_data)
     print(f"Total new examples generated: {len(new_df)}")

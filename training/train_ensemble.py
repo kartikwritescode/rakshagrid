@@ -4,12 +4,24 @@ import json
 import numpy as np
 import pandas as pd
 import joblib
-from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import classification_report, accuracy_score, precision_recall_fscore_support
+from scipy.optimize import minimize
 
 # Import preprocessing and rules functions
 from utils.preprocessing import extract_features, compute_rules_score
 from models.rules import score_lexicon
+
+# Feature names in the exact order used by the ensemble
+FEATURE_NAMES = [
+    "tfidf_prob", "transformer_prob", "rules_score", 
+    "turn_count", "char_len", "word_count", "placeholder_count",
+    "urgency_word_count", "money_word_count", "authority_word_count",
+    "has_phone_number", "exclaim_count"
+]
+
+# Indices of features whose coefficients MUST be >= 0
+# (component model probabilities should never penalise high scam confidence)
+NON_NEGATIVE_INDICES = [0, 1, 2]  # tfidf_prob, transformer_prob, rules_score
 
 def prepare_features(df, tfidf_probs, transformer_probs):
     """
@@ -51,6 +63,10 @@ def prepare_features(df, tfidf_probs, transformer_probs):
         
     return np.array(X)
 
+
+from models.ensemble import BoundedLogisticRegression
+
+
 def train():
     print("=== TRAINING ENSEMBLE META-CLASSIFIER ===")
     
@@ -77,9 +93,17 @@ def train():
     X_test = prepare_features(test_df, tfidf_test_probs, trans_test_probs)
     y_test = test_df["label"].values
     
-    # 4. Train meta-classifier
-    print("Fitting Logistic Regression meta-classifier on validation features...")
-    meta_clf = LogisticRegression(class_weight="balanced", random_state=42)
+    # 4. Train meta-classifier with bounded coefficients
+    #    tfidf_prob, transformer_prob, and rules_score coefficients are constrained >= 0
+    #    to prevent multicollinearity from assigning pathological negative weights to
+    #    component model scam probabilities.
+    print("Fitting Bounded Logistic Regression meta-classifier on validation features...")
+    print(f"  Non-negative constraints on: {[FEATURE_NAMES[i] for i in NON_NEGATIVE_INDICES]}")
+    meta_clf = BoundedLogisticRegression(
+        non_negative_indices=NON_NEGATIVE_INDICES,
+        C=1.0,
+        random_state=42
+    )
     meta_clf.fit(X_val, y_val)
     
     # Save the meta-model
@@ -104,17 +128,17 @@ def train():
     print(f"F1-Score : {f1*100:.2f}%")
     
     # Coefficients analysis
-    feature_names = [
-        "tfidf_prob", "transformer_prob", "rules_score", 
-        "turn_count", "char_len", "word_count", "placeholder_count",
-        "urgency_word_count", "money_word_count", "authority_word_count",
-        "has_phone_number", "exclaim_count"
-    ]
     coefs = meta_clf.coef_[0]
     print("\nMeta-Classifier Coefficients:")
-    for name, val in zip(feature_names, coefs):
-        print(f"  {name:<25}: {val:.4f}")
-    print(f"  Intercept                : {meta_clf.intercept_[0]:.4f}")
+    for name, val in zip(FEATURE_NAMES, coefs):
+        marker = " [CONSTRAINED >= 0]" if FEATURE_NAMES.index(name) in NON_NEGATIVE_INDICES else ""
+        print(f"  {name:<25}: {val:.4f}{marker}")
+    print(f"  {'Intercept':<25}: {meta_clf.intercept_[0]:.4f}")
+    
+    # Verify no negative coefficients on constrained features
+    for i in NON_NEGATIVE_INDICES:
+        assert coefs[i] >= -1e-8, f"BUG: {FEATURE_NAMES[i]} coefficient is negative ({coefs[i]:.6f})"
+    print("\nOK: All constrained coefficients are non-negative.")
     
     # Save metrics evaluation
     metrics = {
@@ -122,7 +146,7 @@ def train():
         "precision": float(precision),
         "recall": float(recall),
         "f1": float(f1),
-        "coefficients": {name: float(val) for name, val in zip(feature_names, coefs)},
+        "coefficients": {name: float(val) for name, val in zip(FEATURE_NAMES, coefs)},
         "intercept": float(meta_clf.intercept_[0])
     }
     os.makedirs("artifacts/metrics", exist_ok=True)

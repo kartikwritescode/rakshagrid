@@ -82,7 +82,8 @@ def analyze_text(req: TextRequest):
     stage = ensemble_res["method"] # "ensemble_stacking" or fallback
 
     # Rules Safety Override: if rules layer fires hard but ensemble is "low", force to needs_review
-    if rules_score >= 0.40 and final_band == "low":
+    # Threshold 0.30 covers single-category credential_harvesting (weight 0.30)
+    if rules_score >= 0.30 and final_band == "low":
         final_band = "needs_review"
         stage = "rules_safety_override"
 

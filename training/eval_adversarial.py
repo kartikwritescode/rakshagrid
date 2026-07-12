@@ -58,7 +58,8 @@ def run_adversarial_eval():
         stage = ensemble_res["method"]
 
         # Rules Safety Override: if rules layer fires hard but ensemble is "low", force to needs_review
-        if rules_score >= 0.40 and final_band == "low":
+        # Threshold 0.30 covers single-category credential_harvesting (weight 0.30)
+        if rules_score >= 0.30 and final_band == "low":
             final_band = "needs_review"
             stage = "rules_safety_override"
         
