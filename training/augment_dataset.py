@@ -264,6 +264,76 @@ kyc_sms_phishing_scams = [
     "Your PF account has been flagged for KYC mismatch. Click the link to verify your PAN and Aadhaar within 48 hours to avoid account freeze.",
     "Income Tax Dept: Your PAN card is linked to suspicious transactions. Click the link to verify your identity within 24 hours.",
     "Dear user, your health insurance policy KYC is incomplete. Click the link to upload your documents or your policy will lapse.",
+    # Expanding with 15 more variety items to reach 40 total
+    "Dear customer, your card will be suspended unless you complete verification today. Call 1800-XXX-XXXX or reply with Aadhaar card details.",
+    "URGENT SIM update: Your mobile connection Aadhaar linking failed. Please reply to this SMS with your Aadhaar number and OTP to prevent disconnection.",
+    "Bank Alert: suspicious activity detected on your PAN. Please verify your profile details and link Aadhaar card within 12 hours via this update link.",
+    "Dear customer, your demat account is frozen due to pending KYC. Click the link to upload your PAN and verify your account.",
+    "Your gas subsidy is paused due to missing Aadhaar mapping. Update your Aadhaar card details on this link within 48 hours to claim refund.",
+    "Dear citizen, your digital identity verification is pending. Click the link to log in to e-Seva portal and verify Aadhaar details.",
+    "SIM CARD NOTICE: Your Aadhaar authentication failed. Your outgoing services will stop tomorrow. Reply with your details to re-verify.",
+    "Bank KYC: Your account status is inactive. Call our support desk or reply with your PAN card and Aadhaar details to reactivate.",
+    "Dear customer, your credit profile has been updated. If you did not update your Aadhaar card link, click this link to suspend your profile.",
+    "PAN verification warning: Your PAN card status is reported as invalid. Update your profile and verify now on this link to prevent fine.",
+    "SIM blocking alert: Aadhaar link has failed. Please reply with PAN, Aadhaar, and verification code to prevent SIM deactivation.",
+    "Dear user, your wallet KYC is suspended. Update your PAN card and Aadhaar card within 3 days by replying to this alert.",
+    "Your pension account is locked due to pending life certificate and Aadhaar verification. Click link to verify identity.",
+    "Dear customer, your internet service is suspended due to pending billing address KYC. Click the link to upload Aadhaar card.",
+    "SBI Notice: Link your PAN card with Aadhaar card today to avoid tax deduction. Click link to verify your credentials."
+]
+
+# Define 35 subscription phishing scam examples (Label 1)
+# Fake calls/SMS impersonating streaming services and requesting payment method details over the phone
+subscription_phishing_scams = [
+    "Hello, this is a call from Netflix support. Your payment method failed and your subscription is paused. Can we update your credit card details over the phone?",
+    "Hi, this is Spotify Premium support calling. Your monthly autopay declined. Please read me your credit card number and CVV so we can resume your service.",
+    "Hello, this is Amazon Prime. We could not renew your membership due to billing error. Please provide your debit card number and verification code to keep your active status.",
+    "This is Disney+ Hotstar customer care. Your payment has failed and subscription is suspended. Please provide your card number and expiry date to renew.",
+    "Hello, Apple subscription department. Your iCloud storage payment failed. Please tell me your card number and PIN to prevent data deletion.",
+    "Hi, calling from YouTube Premium. Your family plan billing failed. Can you confirm your card number and billing address zip code?",
+    "This is Microsoft Office 365 support. Your license is expired. Please read me your credit card details to complete payment verification over the phone.",
+    "Hello, this is a call from Hulu billing department. We need to update your card details to prevent account deactivation. Please state your credit card number.",
+    "Hi, calling from Adobe Creative Cloud. Your monthly payment was declined. Please provide your debit card details and mother's maiden name.",
+    "This is PlayStation Network billing. Your subscription renewal failed. Please share your credit card number, CVV, and expiration date.",
+    "Hello, this is a call from Netflix billing support. Your payment method failed. Can you provide a different credit card to resume streaming?",
+    "Hi there, this is Spotify. Your card was declined for this month. Please tell me your new credit card details over the call.",
+    "This is Amazon support calling. We noticed a failed transaction for Prime. Please read your credit card number and CVV to verify.",
+    "Hello, Disney Hotstar verification team. Your account subscription is suspended. Tell me your card details to resolve this billing issue.",
+    "Hi, this is Apple billing. We need to confirm your credit card details to renew your active subscriptions. Please read them now.",
+    "This is YouTube support. Your Premium plan was cancelled due to payment failure. Please share your credit card details to reactivate.",
+    "Hello, calling from Netflix customer support. Your card is expired. Please give me the card number, CVV, and ATM PIN to update it.",
+    "Hi, this is Spotify support. We cannot process your premium renewal. Please state your card number and expiry date.",
+    "Hello, Amazon Prime billing desk. Your subscription renewal is on hold. Can you tell me your card number and the security answer?",
+    "This is Disney Hotstar billing check. Please provide your debit card number and CVV to clear your unpaid subscription balance.",
+    "Hello, Apple care. We need to update your iCloud payment details over the phone. Please state your credit card number.",
+    "Hi, this is YouTube Premium billing. Can you read your card number and expiration date to verify your subscription?",
+    "This is Microsoft support. Your OneDrive payment failed. Please provide your credit card number to keep your files.",
+    "Hello, calling from Hulu support. We need a valid credit card number to clear your outstanding subscription balance.",
+    "Hi, this is Adobe support. Can you verify your card number and CVV to resume your creative suite subscription?",
+    "This is PlayStation billing support. Please share your credit card details to reactivate your network membership.",
+    "Hello, Netflix care. Your payment method failed. Please tell me your credit card details and OTP to verify.",
+    "Hi, Spotify billing. Please read me the credit card number and the CVV on the back of your card to renew premium.",
+    "This is Amazon Prime security. We need your card details to verify your Prime membership. Please state your card number.",
+    "Hello, Disney Hotstar account desk. Can you share your credit card details to complete your pending billing verification?",
+    "Hi, Apple subscription desk. Your payment has failed. Please read your credit card number and PIN to prevent account block.",
+    "This is YouTube care. Please provide your card number and verification pin to clear your premium subscription fee.",
+    "Hello, calling from Netflix. Your subscription is paused. Can we update your credit card details to resume service?",
+    "Hi, Spotify care. Your premium payment was declined. Please provide your card details to prevent service interruption.",
+    "This is Amazon billing. Please read your credit card details to verify your Prime account status."
+]
+
+# Define 10 legitimate subscription alerts directing users to website/app instead of phone collection
+legitimate_subscription_alerts = [
+    "Hello, this is a message from Netflix. Your payment failed. Please log in to your account on netflix.com to update your credit card details. We will never ask for your card details over the phone.",
+    "This is Spotify support. Your subscription is paused due to billing error. Please go to spotify.com/premium to update your payment method securely.",
+    "Hello, this is Amazon Prime. We could not process your membership renewal. Please update your card details securely on amazon.com/mypastprime.",
+    "This is an automated notification from Disney Hotstar. Your subscription has expired. Please renew your plan on our official mobile application. Do not share payment details over the phone.",
+    "Your YouTube Premium subscription payment has failed. Please visit your YouTube account billing settings page to resolve the payment issue.",
+    "Hi, this is Spotify. We were unable to charge your account. Please log in to your account page at spotify.com to verify your payment info.",
+    "This is a payment failure alert from YouTube. Your premium membership is on hold. Please update your credit card details on your Google Account billing settings.",
+    "Hello, this is Amazon. We had trouble processing your Kindle Unlimited renewal. Please go to amazon.com/devicesupport to update your billing details.",
+    "This is Disney Hotstar billing department. Your annual subscription renewal failed. Please visit hotstar.com/renew to complete payment.",
+    "Hello from Netflix. Your monthly subscription has been paused because your card declined. You can update your payment method online in your account settings page."
 ]
 
 # Append the new alerts to the existing bank alerts list
@@ -306,11 +376,13 @@ def augment():
     add_examples(casual_conversations, 0, "casual_conversation", "custom_augmented_benign")
     add_examples(legitimate_verifications, 0, "legitimate_verification", "custom_augmented_benign")
     add_examples(link_verification_benign, 0, "link_verification_benign", "custom_augmented_benign")
+    add_examples(legitimate_subscription_alerts, 0, "legitimate_subscription_alert", "custom_augmented_benign")
     
     add_examples(tech_support_scams, 1, "tech_support_scam", "custom_augmented_scam")
     add_examples(utility_disconnect_scams, 1, "utility_disconnect_scam", "custom_augmented_scam")
     add_examples(credential_harvesting_scams, 1, "credential_harvesting_scam", "custom_augmented_scam")
     add_examples(kyc_sms_phishing_scams, 1, "kyc_sms_phishing", "custom_augmented_scam")
+    add_examples(subscription_phishing_scams, 1, "subscription_phishing", "custom_augmented_scam")
     
     new_df = pd.DataFrame(new_data)
     print(f"Total new examples generated: {len(new_df)}")

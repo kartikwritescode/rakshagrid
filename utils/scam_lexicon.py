@@ -60,7 +60,14 @@ LEXICON = {
             r"security question",
             r"first pet|favorite pet|childhood pet",
             r"\bnickname\b",
-            r"favorite place"
+            r"favorite place",
+            r"\b(kyc|aadhaar|pan card|pan number)\b",
+            r"link.*update",
+            r"suspend.*account",
+            r"account.*suspend",
+            r"payment method failed",
+            r"subscription.*paused",
+            r"update.*card details"
         ],
         "weight": 0.30,
     }

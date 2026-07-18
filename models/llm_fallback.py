@@ -27,12 +27,25 @@ def _get_client():
     global _client
     if _client is None:
         api_key = config.GROQ_API_KEY or os.getenv("GROQ_API_KEY")
-        if api_key:
+        if not api_key:
+            print("\n" + "!" * 80)
+            print("!!! WARNING: GROQ_API_KEY IS NOT SET IN ENVIRONMENT OR .ENV !!!")
+            print("!!! LLM FALLBACK FOR SCAM DETECTION WILL BE COMPLETELY UNAVAILABLE !!!")
+            print("!" * 80 + "\n")
+        else:
             try:
                 _client = Groq(api_key=api_key)
+                print("\n=== Groq Client Initialized Successfully ===")
             except Exception as e:
-                print(f"Error initializing Groq client: {e}")
+                print("\n" + "!" * 80)
+                print(f"!!! CRITICAL ERROR: GROQ CLIENT INITIALIZATION FAILED: {e} !!!")
+                print("!!!" + " " * 74 + "!!!")
+                print("!!! PLEASE CHECK YOUR GROQ SDK AND HTTPX COMPATIBILITY !!!")
+                print("!" * 80 + "\n")
     return _client
+
+# Initialize client eagerly at import time
+_get_client()
 
 def score_llm(transcript: str) -> dict:
     """

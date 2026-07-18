@@ -1,9 +1,9 @@
 {
     "model_name": "distilbert-base-uncased",
-    "test_accuracy": 0.9837133550488599,
-    "test_precision": 1.0,
-    "test_recall": 0.96875,
-    "test_f1": 0.9841269841269841,
-    "latency_standard_ms": 15.753731727600098,
-    "latency_quantized_ms": 15.27750015258789
+    "test_accuracy": 0.9808306709265175,
+    "test_precision": 0.9876543209876543,
+    "test_recall": 0.975609756097561,
+    "test_f1": 0.9815950920245399,
+    "latency_standard_ms": 17.272953987121582,
+    "latency_quantized_ms": 14.874978065490723
 }

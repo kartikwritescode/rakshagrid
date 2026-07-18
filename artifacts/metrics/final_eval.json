@@ -6,22 +6,22 @@
         "needs_review_high": 0.55
     },
     "test_metrics": {
-        "precision": 1.0,
-        "recall": 0.96875,
-        "fpr": 0.0,
-        "accuracy_decisive": 0.9933993399339934,
-        "needs_review_count": 4,
-        "needs_review_rate": 0.013029315960912053
+        "precision": 0.9876543209876543,
+        "recall": 0.975609756097561,
+        "fpr": 0.013422818791946308,
+        "accuracy_decisive": 0.9903225806451613,
+        "needs_review_count": 3,
+        "needs_review_rate": 0.009584664536741214
     },
     "confusion_matrix": {
-        "tp": 155,
-        "fp": 0,
-        "tn": 146,
-        "fn": 2
+        "tp": 160,
+        "fp": 2,
+        "tn": 147,
+        "fn": 1
     },
     "comparison_to_baselines": {
         "ieee_lstm_baseline_accuracy": 0.8561,
-        "our_decisive_accuracy": 0.9933993399339934,
-        "improvement_pct": 0.13729933993399346
+        "our_decisive_accuracy": 0.9903225806451613,
+        "improvement_pct": 0.13422258064516135
     }
 }
