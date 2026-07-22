@@ -1,15 +1,68 @@
+# Environment & Secrets
 .env
+.env*.local
+*.env
+
+# Python Virtual Environments & Packages
 .venv
-data/sources
-artifacts/scam-transformer/
-artifacts/scam-distilbert/
-artifacts/ensemble_meta.joblib
-artifacts/tfidf_logreg.joblib
-artifacts/tfidf_vectorizer.joblib
-training_output/
-logs/
+venv/
+env/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Python Cache & Bytecode
 __pycache__/
 *.pyc
-*.npy
+*.pyo
+*.pyd
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# Node.js & Frontend Next.js Build Outputs
+node_modules/
+frontend/nextjs/node_modules/
+.next/
+frontend/nextjs/.next/
+out/
+frontend/nextjs/out/
+.next-boost/
+.vercel/
+
+# Heavy Datasets & Model Artifact Exclusions
+data/sources/
+artifacts/scam-transformer/
+artifacts/scam-distilbert/
+training_output/
+logs/
 *.joblib
-WALKTHROUGH.MD
+*.npy
+module1_currency/currency_data
+
+# Persistent Uploads (Keep folder, ignore uploaded binary files)
+storage/uploads/*
+!storage/uploads/.gitkeep
+
+# Operating System & IDE Files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo

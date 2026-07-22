@@ -1,0 +1,1802 @@
+[
+  {
+    "victimId": "VIC-NORM-077",
+    "victimName": "Siddharth Sharma",
+    "phoneNumber": "+918244028646",
+    "upiId": "karan60@okhdfc",
+    "bankAccount": "202478254435",
+    "deviceFingerprint": "dev_6382657c279ab5c3",
+    "reportTimestamp": "2026-06-05T05:16:25Z"
+  },
+  {
+    "victimId": "VIC-R2-017",
+    "victimName": "Divya Joshi",
+    "phoneNumber": "+918203211210",
+    "upiId": "arjun28@icici",
+    "bankAccount": "888777666555",
+    "deviceFingerprint": "device_emul_scammer_alpha",
+    "reportTimestamp": "2026-06-15T12:45:40Z"
+  },
+  {
+    "victimId": "VIC-NORM-020",
+    "victimName": "Karan Reddy",
+    "phoneNumber": "+918600303457",
+    "upiId": "siddharth72@icici",
+    "bankAccount": "978454434231",
+    "deviceFingerprint": "dev_34eebbd642e172d1",
+    "reportTimestamp": "2026-06-17T09:52:12Z"
+  },
+  {
+    "victimId": "VIC-R2-022",
+    "victimName": "Amit Pandey",
+    "phoneNumber": "+918125523558",
+    "upiId": "deepak46@okaxis",
+    "bankAccount": "888777666555",
+    "deviceFingerprint": "device_emul_scammer_alpha",
+    "reportTimestamp": "2026-06-04T11:41:21Z"
+  },
+  {
+    "victimId": "VIC-R2-016",
+    "victimName": "Shreya Sharma",
+    "phoneNumber": "+917045457487",
+    "upiId": "rahul99@paytm",
+    "bankAccount": "888777666555",
+    "deviceFingerprint": "device_emul_scammer_beta",
+    "reportTimestamp": "2026-06-14T03:57:45Z"
+  },
+  {
+    "victimId": "VIC-NORM-034",
+    "victimName": "Vikram Nair",
+    "phoneNumber": "+918708163290",
+    "upiId": "pooja27@icici",
+    "bankAccount": "315848389148",
+    "deviceFingerprint": "dev_93217d9fef11943d",
+    "reportTimestamp": "2026-06-09T01:17:15Z"
+  },
+  {
+    "victimId": "VIC-R3A-011",
+    "victimName": "Vikram Kapoor",
+    "phoneNumber": "+919900112233",
+    "upiId": "vikram16@okaxis",
+    "bankAccount": "555444333222",
+    "deviceFingerprint": "dev_dc2dc5078c19aab6",
+    "reportTimestamp": "2026-06-14T09:44:06Z"
+  },
+  {
+    "victimId": "VIC-NORM-016",
+    "victimName": "Neha Goel",
+    "phoneNumber": "+918938077900",
+    "upiId": "aarav44@ybl",
+    "bankAccount": "501358595523",
+    "deviceFingerprint": "dev_071d7d72625b3cbd",
+    "reportTimestamp": "2026-06-22T02:59:59Z"
+  },
+  {
+    "victimId": "VIC-NORM-048",
+    "victimName": "Sneha Patel",
+    "phoneNumber": "+917180036521",
+    "upiId": "arjun31@icici",
+    "bankAccount": "273196253456",
+    "deviceFingerprint": "dev_978eeb962abc53ba",
+    "reportTimestamp": "2026-06-06T10:21:58Z"
+  },
+  {
+    "victimId": "VIC-R3A-003",
+    "victimName": "Ishaan Kumar",
+    "phoneNumber": "+919900112233",
+    "upiId": "vikram60@icici",
+    "bankAccount": "555444333222",
+    "deviceFingerprint": "dev_8348dedd70c7b6f0",
+    "reportTimestamp": "2026-06-25T15:44:30Z"
+  },
+  {
+    "victimId": "VIC-R3A-005",
+    "victimName": "Manish Kapoor",
+    "phoneNumber": "+919900112233",
+    "upiId": "arjun28@okhdfc",
+    "bankAccount": "555444333222",
+    "deviceFingerprint": "dev_4350c94e6fe17ead",
+    "reportTimestamp": "2026-06-16T00:06:39Z"
+  },
+  {
+    "victimId": "VIC-R3B-010",
+    "victimName": "Manish Mishra",
+    "phoneNumber": "+919900112233",
+    "upiId": "aditya44@okhdfc",
+    "bankAccount": "236060153815",
+    "deviceFingerprint": "device_collusion_hub",
+    "reportTimestamp": "2026-06-12T19:32:38Z"
+  },
+  {
+    "victimId": "VIC-NORM-068",
+    "victimName": "Pooja Malhotra",
+    "phoneNumber": "+917163479310",
+    "upiId": "ananya11@okhdfc",
+    "bankAccount": "490535922942",
+    "deviceFingerprint": "dev_a7bb6c2de4399c24",
+    "reportTimestamp": "2026-06-21T03:10:26Z"
+  },
+  {
+    "victimId": "VIC-NORM-028",
+    "victimName": "Karan Rao",
+    "phoneNumber": "+917998276136",
+    "upiId": "pooja25@icici",
+    "bankAccount": "553027031390",
+    "deviceFingerprint": "dev_0bd2c7b543b14abe",
+    "reportTimestamp": "2026-06-23T17:53:15Z"
+  },
+  {
+    "victimId": "VIC-R2-026",
+    "victimName": "Rahul Singh",
+    "phoneNumber": "+917554774959",
+    "upiId": "kavya25@okhdfc",
+    "bankAccount": "888777666555",
+    "deviceFingerprint": "device_emul_scammer_alpha",
+    "reportTimestamp": "2026-06-17T21:35:19Z"
+  },
+  {
+    "victimId": "VIC-R1-031",
+    "victimName": "Kavya Reddy",
+    "phoneNumber": "+918765432109",
+    "upiId": "scam_mule_2@okicici",
+    "bankAccount": "96458493644",
+    "deviceFingerprint": "dev_3c2ce2206b3f6dbf",
+    "reportTimestamp": "2026-06-24T22:34:41Z"
+  },
+  {
+    "victimId": "VIC-R1-016",
+    "victimName": "Sneha Rao",
+    "phoneNumber": "+918765432109",
+    "upiId": "scam_mule_1@okaxis",
+    "bankAccount": "728243289418",
+    "deviceFingerprint": "dev_e4633c5a8cfd54d6",
+    "reportTimestamp": "2026-06-27T03:58:55Z"
+  },
+  {
+    "victimId": "VIC-R3C-009",
+    "victimName": "Neha Nair",
+    "phoneNumber": "+919299812408",
+    "upiId": "collusion_mule@ybl",
+    "bankAccount": "275549635343",
+    "deviceFingerprint": "device_collusion_hub",
+    "reportTimestamp": "2026-06-17T14:21:40Z"
+  },
+  {
+    "victimId": "VIC-R3B-004",
+    "victimName": "Siddharth Nair",
+    "phoneNumber": "+919900112233",
+    "upiId": "rahul55@ybl",
+    "bankAccount": "77678820620",
+    "deviceFingerprint": "device_collusion_hub",
+    "reportTimestamp": "2026-06-08T06:10:42Z"
+  },
+  {
+    "victimId": "VIC-R1-012",
+    "victimName": "Divya Goel",
+    "phoneNumber": "+917654321098",
+    "upiId": "scam_mule_1@okaxis",
+    "bankAccount": "627176978251",
+    "deviceFingerprint": "dev_193f4152153f5603",
+    "reportTimestamp": "2026-06-23T21:29:44Z"
+  },
+  {
+    "victimId": "VIC-R3A-010",
+    "victimName": "Manish Goel",
+    "phoneNumber": "+919900112233",
+    "upiId": "ananya78@okhdfc",
+    "bankAccount": "555444333222",
+    "deviceFingerprint": "dev_97173508f0c3a625",
+    "reportTimestamp": "2026-06-05T08:29:54Z"
+  },
+  {
+    "victimId": "VIC-R3C-019",
+    "victimName": "Amit Malhotra",
+    "phoneNumber": "+918221688249",
+    "upiId": "collusion_mule@ybl",
+    "bankAccount": "250906111723",
+    "deviceFingerprint": "device_collusion_hub",
+    "reportTimestamp": "2026-06-28T22:07:03Z"
+  },
+  {
+    "victimId": "VIC-NORM-019",
+    "victimName": "Varun Sharma",
+    "phoneNumber": "+918597406792",
+    "upiId": "deepak92@icici",
+    "bankAccount": "905298652618",
+    "deviceFingerprint": "dev_78d2f2d2d5db112a",
+    "reportTimestamp": "2026-06-16T15:15:04Z"
+  },
+  {
+    "victimId": "VIC-NORM-073",
+    "victimName": "Rahul Verma",
+    "phoneNumber": "+919222092016",
+    "upiId": "rahul55@ybl",
+    "bankAccount": "698020289653",
+    "deviceFingerprint": "dev_0d488214959e6661",
+    "reportTimestamp": "2026-06-24T00:36:51Z"
+  },
+  {
+    "victimId": "VIC-R3C-015",
+    "victimName": "Varun Sen",
+    "phoneNumber": "+919547022424",
+    "upiId": "collusion_mule@ybl",
+    "bankAccount": "194593169201",
+    "deviceFingerprint": "device_collusion_hub",
+    "reportTimestamp": "2026-06-13T12:33:24Z"
+  },
+  {
+    "victimId": "VIC-R2-015",
+    "victimName": "Kavya Sharma",
+    "phoneNumber": "+919264055000",
+    "upiId": "manish62@icici",
+    "bankAccount": "999888777666",
+    "deviceFingerprint": "device_emul_scammer_beta",
+    "reportTimestamp": "2026-06-21T03:12:01Z"
+  },
+  {
+    "victimId": "VIC-NORM-021",
+    "victimName": "Siddharth Mehta",
+    "phoneNumber": "+917900523800",
+    "upiId": "shreya64@okhdfc",
+    "bankAccount": "73185831761",
+    "deviceFingerprint": "dev_bdb669fe5139c8e6",
+    "reportTimestamp": "2026-06-18T11:39:04Z"
+  },
+  {
+    "victimId": "VIC-NORM-036",
+    "victimName": "Priya Patel",
+    "phoneNumber": "+917858640527",
+    "upiId": "aditya13@ybl",
+    "bankAccount": "992506059040",
+    "deviceFingerprint": "dev_e27765e6f7eeeb21",
+    "reportTimestamp": "2026-06-14T19:47:35Z"
+  },
+  {
+    "victimId": "VIC-R1-033",
+    "victimName": "Kavya Kapoor",
+    "phoneNumber": "+919876543210",
+    "upiId": "scam_mule_2@okicici",
+    "bankAccount": "609550626682",
+    "deviceFingerprint": "dev_ed4bb5eb600ce45c",
+    "reportTimestamp": "2026-06-27T20:35:44Z"
+  },
+  {
+    "victimId": "VIC-NORM-030",
+    "victimName": "Sneha Kumar",
+    "phoneNumber": "+919290314581",
+    "upiId": "aarav57@paytm",
+    "bankAccount": "646350544199",
+    "deviceFingerprint": "dev_f5473bc11729b2f6",
+    "reportTimestamp": "2026-06-19T07:05:01Z"
+  },
+  {
+    "victimId": "VIC-NORM-059",
+    "victimName": "Pooja Chatterjee",
+    "phoneNumber": "+917096595510",
+    "upiId": "aarav79@ybl",
+    "bankAccount": "203675655755",
+    "deviceFingerprint": "dev_54613a204bb08d1d",
+    "reportTimestamp": "2026-06-07T06:29:25Z"
+  },
+  {
+    "victimId": "VIC-NORM-060",
+    "victimName": "Manish Iyer",
+    "phoneNumber": "+919100039835",
+    "upiId": "pranav15@paytm",
+    "bankAccount": "201959602222",
+    "deviceFingerprint": "dev_005c30fba1980503",
+    "reportTimestamp": "2026-06-12T05:35:24Z"
+  },
+  {
+    "victimId": "VIC-NORM-006",
+    "victimName": "Manish Dubey",
+    "phoneNumber": "+917055339914",
+    "upiId": "tanvi27@ybl",
+    "bankAccount": "163331544866",
+    "deviceFingerprint": "dev_3085b4e95cfbf73a",
+    "reportTimestamp": "2026-06-07T13:29:11Z"
+  },
+  {
+    "victimId": "VIC-NORM-056",
+    "victimName": "Manish Goel",
+    "phoneNumber": "+919385432564",
+    "upiId": "neha13@okhdfc",
+    "bankAccount": "932393759602",
+    "deviceFingerprint": "dev_a877e087ea61525a",
+    "reportTimestamp": "2026-06-19T10:15:28Z"
+  },
+  {
+    "victimId": "VIC-R2-010",
+    "victimName": "Kavya Das",
+    "phoneNumber": "+919053817224",
+    "upiId": "aditya47@okaxis",
+    "bankAccount": "777666555444",
+    "deviceFingerprint": "device_emul_scammer_alpha",
+    "reportTimestamp": "2026-06-16T18:10:22Z"
+  },
+  {
+    "victimId": "VIC-R1-032",
+    "victimName": "Aarav Nair",
+    "phoneNumber": "+919876543210",
+    "upiId": "scam_mule_1@okaxis",
+    "bankAccount": "517166258700",
+    "deviceFingerprint": "dev_91d8dccc3632c53e",
+    "reportTimestamp": "2026-06-25T01:31:27Z"
+  },
+  {
+    "victimId": "VIC-NORM-066",
+    "victimName": "Rohan Kapoor",
+    "phoneNumber": "+918682285721",
+    "upiId": "ananya74@icici",
+    "bankAccount": "532775217104",
+    "deviceFingerprint": "dev_cff13dd523376ba4",
+    "reportTimestamp": "2026-06-18T20:58:52Z"
+  },
+  {
+    "victimId": "VIC-NORM-062",
+    "victimName": "Priya Kapoor",
+    "phoneNumber": "+917394255975",
+    "upiId": "sneha65@okaxis",
+    "bankAccount": "479503212513",
+    "deviceFingerprint": "dev_0827ef70464d8eb2",
+    "reportTimestamp": "2026-06-08T14:25:36Z"
+  },
+  {
+    "victimId": "VIC-R3A-006",
+    "victimName": "Rohan Patel",
+    "phoneNumber": "+919900112233",
+    "upiId": "sanjay39@paytm",
+    "bankAccount": "555444333222",
+    "deviceFingerprint": "dev_2d7e2cff8ca52816",
+    "reportTimestamp": "2026-06-27T01:19:02Z"
+  },
+  {
+    "victimId": "VIC-NORM-064",
+    "victimName": "Aditya Reddy",
+    "phoneNumber": "+917261956836",
+    "upiId": "divya42@okhdfc",
+    "bankAccount": "812144986154",
+    "deviceFingerprint": "dev_9b3b1998e7a91c09",
+    "reportTimestamp": "2026-06-01T22:53:35Z"
+  },
+  {
+    "victimId": "VIC-R1-035",
+    "victimName": "Siddharth Sharma",
+    "phoneNumber": "+917654321098",
+    "upiId": "scam_mule_2@okicici",
+    "bankAccount": "728739574336",
+    "deviceFingerprint": "dev_d1c43c789949e72c",
+    "reportTimestamp": "2026-06-07T07:48:50Z"
+  },
+  {
+    "victimId": "VIC-NORM-001",
+    "victimName": "Neha Nair",
+    "phoneNumber": "+917350399552",
+    "upiId": "shreya58@okhdfc",
+    "bankAccount": "939780426138",
+    "deviceFingerprint": "dev_20be954cf0a14d41",
+    "reportTimestamp": "2026-06-12T12:12:10Z"
+  },
+  {
+    "victimId": "VIC-NORM-074",
+    "victimName": "Siddharth Iyer",
+    "phoneNumber": "+918341627928",
+    "upiId": "arjun35@ybl",
+    "bankAccount": "536444526279",
+    "deviceFingerprint": "dev_af76bf770692146e",
+    "reportTimestamp": "2026-06-25T14:56:00Z"
+  },
+  {
+    "victimId": "VIC-R1-029",
+    "victimName": "Vikram Choudhury",
+    "phoneNumber": "+917654321098",
+    "upiId": "scam_mule_1@okaxis",
+    "bankAccount": "296081032990",
+    "deviceFingerprint": "dev_27945c41b25ddcad",
+    "reportTimestamp": "2026-06-12T12:39:32Z"
+  },
+  {
+    "victimId": "VIC-R1-007",
+    "victimName": "Ishaan Sharma",
+    "phoneNumber": "+917654321098",
+    "upiId": "scam_mule_2@okicici",
+    "bankAccount": "1457390847",
+    "deviceFingerprint": "dev_fd6b8f3f2dd75be9",
+    "reportTimestamp": "2026-06-22T14:12:56Z"
+  },
+  {
+    "victimId": "VIC-NORM-035",
+    "victimName": "Divya Mehta",
+    "phoneNumber": "+917947118030",
+    "upiId": "siddharth88@okhdfc",
+    "bankAccount": "635475210286",
+    "deviceFingerprint": "dev_da6a1e263cf06172",
+    "reportTimestamp": "2026-06-04T16:24:59Z"
+  },
+  {
+    "victimId": "VIC-R2-019",
+    "victimName": "Pranav Goel",
+    "phoneNumber": "+919250003226",
+    "upiId": "manish44@icici",
+    "bankAccount": "999888777666",
+    "deviceFingerprint": "device_emul_scammer_beta",
+    "reportTimestamp": "2026-06-10T04:58:20Z"
+  },
+  {
+    "victimId": "VIC-R1-020",
+    "victimName": "Ishaan Patel",
+    "phoneNumber": "+917654321098",
+    "upiId": "scam_mule_1@okaxis",
+    "bankAccount": "880053366775",
+    "deviceFingerprint": "dev_c4b4ed8e44f6698d",
+    "reportTimestamp": "2026-06-08T05:11:34Z"
+  },
+  {
+    "victimId": "VIC-NORM-026",
+    "victimName": "Manish Verma",
+    "phoneNumber": "+919471675032",
+    "upiId": "ananya47@okaxis",
+    "bankAccount": "386870397319",
+    "deviceFingerprint": "dev_a7ac8d0ceff4e352",
+    "reportTimestamp": "2026-06-17T04:17:16Z"
+  },
+  {
+    "victimId": "VIC-R3A-004",
+    "victimName": "Shreya Kapoor",
+    "phoneNumber": "+919900112233",
+    "upiId": "varun78@okaxis",
+    "bankAccount": "555444333222",
+    "deviceFingerprint": "dev_13b0820fea515c74",
+    "reportTimestamp": "2026-06-30T18:16:21Z"
+  },
+  {
+    "victimId": "VIC-R2-011",
+    "victimName": "Tanvi Sen",
+    "phoneNumber": "+917021032501",
+    "upiId": "sanjay74@okaxis",
+    "bankAccount": "777666555444",
+    "deviceFingerprint": "device_emul_scammer_beta",
+    "reportTimestamp": "2026-06-04T21:41:39Z"
+  },
+  {
+    "victimId": "VIC-NORM-052",
+    "victimName": "Shreya Das",
+    "phoneNumber": "+919585969585",
+    "upiId": "tanvi98@ybl",
+    "bankAccount": "117504139791",
+    "deviceFingerprint": "dev_595b2d27649f7434",
+    "reportTimestamp": "2026-06-18T16:59:58Z"
+  },
+  {
+    "victimId": "VIC-R3B-013",
+    "victimName": "Aditya Das",
+    "phoneNumber": "+919900112233",
+    "upiId": "rahul88@ybl",
+    "bankAccount": "479158199414",
+    "deviceFingerprint": "device_collusion_hub",
+    "reportTimestamp": "2026-06-28T05:11:36Z"
+  },
+  {
+    "victimId": "VIC-R3C-018",
+    "victimName": "Vikram Joshi",
+    "phoneNumber": "+919734529487",
+    "upiId": "collusion_mule@ybl",
+    "bankAccount": "470784641212",
+    "deviceFingerprint": "device_collusion_hub",
+    "reportTimestamp": "2026-06-03T23:35:44Z"
+  },
+  {
+    "victimId": "VIC-R1-028",
+    "victimName": "Pranav Kumar",
+    "phoneNumber": "+919876543210",
+    "upiId": "scam_mule_2@okicici",
+    "bankAccount": "54631567669",
+    "deviceFingerprint": "dev_dd935155f84ddb92",
+    "reportTimestamp": "2026-06-26T16:43:10Z"
+  },
+  {
+    "victimId": "VIC-NORM-045",
+    "victimName": "Shreya Kapoor",
+    "phoneNumber": "+919527078240",
+    "upiId": "aarav42@paytm",
+    "bankAccount": "232279497824",
+    "deviceFingerprint": "dev_655e22f06bdae2fe",
+    "reportTimestamp": "2026-06-05T11:50:18Z"
+  },
+  {
+    "victimId": "VIC-R3C-010",
+    "victimName": "Arjun Choudhury",
+    "phoneNumber": "+918063229196",
+    "upiId": "collusion_mule@ybl",
+    "bankAccount": "81884177936",
+    "deviceFingerprint": "device_collusion_hub",
+    "reportTimestamp": "2026-06-13T11:05:21Z"
+  },
+  {
+    "victimId": "VIC-NORM-009",
+    "victimName": "Priya Bahl",
+    "phoneNumber": "+917381989405",
+    "upiId": "ananya35@icici",
+    "bankAccount": "602994158000",
+    "deviceFingerprint": "dev_40fd87e552ece865",
+    "reportTimestamp": "2026-06-28T02:10:34Z"
+  },
+  {
+    "victimId": "VIC-NORM-033",
+    "victimName": "Ishaan Mishra",
+    "phoneNumber": "+917252298022",
+    "upiId": "aarav70@paytm",
+    "bankAccount": "252295731601",
+    "deviceFingerprint": "dev_af69112c267e55fd",
+    "reportTimestamp": "2026-06-04T22:12:31Z"
+  },
+  {
+    "victimId": "VIC-NORM-051",
+    "victimName": "Ishaan Iyer",
+    "phoneNumber": "+918703009335",
+    "upiId": "pooja26@ybl",
+    "bankAccount": "897059976094",
+    "deviceFingerprint": "dev_fcfc4a2996ccae19",
+    "reportTimestamp": "2026-06-22T16:59:34Z"
+  },
+  {
+    "victimId": "VIC-NORM-042",
+    "victimName": "Manish Dubey",
+    "phoneNumber": "+918449178422",
+    "upiId": "karan46@okhdfc",
+    "bankAccount": "242288114770",
+    "deviceFingerprint": "dev_faff5d229a6e936e",
+    "reportTimestamp": "2026-06-22T02:09:14Z"
+  },
+  {
+    "victimId": "VIC-NORM-050",
+    "victimName": "Vikram Singh",
+    "phoneNumber": "+917747665450",
+    "upiId": "aditya68@paytm",
+    "bankAccount": "750904698314",
+    "deviceFingerprint": "dev_910765e70a35ff94",
+    "reportTimestamp": "2026-06-30T11:30:58Z"
+  },
+  {
+    "victimId": "VIC-R2-005",
+    "victimName": "Manish Malhotra",
+    "phoneNumber": "+918387210100",
+    "upiId": "ishaan53@okaxis",
+    "bankAccount": "888777666555",
+    "deviceFingerprint": "device_emul_scammer_beta",
+    "reportTimestamp": "2026-06-04T02:01:31Z"
+  },
+  {
+    "victimId": "VIC-R2-028",
+    "victimName": "Varun Malhotra",
+    "phoneNumber": "+919392242087",
+    "upiId": "ananya15@icici",
+    "bankAccount": "888777666555",
+    "deviceFingerprint": "device_emul_scammer_alpha",
+    "reportTimestamp": "2026-06-16T10:11:18Z"
+  },
+  {
+    "victimId": "VIC-NORM-011",
+    "victimName": "Arjun Mishra",
+    "phoneNumber": "+918865851308",
+    "upiId": "siddharth21@icici",
+    "bankAccount": "384443772324",
+    "deviceFingerprint": "dev_0297560e5dd18bf8",
+    "reportTimestamp": "2026-06-22T00:41:03Z"
+  },
+  {
+    "victimId": "VIC-NORM-014",
+    "victimName": "Rahul Chatterjee",
+    "phoneNumber": "+917953850807",
+    "upiId": "amit66@okhdfc",
+    "bankAccount": "815689407213",
+    "deviceFingerprint": "dev_667a111e9136cc04",
+    "reportTimestamp": "2026-06-11T01:51:22Z"
+  },
+  {
+    "victimId": "VIC-R3B-009",
+    "victimName": "Karan Gupta",
+    "phoneNumber": "+919900112233",
+    "upiId": "pranav34@paytm",
+    "bankAccount": "339629950073",
+    "deviceFingerprint": "device_collusion_hub",
+    "reportTimestamp": "2026-06-05T05:36:13Z"
+  },
+  {
+    "victimId": "VIC-R1-034",
+    "victimName": "Vikram Mishra",
+    "phoneNumber": "+917654321098",
+    "upiId": "scam_mule_2@okicici",
+    "bankAccount": "278317987358",
+    "deviceFingerprint": "dev_90cecdf88ba6960a",
+    "reportTimestamp": "2026-06-04T17:04:19Z"
+  },
+  {
+    "victimId": "VIC-NORM-005",
+    "victimName": "Rohan Rao",
+    "phoneNumber": "+918936703675",
+    "upiId": "ananya13@okaxis",
+    "bankAccount": "570973786502",
+    "deviceFingerprint": "dev_6d3d4b10f2f34b97",
+    "reportTimestamp": "2026-06-26T07:07:53Z"
+  },
+  {
+    "victimId": "VIC-NORM-072",
+    "victimName": "Rahul Reddy",
+    "phoneNumber": "+919004335325",
+    "upiId": "shreya84@icici",
+    "bankAccount": "142369431304",
+    "deviceFingerprint": "dev_a2895bf02cf18e36",
+    "reportTimestamp": "2026-06-03T06:33:08Z"
+  },
+  {
+    "victimId": "VIC-R1-002",
+    "victimName": "Pooja Singh",
+    "phoneNumber": "+919876543210",
+    "upiId": "scam_mule_1@okaxis",
+    "bankAccount": "161997640353",
+    "deviceFingerprint": "dev_d9497320f3e2c026",
+    "reportTimestamp": "2026-06-01T22:53:09Z"
+  },
+  {
+    "victimId": "VIC-R1-027",
+    "victimName": "Priya Patel",
+    "phoneNumber": "+917654321098",
+    "upiId": "scam_mule_1@okaxis",
+    "bankAccount": "812658596081",
+    "deviceFingerprint": "dev_007e56de3ea2260b",
+    "reportTimestamp": "2026-06-20T12:36:14Z"
+  },
+  {
+    "victimId": "VIC-R3B-002",
+    "victimName": "Rohan Kumar",
+    "phoneNumber": "+919900112233",
+    "upiId": "neha25@ybl",
+    "bankAccount": "755890765427",
+    "deviceFingerprint": "device_collusion_hub",
+    "reportTimestamp": "2026-06-09T01:17:08Z"
+  },
+  {
+    "victimId": "VIC-R3C-020",
+    "victimName": "Pooja Iyer",
+    "phoneNumber": "+917048892328",
+    "upiId": "collusion_mule@ybl",
+    "bankAccount": "306843022775",
+    "deviceFingerprint": "device_collusion_hub",
+    "reportTimestamp": "2026-06-19T21:29:54Z"
+  },
+  {
+    "victimId": "VIC-R1-010",
+    "victimName": "Shreya Iyer",
+    "phoneNumber": "+919876543210",
+    "upiId": "scam_mule_2@okicici",
+    "bankAccount": "136403771002",
+    "deviceFingerprint": "dev_c91a4964b3ff665a",
+    "reportTimestamp": "2026-06-15T02:55:39Z"
+  },
+  {
+    "victimId": "VIC-R3C-002",
+    "victimName": "Rahul Chatterjee",
+    "phoneNumber": "+919553018493",
+    "upiId": "collusion_mule@ybl",
+    "bankAccount": "496234010307",
+    "deviceFingerprint": "device_collusion_hub",
+    "reportTimestamp": "2026-06-17T21:12:14Z"
+  },
+  {
+    "victimId": "VIC-NORM-049",
+    "victimName": "Sneha Dubey",
+    "phoneNumber": "+919884910033",
+    "upiId": "rohan89@icici",
+    "bankAccount": "635231630070",
+    "deviceFingerprint": "dev_3fe67c8fd2d7cc92",
+    "reportTimestamp": "2026-06-30T21:46:24Z"
+  },
+  {
+    "victimId": "VIC-R3C-003",
+    "victimName": "Aditya Nair",
+    "phoneNumber": "+919793692989",
+    "upiId": "collusion_mule@ybl",
+    "bankAccount": "973748211363",
+    "deviceFingerprint": "device_collusion_hub",
+    "reportTimestamp": "2026-06-02T20:28:40Z"
+  },
+  {
+    "victimId": "VIC-R2-023",
+    "victimName": "Ishaan Rao",
+    "phoneNumber": "+919201216678",
+    "upiId": "divya96@paytm",
+    "bankAccount": "888777666555",
+    "deviceFingerprint": "device_emul_scammer_alpha",
+    "reportTimestamp": "2026-06-07T07:41:38Z"
+  },
+  {
+    "victimId": "VIC-R2-029",
+    "victimName": "Rohan Bahl",
+    "phoneNumber": "+919659557433",
+    "upiId": "kavya15@ybl",
+    "bankAccount": "999888777666",
+    "deviceFingerprint": "device_emul_scammer_alpha",
+    "reportTimestamp": "2026-06-26T19:39:42Z"
+  },
+  {
+    "victimId": "VIC-NORM-022",
+    "victimName": "Sneha Mishra",
+    "phoneNumber": "+919626608899",
+    "upiId": "sneha60@ybl",
+    "bankAccount": "767516093321",
+    "deviceFingerprint": "dev_733078a7864bbfdd",
+    "reportTimestamp": "2026-06-22T02:37:36Z"
+  },
+  {
+    "victimId": "VIC-R2-012",
+    "victimName": "Varun Sen",
+    "phoneNumber": "+919989693394",
+    "upiId": "aarav82@icici",
+    "bankAccount": "888777666555",
+    "deviceFingerprint": "device_emul_scammer_alpha",
+    "reportTimestamp": "2026-06-30T14:47:08Z"
+  },
+  {
+    "victimId": "VIC-R1-009",
+    "victimName": "Sneha Iyer",
+    "phoneNumber": "+917654321098",
+    "upiId": "scam_mule_1@okaxis",
+    "bankAccount": "500069210555",
+    "deviceFingerprint": "dev_fd30771a5d2a0dbe",
+    "reportTimestamp": "2026-06-12T06:26:51Z"
+  },
+  {
+    "victimId": "VIC-NORM-071",
+    "victimName": "Varun Bahl",
+    "phoneNumber": "+917632187395",
+    "upiId": "tanvi65@ybl",
+    "bankAccount": "726437709390",
+    "deviceFingerprint": "dev_943d6c4999dbfa9d",
+    "reportTimestamp": "2026-06-13T23:44:24Z"
+  },
+  {
+    "victimId": "VIC-R3C-001",
+    "victimName": "Rahul Rao",
+    "phoneNumber": "+917697147772",
+    "upiId": "collusion_mule@ybl",
+    "bankAccount": "330232790111",
+    "deviceFingerprint": "device_collusion_hub",
+    "reportTimestamp": "2026-06-25T04:27:50Z"
+  },
+  {
+    "victimId": "VIC-NORM-067",
+    "victimName": "Manish Joshi",
+    "phoneNumber": "+917565398909",
+    "upiId": "divya60@okhdfc",
+    "bankAccount": "2404868382",
+    "deviceFingerprint": "dev_375bf0aeca960324",
+    "reportTimestamp": "2026-06-21T16:17:37Z"
+  },
+  {
+    "victimId": "VIC-NORM-002",
+    "victimName": "Rahul Singh",
+    "phoneNumber": "+919394384842",
+    "upiId": "vikram86@icici",
+    "bankAccount": "691331791570",
+    "deviceFingerprint": "dev_6567dd30404ab26a",
+    "reportTimestamp": "2026-06-28T06:39:39Z"
+  },
+  {
+    "victimId": "VIC-NORM-031",
+    "victimName": "Arjun Malhotra",
+    "phoneNumber": "+918432108831",
+    "upiId": "tanvi55@okhdfc",
+    "bankAccount": "553268015945",
+    "deviceFingerprint": "dev_c17eee81e4a37b37",
+    "reportTimestamp": "2026-06-16T10:23:48Z"
+  },
+  {
+    "victimId": "VIC-R2-024",
+    "victimName": "Kavya Rao",
+    "phoneNumber": "+919210927160",
+    "upiId": "ishaan70@paytm",
+    "bankAccount": "888777666555",
+    "deviceFingerprint": "device_emul_scammer_alpha",
+    "reportTimestamp": "2026-06-09T00:39:33Z"
+  },
+  {
+    "victimId": "VIC-R1-037",
+    "victimName": "Divya Dubey",
+    "phoneNumber": "+917654321098",
+    "upiId": "scam_mule_2@okicici",
+    "bankAccount": "85882062895",
+    "deviceFingerprint": "dev_acd885b4d00e1f91",
+    "reportTimestamp": "2026-06-08T08:37:47Z"
+  },
+  {
+    "victimId": "VIC-NORM-017",
+    "victimName": "Sneha Rao",
+    "phoneNumber": "+917750667017",
+    "upiId": "rohan28@okhdfc",
+    "bankAccount": "136923900087",
+    "deviceFingerprint": "dev_7039d1fda6fea0c4",
+    "reportTimestamp": "2026-06-22T06:23:38Z"
+  },
+  {
+    "victimId": "VIC-R2-009",
+    "victimName": "Ananya Bansal",
+    "phoneNumber": "+917548208126",
+    "upiId": "vikram46@okaxis",
+    "bankAccount": "888777666555",
+    "deviceFingerprint": "device_emul_scammer_alpha",
+    "reportTimestamp": "2026-06-26T18:47:52Z"
+  },
+  {
+    "victimId": "VIC-NORM-038",
+    "victimName": "Vikram Rao",
+    "phoneNumber": "+917873849452",
+    "upiId": "priya92@ybl",
+    "bankAccount": "539762548572",
+    "deviceFingerprint": "dev_13bba39b4a170edf",
+    "reportTimestamp": "2026-06-25T06:49:32Z"
+  },
+  {
+    "victimId": "VIC-NORM-024",
+    "victimName": "Shreya Mehta",
+    "phoneNumber": "+919264380114",
+    "upiId": "divya90@icici",
+    "bankAccount": "162687302028",
+    "deviceFingerprint": "dev_6b117bcc87bbf519",
+    "reportTimestamp": "2026-06-10T00:21:59Z"
+  },
+  {
+    "victimId": "VIC-R1-023",
+    "victimName": "Karan Sharma",
+    "phoneNumber": "+919876543210",
+    "upiId": "scam_mule_1@okaxis",
+    "bankAccount": "452070113091",
+    "deviceFingerprint": "dev_c63c6c8a0e15568f",
+    "reportTimestamp": "2026-06-22T11:48:00Z"
+  },
+  {
+    "victimId": "VIC-R1-013",
+    "victimName": "Rohan Goel",
+    "phoneNumber": "+919876543210",
+    "upiId": "scam_mule_2@okicici",
+    "bankAccount": "647321293398",
+    "deviceFingerprint": "dev_2428665bbb410691",
+    "reportTimestamp": "2026-06-05T23:04:31Z"
+  },
+  {
+    "victimId": "VIC-NORM-039",
+    "victimName": "Aarav Reddy",
+    "phoneNumber": "+917523871138",
+    "upiId": "varun41@ybl",
+    "bankAccount": "652171119954",
+    "deviceFingerprint": "dev_91521dc1eeca6892",
+    "reportTimestamp": "2026-06-13T22:53:27Z"
+  },
+  {
+    "victimId": "VIC-R2-018",
+    "victimName": "Amit Kapoor",
+    "phoneNumber": "+917972062246",
+    "upiId": "manish49@icici",
+    "bankAccount": "777666555444",
+    "deviceFingerprint": "device_emul_scammer_alpha",
+    "reportTimestamp": "2026-06-28T18:20:53Z"
+  },
+  {
+    "victimId": "VIC-R1-026",
+    "victimName": "Priya Kumar",
+    "phoneNumber": "+917654321098",
+    "upiId": "scam_mule_2@okicici",
+    "bankAccount": "585834007915",
+    "deviceFingerprint": "dev_2723b23bc1f5e3dd",
+    "reportTimestamp": "2026-06-05T12:43:21Z"
+  },
+  {
+    "victimId": "VIC-R3C-005",
+    "victimName": "Pooja Verma",
+    "phoneNumber": "+917255664368",
+    "upiId": "collusion_mule@ybl",
+    "bankAccount": "537197978962",
+    "deviceFingerprint": "device_collusion_hub",
+    "reportTimestamp": "2026-06-09T20:47:22Z"
+  },
+  {
+    "victimId": "VIC-R1-001",
+    "victimName": "Varun Rao",
+    "phoneNumber": "+919876543210",
+    "upiId": "scam_mule_2@okicici",
+    "bankAccount": "753131794289",
+    "deviceFingerprint": "dev_2995f9f10db49904",
+    "reportTimestamp": "2026-06-07T11:21:40Z"
+  },
+  {
+    "victimId": "VIC-R1-006",
+    "victimName": "Aditya Malhotra",
+    "phoneNumber": "+919876543210",
+    "upiId": "scam_mule_2@okicici",
+    "bankAccount": "436572190672",
+    "deviceFingerprint": "dev_5cdf84c8db374d53",
+    "reportTimestamp": "2026-06-02T22:49:31Z"
+  },
+  {
+    "victimId": "VIC-R1-025",
+    "victimName": "Deepak Mehta",
+    "phoneNumber": "+918765432109",
+    "upiId": "scam_mule_2@okicici",
+    "bankAccount": "149167258727",
+    "deviceFingerprint": "dev_cf32845722b5e328",
+    "reportTimestamp": "2026-06-05T15:37:56Z"
+  },
+  {
+    "victimId": "VIC-R1-024",
+    "victimName": "Arjun Malhotra",
+    "phoneNumber": "+917654321098",
+    "upiId": "scam_mule_2@okicici",
+    "bankAccount": "193133961804",
+    "deviceFingerprint": "dev_792a8878a0dd3c27",
+    "reportTimestamp": "2026-06-18T09:04:07Z"
+  },
+  {
+    "victimId": "VIC-NORM-058",
+    "victimName": "Sanjay Singh",
+    "phoneNumber": "+919813444858",
+    "upiId": "deepak24@icici",
+    "bankAccount": "69933601209",
+    "deviceFingerprint": "dev_bceb6884997d9341",
+    "reportTimestamp": "2026-06-28T15:47:29Z"
+  },
+  {
+    "victimId": "VIC-NORM-076",
+    "victimName": "Deepak Bahl",
+    "phoneNumber": "+919624607322",
+    "upiId": "sneha55@paytm",
+    "bankAccount": "585626280761",
+    "deviceFingerprint": "dev_593b9f9aa2dd8847",
+    "reportTimestamp": "2026-06-07T04:11:32Z"
+  },
+  {
+    "victimId": "VIC-NORM-004",
+    "victimName": "Ishaan Goel",
+    "phoneNumber": "+919646450849",
+    "upiId": "ananya15@ybl",
+    "bankAccount": "728474370998",
+    "deviceFingerprint": "dev_b01fff605df11934",
+    "reportTimestamp": "2026-06-07T02:22:05Z"
+  },
+  {
+    "victimId": "VIC-NORM-061",
+    "victimName": "Vikram Chatterjee",
+    "phoneNumber": "+918563376047",
+    "upiId": "vikram51@okhdfc",
+    "bankAccount": "439832979402",
+    "deviceFingerprint": "dev_10a14bc7069663d6",
+    "reportTimestamp": "2026-06-15T04:43:20Z"
+  },
+  {
+    "victimId": "VIC-NORM-040",
+    "victimName": "Ananya Goel",
+    "phoneNumber": "+919022799975",
+    "upiId": "priya63@paytm",
+    "bankAccount": "548797365512",
+    "deviceFingerprint": "dev_f6a8d308e61480d2",
+    "reportTimestamp": "2026-06-08T17:47:54Z"
+  },
+  {
+    "victimId": "VIC-R2-025",
+    "victimName": "Ananya Dubey",
+    "phoneNumber": "+917674850639",
+    "upiId": "vikram76@ybl",
+    "bankAccount": "999888777666",
+    "deviceFingerprint": "device_emul_scammer_alpha",
+    "reportTimestamp": "2026-06-25T13:12:26Z"
+  },
+  {
+    "victimId": "VIC-R3B-012",
+    "victimName": "Manish Mishra",
+    "phoneNumber": "+919900112233",
+    "upiId": "sanjay25@okaxis",
+    "bankAccount": "702998247515",
+    "deviceFingerprint": "device_collusion_hub",
+    "reportTimestamp": "2026-06-25T08:57:31Z"
+  },
+  {
+    "victimId": "VIC-R3A-002",
+    "victimName": "Ananya Kumar",
+    "phoneNumber": "+919900112233",
+    "upiId": "deepak75@icici",
+    "bankAccount": "555444333222",
+    "deviceFingerprint": "dev_62b8b4bd4f3635b7",
+    "reportTimestamp": "2026-06-02T14:37:07Z"
+  },
+  {
+    "victimId": "VIC-R3A-008",
+    "victimName": "Sanjay Iyer",
+    "phoneNumber": "+919900112233",
+    "upiId": "divya16@paytm",
+    "bankAccount": "555444333222",
+    "deviceFingerprint": "dev_bef0d1a719fce1b3",
+    "reportTimestamp": "2026-06-09T04:52:28Z"
+  },
+  {
+    "victimId": "VIC-NORM-054",
+    "victimName": "Rahul Sharma",
+    "phoneNumber": "+919966223690",
+    "upiId": "amit19@icici",
+    "bankAccount": "116315557319",
+    "deviceFingerprint": "dev_e5388df878d5c478",
+    "reportTimestamp": "2026-06-09T06:28:50Z"
+  },
+  {
+    "victimId": "VIC-R2-001",
+    "victimName": "Sanjay Bansal",
+    "phoneNumber": "+918964861311",
+    "upiId": "karan13@paytm",
+    "bankAccount": "999888777666",
+    "deviceFingerprint": "device_emul_scammer_alpha",
+    "reportTimestamp": "2026-06-25T16:45:04Z"
+  },
+  {
+    "victimId": "VIC-R3A-015",
+    "victimName": "Arjun Bansal",
+    "phoneNumber": "+919900112233",
+    "upiId": "shreya45@okhdfc",
+    "bankAccount": "555444333222",
+    "deviceFingerprint": "dev_921c7481df2f05e5",
+    "reportTimestamp": "2026-06-04T12:06:48Z"
+  },
+  {
+    "victimId": "VIC-NORM-032",
+    "victimName": "Deepak Iyer",
+    "phoneNumber": "+919256225565",
+    "upiId": "aditya59@okaxis",
+    "bankAccount": "147375138411",
+    "deviceFingerprint": "dev_21c6e5c9e0c60d05",
+    "reportTimestamp": "2026-06-23T10:14:02Z"
+  },
+  {
+    "victimId": "VIC-NORM-008",
+    "victimName": "Kavya Kumar",
+    "phoneNumber": "+919232040944",
+    "upiId": "sanjay82@paytm",
+    "bankAccount": "824696331434",
+    "deviceFingerprint": "dev_1f3517359dff8c9e",
+    "reportTimestamp": "2026-06-06T02:28:07Z"
+  },
+  {
+    "victimId": "VIC-R2-007",
+    "victimName": "Pranav Iyer",
+    "phoneNumber": "+919091444706",
+    "upiId": "siddharth41@icici",
+    "bankAccount": "777666555444",
+    "deviceFingerprint": "device_emul_scammer_beta",
+    "reportTimestamp": "2026-06-12T04:20:46Z"
+  },
+  {
+    "victimId": "VIC-NORM-046",
+    "victimName": "Aditya Mehta",
+    "phoneNumber": "+918305222716",
+    "upiId": "rahul31@okaxis",
+    "bankAccount": "486845527196",
+    "deviceFingerprint": "dev_1feea02695d3cead",
+    "reportTimestamp": "2026-06-08T04:18:25Z"
+  },
+  {
+    "victimId": "VIC-NORM-029",
+    "victimName": "Neha Bansal",
+    "phoneNumber": "+919254264072",
+    "upiId": "rohan24@icici",
+    "bankAccount": "646848518688",
+    "deviceFingerprint": "dev_1f04ba4910521ff8",
+    "reportTimestamp": "2026-06-17T03:15:25Z"
+  },
+  {
+    "victimId": "VIC-R1-038",
+    "victimName": "Ishaan Verma",
+    "phoneNumber": "+918765432109",
+    "upiId": "scam_mule_1@okaxis",
+    "bankAccount": "408239903248",
+    "deviceFingerprint": "dev_5277caf6c23c05c3",
+    "reportTimestamp": "2026-06-15T09:38:11Z"
+  },
+  {
+    "victimId": "VIC-R3A-014",
+    "victimName": "Ananya Goel",
+    "phoneNumber": "+919900112233",
+    "upiId": "ishaan27@icici",
+    "bankAccount": "555444333222",
+    "deviceFingerprint": "dev_762609eaaa21bcb1",
+    "reportTimestamp": "2026-06-22T00:54:46Z"
+  },
+  {
+    "victimId": "VIC-R1-015",
+    "victimName": "Kavya Mehta",
+    "phoneNumber": "+917654321098",
+    "upiId": "scam_mule_1@okaxis",
+    "bankAccount": "264661595790",
+    "deviceFingerprint": "dev_bd86181140ffaf88",
+    "reportTimestamp": "2026-06-15T20:07:15Z"
+  },
+  {
+    "victimId": "VIC-R1-018",
+    "victimName": "Ishaan Bansal",
+    "phoneNumber": "+919876543210",
+    "upiId": "scam_mule_1@okaxis",
+    "bankAccount": "713859705302",
+    "deviceFingerprint": "dev_c3974eae73913b60",
+    "reportTimestamp": "2026-06-07T10:23:32Z"
+  },
+  {
+    "victimId": "VIC-R1-022",
+    "victimName": "Tanvi Malhotra",
+    "phoneNumber": "+917654321098",
+    "upiId": "scam_mule_2@okicici",
+    "bankAccount": "687692927746",
+    "deviceFingerprint": "dev_7c45a809c4f2abe9",
+    "reportTimestamp": "2026-06-24T18:19:28Z"
+  },
+  {
+    "victimId": "VIC-R3C-013",
+    "victimName": "Aditya Reddy",
+    "phoneNumber": "+919449632804",
+    "upiId": "collusion_mule@ybl",
+    "bankAccount": "258553894243",
+    "deviceFingerprint": "device_collusion_hub",
+    "reportTimestamp": "2026-06-27T01:16:29Z"
+  },
+  {
+    "victimId": "VIC-R1-008",
+    "victimName": "Arjun Dubey",
+    "phoneNumber": "+919876543210",
+    "upiId": "scam_mule_1@okaxis",
+    "bankAccount": "643749002137",
+    "deviceFingerprint": "dev_7a1f6f198f2c6b60",
+    "reportTimestamp": "2026-06-08T08:09:52Z"
+  },
+  {
+    "victimId": "VIC-NORM-037",
+    "victimName": "Shreya Das",
+    "phoneNumber": "+919428262153",
+    "upiId": "priya30@paytm",
+    "bankAccount": "342591468923",
+    "deviceFingerprint": "dev_18bd2954e986f8aa",
+    "reportTimestamp": "2026-06-26T22:27:11Z"
+  },
+  {
+    "victimId": "VIC-R3B-008",
+    "victimName": "Varun Chatterjee",
+    "phoneNumber": "+919900112233",
+    "upiId": "priya56@icici",
+    "bankAccount": "190714800455",
+    "deviceFingerprint": "device_collusion_hub",
+    "reportTimestamp": "2026-06-27T08:51:42Z"
+  },
+  {
+    "victimId": "VIC-R1-019",
+    "victimName": "Ishaan Iyer",
+    "phoneNumber": "+919876543210",
+    "upiId": "scam_mule_1@okaxis",
+    "bankAccount": "180209772080",
+    "deviceFingerprint": "dev_1543732ccf22c69d",
+    "reportTimestamp": "2026-06-20T17:02:12Z"
+  },
+  {
+    "victimId": "VIC-R1-014",
+    "victimName": "Pooja Mehta",
+    "phoneNumber": "+918765432109",
+    "upiId": "scam_mule_1@okaxis",
+    "bankAccount": "721894049726",
+    "deviceFingerprint": "dev_2e7027cd8cd1ca4a",
+    "reportTimestamp": "2026-06-12T05:00:22Z"
+  },
+  {
+    "victimId": "VIC-NORM-069",
+    "victimName": "Pranav Kumar",
+    "phoneNumber": "+918606732260",
+    "upiId": "tanvi40@icici",
+    "bankAccount": "196195157566",
+    "deviceFingerprint": "dev_1a8670a3c3e012f3",
+    "reportTimestamp": "2026-06-13T11:01:42Z"
+  },
+  {
+    "victimId": "VIC-R2-013",
+    "victimName": "Sanjay Dubey",
+    "phoneNumber": "+918697170840",
+    "upiId": "rohan10@ybl",
+    "bankAccount": "999888777666",
+    "deviceFingerprint": "device_emul_scammer_beta",
+    "reportTimestamp": "2026-06-10T09:11:59Z"
+  },
+  {
+    "victimId": "VIC-NORM-007",
+    "victimName": "Pooja Patel",
+    "phoneNumber": "+917994101040",
+    "upiId": "pranav96@okhdfc",
+    "bankAccount": "379949518111",
+    "deviceFingerprint": "dev_854f093c2652fb3a",
+    "reportTimestamp": "2026-06-30T19:48:58Z"
+  },
+  {
+    "victimId": "VIC-NORM-053",
+    "victimName": "Amit Bansal",
+    "phoneNumber": "+918244750013",
+    "upiId": "divya48@icici",
+    "bankAccount": "278580369238",
+    "deviceFingerprint": "dev_c5a11335cd4ebd9e",
+    "reportTimestamp": "2026-06-09T15:56:20Z"
+  },
+  {
+    "victimId": "VIC-NORM-075",
+    "victimName": "Ishaan Sen",
+    "phoneNumber": "+919363323572",
+    "upiId": "siddharth63@okhdfc",
+    "bankAccount": "17413545368",
+    "deviceFingerprint": "dev_bbe268d474bd3e9b",
+    "reportTimestamp": "2026-06-10T08:51:31Z"
+  },
+  {
+    "victimId": "VIC-R3B-005",
+    "victimName": "Aarav Malhotra",
+    "phoneNumber": "+919900112233",
+    "upiId": "pooja25@ybl",
+    "bankAccount": "749190551642",
+    "deviceFingerprint": "device_collusion_hub",
+    "reportTimestamp": "2026-06-04T10:06:18Z"
+  },
+  {
+    "victimId": "VIC-NORM-080",
+    "victimName": "Sanjay Patel",
+    "phoneNumber": "+917392566799",
+    "upiId": "rahul76@paytm",
+    "bankAccount": "545076151342",
+    "deviceFingerprint": "dev_2291f44486f16325",
+    "reportTimestamp": "2026-06-21T10:20:09Z"
+  },
+  {
+    "victimId": "VIC-NORM-027",
+    "victimName": "Aditya Pandey",
+    "phoneNumber": "+919034858828",
+    "upiId": "vikram63@icici",
+    "bankAccount": "309384511531",
+    "deviceFingerprint": "dev_c4a910a60ef02f71",
+    "reportTimestamp": "2026-06-18T21:40:55Z"
+  },
+  {
+    "victimId": "VIC-R2-003",
+    "victimName": "Karan Verma",
+    "phoneNumber": "+917558765953",
+    "upiId": "tanvi24@paytm",
+    "bankAccount": "777666555444",
+    "deviceFingerprint": "device_emul_scammer_beta",
+    "reportTimestamp": "2026-06-28T13:23:36Z"
+  },
+  {
+    "victimId": "VIC-NORM-025",
+    "victimName": "Sneha Rao",
+    "phoneNumber": "+917899734488",
+    "upiId": "aarav92@ybl",
+    "bankAccount": "246722801457",
+    "deviceFingerprint": "dev_1103df6a62f9ac4e",
+    "reportTimestamp": "2026-06-13T16:12:07Z"
+  },
+  {
+    "victimId": "VIC-NORM-043",
+    "victimName": "Ishaan Gupta",
+    "phoneNumber": "+918098863143",
+    "upiId": "shreya54@ybl",
+    "bankAccount": "702326492657",
+    "deviceFingerprint": "dev_f14b00c2e8f80cbe",
+    "reportTimestamp": "2026-06-09T15:12:28Z"
+  },
+  {
+    "victimId": "VIC-R2-020",
+    "victimName": "Arjun Sen",
+    "phoneNumber": "+918766080656",
+    "upiId": "deepak45@paytm",
+    "bankAccount": "999888777666",
+    "deviceFingerprint": "device_emul_scammer_alpha",
+    "reportTimestamp": "2026-06-14T05:57:24Z"
+  },
+  {
+    "victimId": "VIC-R1-036",
+    "victimName": "Priya Kumar",
+    "phoneNumber": "+917654321098",
+    "upiId": "scam_mule_2@okicici",
+    "bankAccount": "952019316947",
+    "deviceFingerprint": "dev_c6009be792fca983",
+    "reportTimestamp": "2026-06-10T23:31:37Z"
+  },
+  {
+    "victimId": "VIC-R2-006",
+    "victimName": "Rohan Kapoor",
+    "phoneNumber": "+917636662280",
+    "upiId": "varun34@paytm",
+    "bankAccount": "999888777666",
+    "deviceFingerprint": "device_emul_scammer_alpha",
+    "reportTimestamp": "2026-06-01T01:13:58Z"
+  },
+  {
+    "victimId": "VIC-R3C-008",
+    "victimName": "Ananya Dubey",
+    "phoneNumber": "+917149841758",
+    "upiId": "collusion_mule@ybl",
+    "bankAccount": "395054048244",
+    "deviceFingerprint": "device_collusion_hub",
+    "reportTimestamp": "2026-06-05T18:50:53Z"
+  },
+  {
+    "victimId": "VIC-R3C-017",
+    "victimName": "Vikram Chatterjee",
+    "phoneNumber": "+919809219864",
+    "upiId": "collusion_mule@ybl",
+    "bankAccount": "993473831118",
+    "deviceFingerprint": "device_collusion_hub",
+    "reportTimestamp": "2026-06-05T17:33:43Z"
+  },
+  {
+    "victimId": "VIC-R3C-011",
+    "victimName": "Arjun Mehta",
+    "phoneNumber": "+917056810679",
+    "upiId": "collusion_mule@ybl",
+    "bankAccount": "28662443807",
+    "deviceFingerprint": "device_collusion_hub",
+    "reportTimestamp": "2026-06-06T04:20:19Z"
+  },
+  {
+    "victimId": "VIC-R3C-007",
+    "victimName": "Shreya Rao",
+    "phoneNumber": "+919742934706",
+    "upiId": "collusion_mule@ybl",
+    "bankAccount": "173685639603",
+    "deviceFingerprint": "device_collusion_hub",
+    "reportTimestamp": "2026-06-03T14:20:51Z"
+  },
+  {
+    "victimId": "VIC-R1-011",
+    "victimName": "Shreya Bansal",
+    "phoneNumber": "+917654321098",
+    "upiId": "scam_mule_2@okicici",
+    "bankAccount": "552076727411",
+    "deviceFingerprint": "dev_6c241d4ba2b66bb9",
+    "reportTimestamp": "2026-06-22T06:42:24Z"
+  },
+  {
+    "victimId": "VIC-NORM-003",
+    "victimName": "Manish Singh",
+    "phoneNumber": "+919512695446",
+    "upiId": "divya76@okaxis",
+    "bankAccount": "529805908868",
+    "deviceFingerprint": "dev_161d2b95e92677aa",
+    "reportTimestamp": "2026-06-15T09:54:00Z"
+  },
+  {
+    "victimId": "VIC-NORM-070",
+    "victimName": "Aditya Verma",
+    "phoneNumber": "+919443228847",
+    "upiId": "manish92@icici",
+    "bankAccount": "127226739711",
+    "deviceFingerprint": "dev_11d1fad8d9fc3f18",
+    "reportTimestamp": "2026-06-24T16:59:32Z"
+  },
+  {
+    "victimId": "VIC-R2-002",
+    "victimName": "Divya Das",
+    "phoneNumber": "+917471427456",
+    "upiId": "shreya75@okhdfc",
+    "bankAccount": "888777666555",
+    "deviceFingerprint": "device_emul_scammer_alpha",
+    "reportTimestamp": "2026-06-25T20:50:03Z"
+  },
+  {
+    "victimId": "VIC-NORM-063",
+    "victimName": "Manish Gupta",
+    "phoneNumber": "+919279534185",
+    "upiId": "kavya22@okaxis",
+    "bankAccount": "434477949739",
+    "deviceFingerprint": "dev_02d02e9e802a1aa0",
+    "reportTimestamp": "2026-06-04T19:21:22Z"
+  },
+  {
+    "victimId": "VIC-NORM-055",
+    "victimName": "Vikram Singh",
+    "phoneNumber": "+919367802489",
+    "upiId": "manish74@icici",
+    "bankAccount": "197439086963",
+    "deviceFingerprint": "dev_75cc012e360691ae",
+    "reportTimestamp": "2026-06-04T09:46:08Z"
+  },
+  {
+    "victimId": "VIC-R2-021",
+    "victimName": "Pooja Verma",
+    "phoneNumber": "+919855785551",
+    "upiId": "tanvi99@ybl",
+    "bankAccount": "777666555444",
+    "deviceFingerprint": "device_emul_scammer_alpha",
+    "reportTimestamp": "2026-06-04T00:58:32Z"
+  },
+  {
+    "victimId": "VIC-NORM-010",
+    "victimName": "Tanvi Sharma",
+    "phoneNumber": "+917745703251",
+    "upiId": "pooja80@paytm",
+    "bankAccount": "559697098774",
+    "deviceFingerprint": "dev_d82f76054bb6495e",
+    "reportTimestamp": "2026-06-13T18:19:40Z"
+  },
+  {
+    "victimId": "VIC-R3A-013",
+    "victimName": "Tanvi Kumar",
+    "phoneNumber": "+919900112233",
+    "upiId": "sanjay71@paytm",
+    "bankAccount": "555444333222",
+    "deviceFingerprint": "dev_9186cc8e03ebf90b",
+    "reportTimestamp": "2026-06-16T07:40:13Z"
+  },
+  {
+    "victimId": "VIC-NORM-013",
+    "victimName": "Pranav Sharma",
+    "phoneNumber": "+917637611858",
+    "upiId": "manish41@ybl",
+    "bankAccount": "109027405077",
+    "deviceFingerprint": "dev_520cccc782a7b887",
+    "reportTimestamp": "2026-06-21T05:34:52Z"
+  },
+  {
+    "victimId": "VIC-R3C-004",
+    "victimName": "Pranav Singh",
+    "phoneNumber": "+919879045050",
+    "upiId": "collusion_mule@ybl",
+    "bankAccount": "349454318664",
+    "deviceFingerprint": "device_collusion_hub",
+    "reportTimestamp": "2026-06-23T18:11:18Z"
+  },
+  {
+    "victimId": "VIC-R3B-001",
+    "victimName": "Amit Mishra",
+    "phoneNumber": "+919900112233",
+    "upiId": "manish91@okhdfc",
+    "bankAccount": "835848897003",
+    "deviceFingerprint": "device_collusion_hub",
+    "reportTimestamp": "2026-06-04T16:37:53Z"
+  },
+  {
+    "victimId": "VIC-R3C-014",
+    "victimName": "Tanvi Chatterjee",
+    "phoneNumber": "+919241405532",
+    "upiId": "collusion_mule@ybl",
+    "bankAccount": "492420641281",
+    "deviceFingerprint": "device_collusion_hub",
+    "reportTimestamp": "2026-06-10T17:23:54Z"
+  },
+  {
+    "victimId": "VIC-NORM-079",
+    "victimName": "Varun Bahl",
+    "phoneNumber": "+918944509093",
+    "upiId": "varun82@okhdfc",
+    "bankAccount": "815724021159",
+    "deviceFingerprint": "dev_adc32867d2ddf488",
+    "reportTimestamp": "2026-06-15T15:43:01Z"
+  },
+  {
+    "victimId": "VIC-R1-040",
+    "victimName": "Varun Bahl",
+    "phoneNumber": "+917654321098",
+    "upiId": "scam_mule_1@okaxis",
+    "bankAccount": "536495638629",
+    "deviceFingerprint": "dev_def31fdb307d4f01",
+    "reportTimestamp": "2026-06-18T04:57:37Z"
+  },
+  {
+    "victimId": "VIC-R3C-006",
+    "victimName": "Pranav Kapoor",
+    "phoneNumber": "+918247572072",
+    "upiId": "collusion_mule@ybl",
+    "bankAccount": "44806286626",
+    "deviceFingerprint": "device_collusion_hub",
+    "reportTimestamp": "2026-06-10T01:14:23Z"
+  },
+  {
+    "victimId": "VIC-R3B-007",
+    "victimName": "Sanjay Dubey",
+    "phoneNumber": "+919900112233",
+    "upiId": "deepak94@ybl",
+    "bankAccount": "814690647796",
+    "deviceFingerprint": "device_collusion_hub",
+    "reportTimestamp": "2026-06-01T12:02:01Z"
+  },
+  {
+    "victimId": "VIC-R3A-009",
+    "victimName": "Pooja Chatterjee",
+    "phoneNumber": "+919900112233",
+    "upiId": "aditya81@okhdfc",
+    "bankAccount": "555444333222",
+    "deviceFingerprint": "dev_de7b18e2bce1204c",
+    "reportTimestamp": "2026-06-04T23:48:28Z"
+  },
+  {
+    "victimId": "VIC-R3C-016",
+    "victimName": "Pranav Malhotra",
+    "phoneNumber": "+918482003326",
+    "upiId": "collusion_mule@ybl",
+    "bankAccount": "153280111711",
+    "deviceFingerprint": "device_collusion_hub",
+    "reportTimestamp": "2026-06-26T18:52:02Z"
+  },
+  {
+    "victimId": "VIC-R3A-012",
+    "victimName": "Karan Sharma",
+    "phoneNumber": "+919900112233",
+    "upiId": "karan97@icici",
+    "bankAccount": "555444333222",
+    "deviceFingerprint": "dev_03611f3efa086c55",
+    "reportTimestamp": "2026-06-13T09:03:28Z"
+  },
+  {
+    "victimId": "VIC-R3B-014",
+    "victimName": "Sanjay Das",
+    "phoneNumber": "+919900112233",
+    "upiId": "kavya16@okhdfc",
+    "bankAccount": "156589276979",
+    "deviceFingerprint": "device_collusion_hub",
+    "reportTimestamp": "2026-06-28T15:40:57Z"
+  },
+  {
+    "victimId": "VIC-R2-008",
+    "victimName": "Deepak Mishra",
+    "phoneNumber": "+918726390956",
+    "upiId": "deepak36@paytm",
+    "bankAccount": "777666555444",
+    "deviceFingerprint": "device_emul_scammer_beta",
+    "reportTimestamp": "2026-06-03T07:18:16Z"
+  },
+  {
+    "victimId": "VIC-R1-039",
+    "victimName": "Amit Sen",
+    "phoneNumber": "+917654321098",
+    "upiId": "scam_mule_1@okaxis",
+    "bankAccount": "583672933374",
+    "deviceFingerprint": "dev_df322e9e2af66c52",
+    "reportTimestamp": "2026-06-30T20:13:32Z"
+  },
+  {
+    "victimId": "VIC-R3B-006",
+    "victimName": "Ishaan Chatterjee",
+    "phoneNumber": "+919900112233",
+    "upiId": "ananya23@okaxis",
+    "bankAccount": "792324728258",
+    "deviceFingerprint": "device_collusion_hub",
+    "reportTimestamp": "2026-06-18T21:53:06Z"
+  },
+  {
+    "victimId": "VIC-NORM-057",
+    "victimName": "Pooja Kumar",
+    "phoneNumber": "+917683079750",
+    "upiId": "amit19@ybl",
+    "bankAccount": "966149799649",
+    "deviceFingerprint": "dev_105a4c30e3e4f1ee",
+    "reportTimestamp": "2026-06-21T16:38:30Z"
+  },
+  {
+    "victimId": "VIC-R3A-001",
+    "victimName": "Priya Joshi",
+    "phoneNumber": "+919900112233",
+    "upiId": "kavya72@okhdfc",
+    "bankAccount": "555444333222",
+    "deviceFingerprint": "dev_6d3893233f127200",
+    "reportTimestamp": "2026-06-11T00:20:29Z"
+  },
+  {
+    "victimId": "VIC-R1-003",
+    "victimName": "Vikram Pandey",
+    "phoneNumber": "+917654321098",
+    "upiId": "scam_mule_2@okicici",
+    "bankAccount": "397008957081",
+    "deviceFingerprint": "dev_0f26e582a7b69b67",
+    "reportTimestamp": "2026-06-01T20:24:57Z"
+  },
+  {
+    "victimId": "VIC-NORM-041",
+    "victimName": "Manish Kapoor",
+    "phoneNumber": "+918092702245",
+    "upiId": "aditya29@ybl",
+    "bankAccount": "453280054214",
+    "deviceFingerprint": "dev_b577a2abd23c3201",
+    "reportTimestamp": "2026-06-05T17:09:36Z"
+  },
+  {
+    "victimId": "VIC-NORM-047",
+    "victimName": "Aditya Gupta",
+    "phoneNumber": "+917707038860",
+    "upiId": "shreya99@okaxis",
+    "bankAccount": "608145375303",
+    "deviceFingerprint": "dev_1cdd8465813cc81c",
+    "reportTimestamp": "2026-06-25T16:34:12Z"
+  },
+  {
+    "victimId": "VIC-R3C-012",
+    "victimName": "Sneha Patel",
+    "phoneNumber": "+917360628512",
+    "upiId": "collusion_mule@ybl",
+    "bankAccount": "938807070094",
+    "deviceFingerprint": "device_collusion_hub",
+    "reportTimestamp": "2026-06-08T17:00:14Z"
+  },
+  {
+    "victimId": "VIC-NORM-023",
+    "victimName": "Ishaan Chatterjee",
+    "phoneNumber": "+917366480297",
+    "upiId": "deepak83@icici",
+    "bankAccount": "970958013248",
+    "deviceFingerprint": "dev_e4f4be219c6b380b",
+    "reportTimestamp": "2026-06-11T08:37:57Z"
+  },
+  {
+    "victimId": "VIC-NORM-018",
+    "victimName": "Vikram Bahl",
+    "phoneNumber": "+917120300249",
+    "upiId": "sneha92@icici",
+    "bankAccount": "671973461438",
+    "deviceFingerprint": "dev_8f515895a03bdca1",
+    "reportTimestamp": "2026-06-12T23:55:39Z"
+  },
+  {
+    "victimId": "VIC-R3B-015",
+    "victimName": "Aarav Bansal",
+    "phoneNumber": "+919900112233",
+    "upiId": "manish11@paytm",
+    "bankAccount": "470048104468",
+    "deviceFingerprint": "device_collusion_hub",
+    "reportTimestamp": "2026-06-15T09:39:31Z"
+  },
+  {
+    "victimId": "VIC-NORM-012",
+    "victimName": "Aditya Kumar",
+    "phoneNumber": "+918474088646",
+    "upiId": "arjun85@okaxis",
+    "bankAccount": "543554495474",
+    "deviceFingerprint": "dev_aa7309c018d18347",
+    "reportTimestamp": "2026-06-09T03:20:43Z"
+  },
+  {
+    "victimId": "VIC-R2-027",
+    "victimName": "Vikram Rao",
+    "phoneNumber": "+919463031853",
+    "upiId": "aarav62@okaxis",
+    "bankAccount": "999888777666",
+    "deviceFingerprint": "device_emul_scammer_alpha",
+    "reportTimestamp": "2026-06-26T08:57:30Z"
+  },
+  {
+    "victimId": "VIC-R3B-011",
+    "victimName": "Neha Rao",
+    "phoneNumber": "+919900112233",
+    "upiId": "pooja52@okaxis",
+    "bankAccount": "734209997754",
+    "deviceFingerprint": "device_collusion_hub",
+    "reportTimestamp": "2026-06-25T19:46:08Z"
+  },
+  {
+    "victimId": "VIC-R1-005",
+    "victimName": "Pranav Malhotra",
+    "phoneNumber": "+918765432109",
+    "upiId": "scam_mule_2@okicici",
+    "bankAccount": "11136449523",
+    "deviceFingerprint": "dev_50c77922e4576fd8",
+    "reportTimestamp": "2026-06-21T18:03:39Z"
+  },
+  {
+    "victimId": "VIC-NORM-065",
+    "victimName": "Shreya Sen",
+    "phoneNumber": "+918642994122",
+    "upiId": "aditya94@icici",
+    "bankAccount": "428892150804",
+    "deviceFingerprint": "dev_ce15da22a24bd8b4",
+    "reportTimestamp": "2026-06-06T00:28:16Z"
+  },
+  {
+    "victimId": "VIC-R1-004",
+    "victimName": "Manish Dubey",
+    "phoneNumber": "+918765432109",
+    "upiId": "scam_mule_1@okaxis",
+    "bankAccount": "126261503415",
+    "deviceFingerprint": "dev_b4be45d4991bfb68",
+    "reportTimestamp": "2026-06-16T19:42:55Z"
+  },
+  {
+    "victimId": "VIC-R1-030",
+    "victimName": "Priya Dubey",
+    "phoneNumber": "+918765432109",
+    "upiId": "scam_mule_1@okaxis",
+    "bankAccount": "847104623327",
+    "deviceFingerprint": "dev_9b96c1e7d6d4d597",
+    "reportTimestamp": "2026-06-28T11:12:10Z"
+  },
+  {
+    "victimId": "VIC-NORM-044",
+    "victimName": "Deepak Pandey",
+    "phoneNumber": "+919365811888",
+    "upiId": "deepak39@paytm",
+    "bankAccount": "870168812493",
+    "deviceFingerprint": "dev_9ef32b9cf88ea709",
+    "reportTimestamp": "2026-06-06T11:59:44Z"
+  },
+  {
+    "victimId": "VIC-NORM-078",
+    "victimName": "Varun Mehta",
+    "phoneNumber": "+917888607246",
+    "upiId": "sneha84@okhdfc",
+    "bankAccount": "189804465409",
+    "deviceFingerprint": "dev_7407cc21c60d0864",
+    "reportTimestamp": "2026-06-14T17:15:08Z"
+  },
+  {
+    "victimId": "VIC-R3B-003",
+    "victimName": "Siddharth Goel",
+    "phoneNumber": "+919900112233",
+    "upiId": "aarav48@okhdfc",
+    "bankAccount": "893873844688",
+    "deviceFingerprint": "device_collusion_hub",
+    "reportTimestamp": "2026-06-20T16:50:19Z"
+  },
+  {
+    "victimId": "VIC-R2-030",
+    "victimName": "Kavya Gupta",
+    "phoneNumber": "+918157085237",
+    "upiId": "kavya60@icici",
+    "bankAccount": "999888777666",
+    "deviceFingerprint": "device_emul_scammer_alpha",
+    "reportTimestamp": "2026-06-29T02:51:48Z"
+  },
+  {
+    "victimId": "VIC-R1-017",
+    "victimName": "Sneha Kapoor",
+    "phoneNumber": "+919876543210",
+    "upiId": "scam_mule_2@okicici",
+    "bankAccount": "478937129070",
+    "deviceFingerprint": "dev_c25aa3aad680da89",
+    "reportTimestamp": "2026-06-21T07:40:10Z"
+  },
+  {
+    "victimId": "VIC-NORM-015",
+    "victimName": "Sneha Sen",
+    "phoneNumber": "+919472455265",
+    "upiId": "varun80@ybl",
+    "bankAccount": "864902575701",
+    "deviceFingerprint": "dev_a9d6532b26de94f9",
+    "reportTimestamp": "2026-06-18T03:37:12Z"
+  },
+  {
+    "victimId": "VIC-R2-014",
+    "victimName": "Amit Rao",
+    "phoneNumber": "+919516698963",
+    "upiId": "divya14@okaxis",
+    "bankAccount": "888777666555",
+    "deviceFingerprint": "device_emul_scammer_beta",
+    "reportTimestamp": "2026-06-08T18:01:34Z"
+  },
+  {
+    "victimId": "VIC-R2-004",
+    "victimName": "Karan Gupta",
+    "phoneNumber": "+918113427702",
+    "upiId": "sneha91@okaxis",
+    "bankAccount": "999888777666",
+    "deviceFingerprint": "device_emul_scammer_alpha",
+    "reportTimestamp": "2026-06-14T07:03:17Z"
+  },
+  {
+    "victimId": "VIC-R1-021",
+    "victimName": "Kavya Sharma",
+    "phoneNumber": "+918765432109",
+    "upiId": "scam_mule_1@okaxis",
+    "bankAccount": "706717633294",
+    "deviceFingerprint": "dev_61fc8188e94e2bb2",
+    "reportTimestamp": "2026-06-01T15:16:46Z"
+  },
+  {
+    "victimId": "VIC-R3A-007",
+    "victimName": "Amit Iyer",
+    "phoneNumber": "+919900112233",
+    "upiId": "shreya21@okaxis",
+    "bankAccount": "555444333222",
+    "deviceFingerprint": "dev_cb31b20093bf8f3f",
+    "reportTimestamp": "2026-06-07T16:41:52Z"
+  }
+]

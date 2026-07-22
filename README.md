@@ -1,225 +1,201 @@
-# Raksha Grid - Digital Arrest Scam Detection Service (Module 1)
+<div align="center">
 
-Raksha Grid is a real-time call and text interceptor designed to detect and block digital arrest scams. This repository contains the complete implementation and test suite for **Module 1: Digital Arrest Scam Detection & Alerting**.
+# 🛡️ RAKSHA GRID — UNIFIED AI SAFETY & CRIME INTELLIGENCE PLATFORM
+
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.115.0-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
+[![Next.js](https://img.shields.io/badge/Next.js-14.2.3-black?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org)
+[![PyTorch](https://img.shields.io/badge/PyTorch-2.11-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)](https://pytorch.org)
+[![Leaflet.js](https://img.shields.io/badge/Leaflet-1.9.4-199900?style=for-the-badge&logo=leaflet&logoColor=white)](https://leafletjs.com)
+[![Docker](https://img.shields.io/badge/Docker-Enabled-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://docker.com)
+
+*An Enterprise Multi-Tier AI Platform for Digital Arrest Scam Interception, Audio Deepfake Voice Biometrics, Counterfeit Currency Scanning, and Geospatial Crime Intelligence.*
+
+[🚀 Quick Start](#-quick-start--local-walkthrough) • [✨ Key Features](#-key-features) • [📡 API Documentation](#-api-endpoints) • [🏗️ Architecture](#%EF%B8%8F-monorepo-architecture) • [🧪 Verification](#-verification--testing)
+
+</div>
 
 ---
 
-## Architecture Overview
+## 🏗️ Monorepo Architecture Layout
 
-The detection service utilizes a multi-layer ensemble architecture running in the following order:
-
+```text
+rakshagrid/
+├── backend/                  # Centralized FastAPI REST Application
+│   └── fastapi/
+│       ├── app/
+│       │   ├── api/          # Low-level API abstractions
+│       │   ├── config/       # Settings & environment variables
+│       │   ├── core/         # Lifespan events & startup initializers
+│       │   ├── middleware/   # CORS & Centralized Exception Handlers
+│       │   ├── routers/      # Audio, Scam, Currency, Crime, Health routers
+│       │   ├── schemas/      # Pydantic request/response schemas
+│       │   └── services/     # Service layer wrapping ML interfaces
+│       ├── Dockerfile
+│       └── requirements.txt
+├── frontend/                 # Next.js 14 Production Web Interface
+│   └── nextjs/
+│       ├── src/
+│       │   ├── api/          # Generic HTTP client (client.ts)
+│       │   ├── components/   # UI components (LeafletCrimeMap, GraphView, RiskScorePanel)
+│       │   ├── constants/    # API endpoints & configuration
+│       │   ├── hooks/        # React custom hooks (useAudioDetector, useCrimeMap)
+│       │   ├── pages/        # 18 Prerendered Static & Dynamic Pages
+│       │   ├── services/     # API Service calls to FastAPI backend
+│       │   ├── styles/       # Tailwind CSS & global glassmorphism styles
+│       │   └── types/        # TypeScript interfaces matching FastAPI schemas
+│       └── Dockerfile
+├── ml/                       # Standalone Machine Learning Modules
+│   ├── module1_currency/     # Counterfeit Banknote Detector (EfficientNetB0)
+│   ├── module2/              # Scam Interceptor (Whisper + Stacking Ensemble + Groq LLM)
+│   └── module4_crime/        # VigilGrid Crime Engine (Haversine DBSCAN Hotspots)
+├── shared/                   # Cross-cutting Shared Utilities
+├── storage/                  # Mounted Persistent Storage (models, outputs, uploads)
+├── scripts/                  # Cross-Platform Launcher Scripts (dev.bat, dev.sh, build.sh)
+└── docker-compose.yml        # Multi-Container Orchestration
 ```
-                  +-----------------------------------+
-                  |        Incoming Transcript        |
-                  +-----------------------------------+
-                                    |
-                                    v
-                  +-----------------------------------+
-                  |  Layer A: Rules Scorer (Lexicon)  |
-                  +-----------------------------------+
-                                    |
-                                    v
-                  +-----------------------------------+
-                  |  Layer B: Engineered Features     |
-                  +-----------------------------------+
-                                    |
-                                    v
-                  +-----------------------------------+
-                  |  Layer C: TF-IDF + Logistic Reg.  |
-                  +-----------------------------------+
-                                    |
-                                    v
-                  +-----------------------------------+
-                  |  Layer D: Fine-tuned DistilBERT   |
-                  +-----------------------------------+
-                                    |
-                                    v
-                  +-----------------------------------+
-                  |  Layer E: Bounded Stacking Ensemble|
-                  +-----------------------------------+
-                                    |
-            +-----------------------+-----------------------+
-            | Confident Verdict                             | Needs Review (Borderline)
-            v                                               v
-+-----------------------+                       +-----------------------+
-|  Return high/low Band |                       | Layer F: LLM Fallback |
-+-----------------------+                       +-----------------------+
-                                                            |
-                                                +-----------+-----------+
-                                                | Confident | Uncertain |
-                                                v           v           v
-                                            Adopt LLM   Keep needs_review
-```
-
-1. **Layer A: Rules/Lexicon Layer**: Fast keyword matching providing instant feedback and fired features.
-2. **Layer B: Feature Engineering**: Extracts 9 lexical features matching training distributions exactly.
-3. **Layer C: TF-IDF Layer**: Solo classical machine learning model.
-4. **Layer D: Transformer Layer**: Fine-tuned DistilBERT model.
-5. **Layer E: Stacking Ensemble (Bounded)**: Combines predictions from Layers A-D using a custom Logistic Regression meta-classifier with non-negativity bounds.
-6. **Layer F: LLM Fallback (Groq)**: Borderline cases are sent to Llama-3.3-70b via Groq to obtain a final expert opinion.
 
 ---
 
-## Debugging Pass Changelog
+## ✨ Key Features
 
-This final pass focused on resolving a critical httpx/groq dependency conflict, fixing the broken LLM fallback client, expanding coverage for KYC and subscription scams, and resolving outstanding false positives:
+### 🎵 1. Audio Deepfake & Call Scam Interceptor (Modules 2 & 3)
+- Multi-tier speech transcription supporting **`.ogg`, `.wav`, `.mp3`, `.m4a`, `.flac`, `.webm`, `.opus`**.
+- Powered by `Faster-Whisper` + `OpenAI Whisper` + `Groq Cloud Audio API`.
+- **Bounded Stacking Ensemble** (`scipy L-BFGS-B` non-negative meta-classifier) evaluating TF-IDF, DistilBERT PyTorch transformers, and 9 engineered risk features.
+- Groq `Llama-3.3-70b-versatile` LLM fallback for borderline verification.
 
-1. **Groq/HTTPX Version Conflict Resolution**:
-   * **The Bug**: Due to a package mismatch, `groq==0.11.0` was passing the deprecated `proxies` kwarg to the newer `httpx` constructor, causing a silent client crash: `unexpected keyword argument 'proxies'`. The LLM fallback tier was completely disabled.
-   * **The Fix**: Upgraded and pinned `groq==1.5.0` and `httpx==0.28.1` in `requirements.txt`. Added a startup sanity check that eagerly validates client initialization and logs a loud, prominent console warning if the Groq key is missing or initialization fails.
-2. **Ensemble Multicollinearity Fix (Bounded Coefficient Stacking)**:
-   * **The Bug**: TF-IDF and Transformer predictions were highly collinear ($r = 0.9627$). Under standard Logistic Regression, the optimizer assigned a negative coefficient (`-0.4779`) to `transformer_prob`, causing the model to penalize high-confidence transformer predictions on out-of-distribution inputs (e.g. credential harvesting).
-   * **The Fix**: Replaced standard sklearn `LogisticRegression` with a custom `BoundedLogisticRegression` class (built using `scipy.optimize.minimize` L-BFGS-B). This class enforces non-negativity constraints ($w_i \ge 0$) on component probability weights, resolving the mismatch and boosting credential-harvesting scam scores to high risk.
-3. **Rules Safety Override Threshold Adjustment**:
-   * Lowered the override threshold from `0.40` to `0.30` in both `main.py` and `training/eval_adversarial.py`. This ensures that single-category `credential_harvesting` rules hits (weight `0.30`) bypass low ensemble scores and route to LLM verification. Added custom patterns for KYC, PAN, and subscription failures to the rules lexicon.
-4. **Link-Verification & Subscription Legitimate Counterparts**:
-   * Augmented splits with **10 benign address link-verification examples** (e.g. "We have sent a link to confirm your address") and **10 legitimate subscription alert counterparts** (e.g., failed payment alerts directing users to update card details on the official website/app rather than phone) to teach the model to distinguish benign alerts from credential harvesting.
-5. **KYC SMS Phishing & Subscription Phishing Scam Augmentations**:
-   * Expanded `kyc_sms_phishing` to **40 examples** (spanning various banking, SIM, and Aadhaar linking formats) and added a new `subscription_phishing` category with **35 examples** (fake subscription payment failures asking for card details over the phone).
-6. **Decision Threshold Recalibration**:
-   * Retrained all layers and recalibrated decision thresholds to **Low = 0.1200** and **High = 0.5500**, ensuring a borderline zone width of at least `0.35` (actually `0.43`).
+### 💵 2. Counterfeit Currency Scanner (Module 1)
+- Deep vision CNN model (`EfficientNetB0`) analyzing banknote images (224x224).
+- Detects counterfeit print defects, color shifts, and missing security thread patterns.
+
+### 🗺️ 3. Interactive Leaflet.js Crime Map & Hotspot Engine (Module 4)
+- **VigilGrid Engine**: Haversine `DBSCAN` spatial clustering over latitude/longitude incident point clouds (`eps=0.4km`, `min_samples=20`).
+- **Interactive Dark Map**: Uses `CartoDB Dark` map tiles, custom severity markers, popup telemetry, live search, severity filters, and patrol unit allocation.
 
 ---
 
-## Quick Start (Clean Clone Setup)
+## 🚀 Quick Start & Local Walkthrough
 
-### 1. Environment Setup
+### 1️⃣ Prerequisites & Environment Setup
+
+Copy `.env.example` to `.env` in the root directory:
 ```bash
-# Create and activate virtual environment
-python -m venv .venv
-.venv\Scripts\activate  # On Windows PowerShell
-
-# Install required dependencies
-pip install -r requirements.txt
+cp .env.example .env
 ```
 
-### 2. `.env` Configuration
-Create a `.env` file in the project root:
+Ensure your `.env` contains:
 ```env
-GROQ_API_KEY=your_free_tier_groq_api_key
-```
-
-### 3. Model Training
-You can run the models using the committed pre-trained artifacts directly, or reproduce training from scratch:
-```powershell
-$env:PYTHONPATH="."
-
-# 1. Inject benign hard negatives and scams
-python training/augment_dataset.py
-
-# 2. Retrain TF-IDF model
-python training/train_tfidf.py
-
-# 3. Retrain DistilBERT model (requires CUDA recommended)
-python training/train_transformer.py --epochs 5 --batch_size 16
-
-# 4. Train Stacking Ensemble meta-classifier
-python training/train_ensemble.py
-
-# 5. Calibrate risk thresholds
-python training/calibrate_thresholds.py
-```
-
-### 4. Start the Service
-```powershell
-.venv\Scripts\uvicorn main:app --reload --host 0.0.0.0 --port 8000
-```
-Access the interactive documentation at `http://localhost:8000/docs`.
-
----
-
-## Testing & Evaluation
-
-### Run Test Suite
-```powershell
-$env:PYTHONPATH="."
-python -m pytest
-```
-
-### Run Adversarial Evaluation
-```powershell
-$env:PYTHONPATH="."
-python training/eval_adversarial.py
+GROQ_API_KEY=your_groq_api_key_here
+GROQ_MODEL_NAME=llama-3.3-70b-versatile
+NEXT_PUBLIC_API_URL=http://localhost:8000
 ```
 
 ---
 
-## API Usage Examples
+### 2️⃣ Running via Automated Script (Recommended)
 
-### 1. Health Status
-**Request**:
+From the project root directory (`rakshagrid/`):
+
+#### 🪟 Windows (PowerShell / Command Prompt)
+```cmd
+.\scripts\dev.bat
+```
+
+#### 🐧 Linux / macOS / Git Bash
 ```bash
-curl http://localhost:8000/health
-```
-**Response**:
-```json
-{
-  "status": "healthy",
-  "models_status": {
-    "tfidf": "loaded",
-    "transformer": "loaded",
-    "ensemble": "loaded",
-    "rules": "ready"
-  }
-}
+chmod +x ./scripts/dev.sh
+./scripts/dev.sh
 ```
 
-### 2. Analyze Call Transcript
-**Request**:
-```bash
-curl -X POST -H "Content-Type: application/json" -d "{\"transcript\": \"hello this is alex from microsoft\"}" http://localhost:8000/api/scam/analyze-text
+> **Note**: `scripts/dev.bat` automatically frees locked ports (3000 & 8000), configures python paths, and opens separate pop-up windows for the backend and frontend.
+
+---
+
+### 3️⃣ Running Manually Step-by-Step in VS Code Terminals
+
+#### Terminal 1 — FastAPI Central Backend (Port 8000)
+```powershell
+# 1. Ensure you are in project root
+cd C:\files\programming\Python\projects\rakshagrid
+
+# 2. Install backend dependencies
+pip install -r backend/fastapi/requirements.txt
+
+# 3. Start FastAPI server
+python -m uvicorn backend.fastapi.app.main:app --host 0.0.0.0 --port 8000 --reload
 ```
-**Response**:
-```json
-{
-  "stage": "llm_fallback",
-  "risk_score": 0.0,
-  "risk_band": "low",
-  "fired_features": [],
-  "fired_features_detail": [],
-  "component_scores": {
-    "rules": 0.0,
-    "tfidf": 0.3541,
-    "transformer": 0.0388,
-    "ensemble": 0.1288,
-    "llm_fallback": 0.0
-  },
-  "breakdown": {
-    "engineered_features": {
-      "turn_count": 0,
-      "char_len": 32,
-      "word_count": 6,
-      "placeholder_count": 0,
-      "urgency_word_count": 0,
-      "money_word_count": 0,
-      "authority_word_count": 0,
-      "has_phone_number": 0,
-      "exclaim_count": 0
-    },
-    "rules_detail": []
-  },
-  "transcript": "hello this is alex from microsoft"
-}
+*Backend runs at: **[http://localhost:8000](http://localhost:8000)** (Interactive Docs: **[http://localhost:8000/docs](http://localhost:8000/docs)**)*
+
+#### Terminal 2 — Next.js Frontend (Port 3000)
+```powershell
+# 1. Navigate to frontend directory
+cd frontend/nextjs
+
+# 2. Install Node packages
+npm install
+
+# 3. Start Next.js dev server
+npm run dev
+```
+*Frontend runs at: **[http://localhost:3000](http://localhost:3000)**.*
+
+---
+
+### 🐳 4️⃣ Running via Docker Compose
+
+```bash
+docker-compose up --build
 ```
 
 ---
 
-## Final Performance Scoreboard
+## 📡 API Endpoints & Testing Snippets
 
-These metrics are reported strictly on the handwritten, placeholders-free adversarial dataset (`data/adversarial_eval.csv`):
+| Endpoint Path | Method | Module | Description |
+| :--- | :--- | :--- | :--- |
+| `/health` | `GET` | System | Central runtime health check across all ML modules |
+| `/api/currency/predict` | `POST` | Module 1 | Counterfeit banknote image defect scan |
+| `/api/audio/detect` | `POST` | Module 2 | Audio recording (.ogg/mp3/wav) deepfake & scam interceptor |
+| `/api/audio/transcribe` | `POST` | Module 3 | Whisper speech-to-text audio transcription |
+| `/api/scam/analyze-text` | `POST` | Module 2 | Text transcript scam risk classification |
+| `/api/crime/predict` | `POST` | Module 4 | Crime scene image/video evidence analysis |
+| `/api/crime/incidents` | `GET` | Module 4 | Incident point cloud formatted for Leaflet.js markers |
+| `/api/crime/hotspots` | `GET` | Module 4 | DBSCAN crime hotspot clusters |
+| `/api/crime/patrol-allocation` | `GET` | Module 4 | Patrol resource allocation engine |
 
-| Evaluation Dataset | Decisive Accuracy | Precision | Recall | False Positive Rate | Needs Review Rate |
-|---|---|---|---|---|---|
-| **Old Adversarial Set (Baseline)** | 93.44% | 88.89% | 96.00% | 8.33% | 1.61% |
-| **Pass 1 Fixes (Broken Groq Baseline)** | 91.80% | 100.00% | 92.00% | 0.00% | 3.23% |
-| **Pass 2 Fixes (Bounded Ensemble + Groq Fix)** | **100.00%** | **100.00%** | **100.00%** | **0.00%** | **3.23%** |
-| **HuggingFace Test Split (`test.csv`)*** | 99.68% | 100.00% | 99.39% | 0.00% | 0.96% |
+### 🧪 Example cURL Requests
 
-*\*Note: HuggingFace splits contain synthetic templates and are included for baseline reference only. The adversarial eval is the trusted evaluation set.*
+#### 1. Test Scam Interceptor Text Analysis:
+```bash
+curl -X POST "http://localhost:8000/api/scam/analyze-text" \
+     -H "Content-Type: application/json" \
+     -d '{"transcript": "This is Officer Sharma from CBI. Your bank account is locked under digital arrest. Transfer 50000 rupees immediately."}'
+```
 
-### Format Robustness Breakdown (Pass 2):
-* **Single-Turn Format**: **`100.00%`** Decisive Accuracy | **`0.00%`** FPR
-* **Multi-Turn `caller:/receiver:` Format**: **`100.00%`** Decisive Accuracy | **`0.00%`** FPR
+#### 2. Test Audio Deepfake & STT (.ogg / .wav / .mp3):
+```bash
+curl -X POST "http://localhost:8000/api/audio/detect" \
+     -F "file=@sample_call.ogg"
+```
 
-#### Cross-Format performance gap:
-By combining the bounded non-negativity stacking ensemble, rules-safety override improvements, functional Groq fallback, and link-verification/KYC dataset augmentation, the cross-format performance gap is **completely resolved**. Both conversational dialogues and single-message formats achieve **100.00% decisive accuracy** and **0.00% false positive rates** on the handwritten adversarial set.
+---
+
+## 🧪 Production Verification
+
+To verify that all Next.js pages and FastAPI backend routes compile cleanly:
+
+```bash
+# 1. Verify Backend & ML Modules
+python -c "from backend.fastapi.app.main import app; print('✓ Backend OK')"
+
+# 2. Verify Frontend Production Build
+cd frontend/nextjs && npm run build
+```
+
+---
+
+<div align="center">
+
+Made with ❤️ by the **Raksha Grid Engineering Team**
+
+</div>
