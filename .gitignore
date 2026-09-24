@@ -1,10 +1,11 @@
 # Environment & Secrets
 .env
+.env.*
 .env*.local
 *.env
 
 # Python Virtual Environments & Packages
-.venv
+.venv/
 venv/
 env/
 ENV/
@@ -37,27 +38,33 @@ htmlcov/
 
 # Node.js & Frontend Next.js Build Outputs
 node_modules/
-frontend/nextjs/node_modules/
 .next/
-frontend/nextjs/.next/
 out/
-frontend/nextjs/out/
 .next-boost/
 .vercel/
 
-# Heavy Datasets & Model Artifact Exclusions
-data/sources/
-artifacts/scam-transformer/
-artifacts/scam-distilbert/
-training_output/
-logs/
+# ML Model Weights & Artifacts (Ignore binary weights; keep source code & configs)
+*.h5
+*.keras
 *.joblib
+*.pt
+*.pth
+*.onnx
+*.safetensors
 *.npy
-module1_currency/currency_data
+training_output/
+storage/models/
 
-# Persistent Uploads (Keep folder, ignore uploaded binary files)
-storage/uploads/*
-!storage/uploads/.gitkeep
+# Datasets & Parquet Files
+data/raw/
+data/processed/
+data/sources/
+*.parquet
+
+# Runtime Storage & Uploads
+storage/uploads/
+storage/outputs/
+logs/
 
 # Operating System & IDE Files
 .DS_Store

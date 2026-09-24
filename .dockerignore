@@ -1,0 +1,17 @@
+.git
+.venv
+node_modules
+.next
+__pycache__
+*.pyc
+training_output
+data/raw
+storage/uploads
+storage/outputs
+.env
+*.h5
+*.keras
+*.joblib
+*.pt
+*.pth
+*.parquet

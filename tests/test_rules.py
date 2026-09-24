@@ -1,5 +1,5 @@
 # tests/test_rules.py
-from models.rules import score_lexicon
+from ml.module2.model.rules import score_lexicon
 
 def test_legitimate_text():
     text = "Hello, how are you? I wanted to discuss the project update for next week."

@@ -107,6 +107,11 @@ def _load_model():
     if _clf is None:
         if os.path.exists(scam_config.ENSEMBLE_MODEL_PATH):
             try:
+                import sys
+                import types
+                if "models" not in sys.modules:
+                    sys.modules["models"] = types.ModuleType("models")
+                sys.modules["models.ensemble"] = sys.modules[__name__]
                 _clf = joblib.load(scam_config.ENSEMBLE_MODEL_PATH)
             except Exception as e:
                 print(f"Error loading ensemble meta-model: {e}")
