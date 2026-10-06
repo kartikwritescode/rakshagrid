@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rakshagrid-ai-crime"
+version = "2.0.0"
+description = "Raksha Grid AI Crime Hotspot DBSCAN Engine"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [
+    {name = "Raksha Grid Team"}
+]
+dependencies = [
+    "rakshagrid-common",
+    "numpy>=1.26.0",
+    "scikit-learn>=1.4.0",
+    "pandas>=2.0.0",
+    "pyarrow>=14.0.0"
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["rakshagrid.ai_crime*"]

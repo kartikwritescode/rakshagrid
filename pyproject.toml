@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rakshagrid"
+version = "2.0.0"
+description = "Raksha Grid — AI Public Safety & Crime Intelligence Platform"
+authors = [
+    {name = "Raksha Grid Team"}
+]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.30.0",
+    "pydantic>=2.6.0",
+    "pydantic-settings>=2.1.0",
+    "python-dotenv>=1.0.0",
+    "scikit-learn>=1.4.0",
+    "joblib>=1.3.2",
+    "numpy>=1.26.0",
+    "pandas>=2.2.0",
+    "pyarrow>=15.0.0",
+    "networkx>=3.2.0"
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = [
+    ".",
+    "apps/api",
+    "apps/api/src",
+    "packages/common",
+    "packages/ai-scam",
+    "packages/ai-currency",
+    "packages/ai-crime",
+    "packages/ai-graph"
+]
+addopts = "-ra -q"
+filterwarnings = [
+    "ignore::DeprecationWarning",
+    "ignore::UserWarning"
+]

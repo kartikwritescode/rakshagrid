@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rakshagrid-ai-graph"
+version = "2.0.0"
+description = "Raksha Grid AI Graph Intelligence and Network Builder"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [
+    {name = "Raksha Grid Team"}
+]
+dependencies = [
+    "rakshagrid-common",
+    "networkx>=3.2.0"
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["rakshagrid.ai_graph*"]

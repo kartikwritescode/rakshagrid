@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rakshagrid-common"
+version = "2.0.0"
+description = "Raksha Grid Common Utilities, Configs, Exceptions, and Constants"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [
+    {name = "Raksha Grid Team"}
+]
+dependencies = [
+    "pydantic>=2.6.0",
+    "pydantic-settings>=2.1.0",
+    "python-dotenv>=1.0.0"
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["rakshagrid.common*"]

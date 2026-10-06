@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rakshagrid-api"
+version = "2.0.0"
+description = "Raksha Grid Central Intelligence FastAPI Application"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [
+    {name = "Raksha Grid Team"}
+]
+dependencies = [
+    "rakshagrid-common",
+    "rakshagrid-ai-scam",
+    "rakshagrid-ai-currency",
+    "rakshagrid-ai-crime",
+    "rakshagrid-ai-graph",
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.30.0",
+    "pydantic>=2.6.0",
+    "pydantic-settings>=2.1.0",
+    "python-multipart>=0.0.9"
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["rakshagrid.api*"]

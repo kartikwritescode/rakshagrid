@@ -1,0 +1,1 @@
+"""Common structured logging."""

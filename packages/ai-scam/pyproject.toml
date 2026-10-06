@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rakshagrid-ai-scam"
+version = "2.0.0"
+description = "Raksha Grid AI Scam Interceptor and Whisper Biometrics"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [
+    {name = "Raksha Grid Team"}
+]
+dependencies = [
+    "rakshagrid-common",
+    "scikit-learn>=1.4.0",
+    "joblib>=1.3.0",
+    "numpy>=1.26.0",
+    "scipy>=1.11.0",
+    "torch>=2.1.0",
+    "transformers>=4.40.0",
+    "groq>=0.9.0"
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["rakshagrid.ai_scam*"]

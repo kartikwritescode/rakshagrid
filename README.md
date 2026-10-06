@@ -20,57 +20,83 @@
 
 ```text
 rakshagrid/
-├── backend/                  # Centralized FastAPI REST Application
-│   └── fastapi/
-│       ├── app/
-│       │   ├── api/          # Low-level API abstractions
-│       │   ├── config/       # Settings & environment variables
-│       │   ├── core/         # Lifespan events & startup initializers
-│       │   ├── middleware/   # CORS & Centralized Exception Handlers
-│       │   ├── routers/      # Audio, Scam, Currency, Crime, Health routers
-│       │   ├── schemas/      # Pydantic request/response schemas
-│       │   └── services/     # Service layer wrapping ML interfaces
-│       ├── Dockerfile
-│       └── requirements.txt
-├── frontend/                 # Next.js 14 Production Web Interface
-│   └── nextjs/
+├── apps/
+│   ├── api/                      # Centralized FastAPI REST Application
+│   │   ├── src/
+│   │   │   ├── main.py           # Unified entrypoint mounting /api & /api/v1
+│   │   │   ├── config.py         # App configuration & settings
+│   │   │   ├── core/             # Lifespan events & startup initializers
+│   │   │   ├── middleware/       # CORS & Centralized Exception Handlers
+│   │   │   ├── routers/v1/       # Audio, Scam, Currency, Crime, Health routers
+│   │   │   ├── services/         # Service layer wrapping ML packages
+│   │   │   └── schemas/          # Pydantic request/response schemas
+│   │   ├── Dockerfile
+│   │   └── requirements.txt
+│   │
+│   └── web/                      # Next.js 14 Production Web Interface
 │       ├── src/
-│       │   ├── api/          # Generic HTTP client (client.ts)
-│       │   ├── components/   # UI components (LeafletCrimeMap, GraphView, RiskScorePanel)
-│       │   ├── constants/    # API endpoints & configuration
-│       │   ├── hooks/        # React custom hooks (useAudioDetector, useCrimeMap)
-│       │   ├── pages/        # 18 Prerendered Static & Dynamic Pages
-│       │   ├── services/     # API Service calls to FastAPI backend
-│       │   ├── styles/       # Tailwind CSS & global glassmorphism styles
-│       │   └── types/        # TypeScript interfaces matching FastAPI schemas
+│       │   ├── components/       # UI components (LeafletCrimeMap, GraphView, RiskScorePanel)
+│       │   ├── pages/            # Next.js Pages & Views
+│       │   ├── services/         # API Service calls to FastAPI backend
+│       │   └── styles/           # Tailwind CSS & global styles
+│       ├── public/
+│       ├── package.json
 │       └── Dockerfile
-├── ml/                       # Standalone Machine Learning Modules
-│   ├── module1_currency/     # Counterfeit Banknote Detector (EfficientNetB0)
-│   ├── module2/              # Scam Interceptor (Whisper + Stacking Ensemble + Groq LLM)
-│   └── module4_crime/        # VigilGrid Crime Engine (Haversine DBSCAN Hotspots)
-├── shared/                   # Cross-cutting Shared Utilities
-├── storage/                  # Mounted Persistent Storage (models, outputs, uploads)
-├── scripts/                  # Cross-Platform Launcher Scripts (dev.bat, dev.sh, build.sh)
-└── docker-compose.yml        # Multi-Container Orchestration
+│
+├── packages/                     # Clean Namespaced Python Packages (`rakshagrid.*`)
+│   ├── ai-scam/                  # Call Scam Interceptor & Whisper Audio Biometrics
+│   ├── ai-currency/              # Counterfeit Banknote Vision Classifier
+│   ├── ai-crime/                 # VigilGrid Geospatial DBSCAN Hotspot Engine
+│   ├── ai-graph/                 # Graph Intelligence & Crime Network Builder
+│   └── common/                   # Cross-cutting configs, logging, exceptions, utils
+│
+├── pipelines/                    # ML Training & Evaluation Pipelines
+│   ├── training/                 # Ensemble, TF-IDF, Transformer training scripts
+│   ├── evaluation/               # Adversarial & calibration benchmarks
+│   └── notebooks/                # Exploratory notebooks
+│
+├── data/                         # Datasets & Sources
+│   ├── raw/                      # Ground truth raw datasets & sources
+│   ├── processed/                # Processed point clouds & training data
+│   └── README.md
+│
+├── storage/                      # Persistent Runtime Assets
+│   ├── models/                   # Serialized model weights & caches
+│   ├── uploads/                  # Temporary file upload staging
+│   └── outputs/                  # Exported outputs & clusters
+│
+├── tests/
+│   ├── integration/              # API and rule integration tests
+│   └── e2e/                      # End-to-end test scenarios
+│
+├── scripts/                      # Cross-Platform Launcher Scripts (dev.bat, dev.sh)
+├── docs/                         # Architecture & Migration Documentation
+├── docker-compose.yml            # Multi-Container Orchestration
+├── .dockerignore
+├── .gitignore
+└── pyproject.toml                # Root packaging & Pytest configuration
 ```
 
 ---
 
 ## ✨ Key Features
 
-### 🎵 1. Audio Deepfake & Call Scam Interceptor (Modules 2 & 3)
+### 🎵 1. Audio Deepfake & Call Scam Interceptor (`rakshagrid.ai_scam`)
 - Multi-tier speech transcription supporting **`.ogg`, `.wav`, `.mp3`, `.m4a`, `.flac`, `.webm`, `.opus`**.
 - Powered by `Faster-Whisper` + `OpenAI Whisper` + `Groq Cloud Audio API`.
 - **Bounded Stacking Ensemble** (`scipy L-BFGS-B` non-negative meta-classifier) evaluating TF-IDF, DistilBERT PyTorch transformers, and 9 engineered risk features.
 - Groq `Llama-3.3-70b-versatile` LLM fallback for borderline verification.
 
-### 💵 2. Counterfeit Currency Scanner (Module 1)
+### 💵 2. Counterfeit Currency Scanner (`rakshagrid.ai_currency`)
 - Deep vision CNN model (`EfficientNetB0`) analyzing banknote images (224x224).
 - Detects counterfeit print defects, color shifts, and missing security thread patterns.
 
-### 🗺️ 3. Interactive Leaflet.js Crime Map & Hotspot Engine (Module 4)
+### 🗺️ 3. Interactive Leaflet.js Crime Map & Hotspot Engine (`rakshagrid.ai_crime`)
 - **VigilGrid Engine**: Haversine `DBSCAN` spatial clustering over latitude/longitude incident point clouds (`eps=0.4km`, `min_samples=20`).
 - **Interactive Dark Map**: Uses `CartoDB Dark` map tiles, custom severity markers, popup telemetry, live search, severity filters, and patrol unit allocation.
+
+### 🕸️ 4. Graph Network Intelligence (`rakshagrid.ai_graph`)
+- Graph analysis engine with network centrality, syndicate ring detection, and transaction flow visualization.
 
 ---
 
@@ -107,7 +133,7 @@ chmod +x ./scripts/dev.sh
 ./scripts/dev.sh
 ```
 
-> **Note**: `scripts/dev.bat` automatically frees locked ports (3000 & 8000), configures python paths, and opens separate pop-up windows for the backend and frontend.
+> **Note**: `scripts/dev.bat` automatically frees locked ports (3000 & 8000), configures python paths, and launches the backend and frontend.
 
 ---
 
@@ -118,18 +144,19 @@ chmod +x ./scripts/dev.sh
 # 1. Ensure you are in project root
 cd C:\files\programming\Python\projects\rakshagrid
 
-# 2. Install backend dependencies
-pip install -r backend/fastapi/requirements.txt
+# 2. Install dependencies & packages in editable mode
+pip install -r apps/api/requirements.txt
+pip install -e packages/common -e packages/ai-scam -e packages/ai-currency -e packages/ai-crime -e packages/ai-graph -e apps/api
 
 # 3. Start FastAPI server
-python -m uvicorn backend.fastapi.app.main:app --host 0.0.0.0 --port 8000 --reload
+python -m uvicorn rakshagrid.api.main:app --host 0.0.0.0 --port 8000 --reload
 ```
 *Backend runs at: **[http://localhost:8000](http://localhost:8000)** (Interactive Docs: **[http://localhost:8000/docs](http://localhost:8000/docs)**)*
 
 #### Terminal 2 — Next.js Frontend (Port 3000)
 ```powershell
 # 1. Navigate to frontend directory
-cd frontend/nextjs
+cd apps/web
 
 # 2. Install Node packages
 npm install
@@ -151,17 +178,19 @@ docker-compose up --build
 
 ## 📡 API Endpoints & Testing Snippets
 
+Both `/api/...` and `/api/v1/...` routes are mounted for full backwards compatibility.
+
 | Endpoint Path | Method | Module | Description |
 | :--- | :--- | :--- | :--- |
 | `/health` | `GET` | System | Central runtime health check across all ML modules |
-| `/api/currency/predict` | `POST` | Module 1 | Counterfeit banknote image defect scan |
-| `/api/audio/detect` | `POST` | Module 2 | Audio recording (.ogg/mp3/wav) deepfake & scam interceptor |
-| `/api/audio/transcribe` | `POST` | Module 3 | Whisper speech-to-text audio transcription |
-| `/api/scam/analyze-text` | `POST` | Module 2 | Text transcript scam risk classification |
-| `/api/crime/predict` | `POST` | Module 4 | Crime scene image/video evidence analysis |
-| `/api/crime/incidents` | `GET` | Module 4 | Incident point cloud formatted for Leaflet.js markers |
-| `/api/crime/hotspots` | `GET` | Module 4 | DBSCAN crime hotspot clusters |
-| `/api/crime/patrol-allocation` | `GET` | Module 4 | Patrol resource allocation engine |
+| `/api/currency/predict` | `POST` | `ai-currency` | Counterfeit banknote image defect scan |
+| `/api/audio/detect` | `POST` | `ai-scam` | Audio recording (.ogg/mp3/wav) deepfake & scam interceptor |
+| `/api/audio/transcribe` | `POST` | `ai-scam` | Whisper speech-to-text audio transcription |
+| `/api/scam/analyze-text` | `POST` | `ai-scam` | Text transcript scam risk classification |
+| `/api/crime/predict` | `POST` | `ai-crime` | Crime scene image/video evidence analysis |
+| `/api/crime/incidents` | `GET` | `ai-crime` | Incident point cloud formatted for Leaflet.js markers |
+| `/api/crime/hotspots` | `GET` | `ai-crime` | DBSCAN crime hotspot clusters |
+| `/api/crime/patrol-allocation` | `GET` | `ai-crime` | Patrol resource allocation engine |
 
 ### 🧪 Example cURL Requests
 
@@ -180,16 +209,19 @@ curl -X POST "http://localhost:8000/api/audio/detect" \
 
 ---
 
-## 🧪 Production Verification
+## 🧪 Production Verification & Testing
 
-To verify that all Next.js pages and FastAPI backend routes compile cleanly:
+To verify the monorepo test suite and import integrity:
 
 ```bash
-# 1. Verify Backend & ML Modules
-python -c "from backend.fastapi.app.main import app; print('✓ Backend OK')"
+# 1. Run Python import checks across all packages
+python -c "from rakshagrid.common.configs.base_config import BASE_DIR; from rakshagrid.ai_scam import predict; from rakshagrid.ai_currency import predict; from rakshagrid.ai_crime import predict_hotspots; from rakshagrid.ai_graph import build_graph_from_reports; from apps.api.src.main import app; print('✓ All package namespaces verified')"
 
-# 2. Verify Frontend Production Build
-cd frontend/nextjs && npm run build
+# 2. Run Pytest Integration Suite
+python -m pytest tests/
+
+# 3. Verify Frontend Production Build (optional)
+cd apps/web && npm run build
 ```
 
 ---
