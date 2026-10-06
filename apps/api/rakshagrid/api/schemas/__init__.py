@@ -1,7 +1,30 @@
-# backend/fastapi/app/schemas/__init__.py
-from .scam_schema import TextRequest, StreamRequest, VerdictResponse
-from .currency_schema import CurrencyResponse
-from .crime_schema import CrimeHealthResponse, HotspotsResponse, PointsResponse, PatrolAllocationResponse
+# apps/api/rakshagrid/api/schemas/__init__.py
+"""Re-export schemas from authoritative apps.api.src.schemas."""
+
+from apps.api.src.schemas import (
+    TextRequest,
+    StreamRequest,
+    VerdictResponse,
+    CurrencyResponse,
+    CrimeHealthResponse,
+    HotspotsResponse,
+    PointsResponse,
+    PatrolAllocationResponse,
+    ErrorResponse,
+    HealthResponse,
+    AudioDetectResponse,
+    TranscribeResponse,
+    GraphNode,
+    GraphLink,
+    GraphCentrality,
+    GraphResponse,
+    CrimeReportCreate,
+    CrimeReport,
+    ReportListResponse,
+    ChatMessage,
+    ChatRequest,
+    ChatResponse,
+)
 
 __all__ = [
     "TextRequest",
@@ -12,4 +35,18 @@ __all__ = [
     "HotspotsResponse",
     "PointsResponse",
     "PatrolAllocationResponse",
+    "ErrorResponse",
+    "HealthResponse",
+    "AudioDetectResponse",
+    "TranscribeResponse",
+    "GraphNode",
+    "GraphLink",
+    "GraphCentrality",
+    "GraphResponse",
+    "CrimeReportCreate",
+    "CrimeReport",
+    "ReportListResponse",
+    "ChatMessage",
+    "ChatRequest",
+    "ChatResponse",
 ]

@@ -10,4 +10,7 @@ class CurrencyResponse(BaseModel):
     confidence: float
     is_genuine: bool
     class_probabilities: Dict[str, float]
+    calibrated_verdict: Optional[str] = None
+    confidence_threshold: Optional[float] = None
     processing_time_ms: Optional[float] = None
+

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { X, CheckCircle2, ShieldAlert, Upload, Loader2 } from 'lucide-react';
-import { supabase } from '../lib/supabase';
+import { reportService } from '../../services/reportService';
 
 interface ReportCrimeModalProps {
   isOpen: boolean;
@@ -70,38 +70,23 @@ export default function ReportCrimeModal({ isOpen, onClose, onSuccessSubmit }: R
     try {
       let evidenceUrl = '';
       if (evidenceFile) {
-        if (supabase && process.env.NEXT_PUBLIC_SUPABASE_URL) {
-          const fileExt = evidenceFile.name.split('.').pop();
-          const fileName = `${Date.now()}_${Math.random().toString(36).substring(7)}.${fileExt}`;
-          const { data, error: uploadErr } = await supabase.storage
-            .from('evidence')
-            .upload(fileName, evidenceFile);
-          
-          if (uploadErr) {
-            console.error('Supabase upload error:', uploadErr);
-          } else if (data) {
-            const { data: publicData } = supabase.storage
-              .from('evidence')
-              .getPublicUrl(fileName);
-            evidenceUrl = publicData.publicUrl;
-          }
-        } else {
-          evidenceUrl = `/mock_uploads/evidence/${Date.now()}_${evidenceFile.name}`;
-        }
+        evidenceUrl = `/uploads/evidence/${Date.now()}_${evidenceFile.name}`;
       }
 
-      const victimId = `VIC-${Math.random().toString(36).substring(2, 9).toUpperCase()}`;
       const deviceFingerprint = getBrowserFingerprint();
 
-      const response = await fetch('http://localhost:8000/api/scam/analyze-text', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          transcript: `${typeOfScam}: ${description} Scammer Phone: ${scammerPhone} Scammer UPI: ${scammerUpi} Amount: ${amountLost}`
-        }),
-      }).catch(() => null);
+      await reportService.createReport({
+        victimName,
+        phoneNumber: scammerPhone || victimPhone,
+        upiId: scammerUpi,
+        bankAccount: scammerBank,
+        deviceFingerprint,
+        typeOfScam,
+        description: `${description}${evidenceUrl ? ` [Evidence: ${evidenceUrl}]` : ''}`,
+        amountLost: parseFloat(amountLost) || 0,
+        city,
+        state,
+      });
 
       setSuccess(true);
       if (onSuccessSubmit) {
@@ -109,7 +94,7 @@ export default function ReportCrimeModal({ isOpen, onClose, onSuccessSubmit }: R
       }
       setTimeout(() => {
         handleClose();
-      }, 2500);
+      }, 2000);
 
     } catch (err) {
       console.error(err);

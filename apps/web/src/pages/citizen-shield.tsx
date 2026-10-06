@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
-import { FraudShieldChat } from '../components/FraudShieldChat';
+import { FraudShieldChat } from '../components/common/FraudShieldChat';
 
 export default function CitizenShield() {
   return (

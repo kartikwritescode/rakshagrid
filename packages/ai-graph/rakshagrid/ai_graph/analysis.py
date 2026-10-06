@@ -209,6 +209,9 @@ def analyze_fraud_graph(G):
         "confidence scores": confidence_scores
     }
 
+# Backward compatibility alias
+analyze_graph = analyze_fraud_graph
+
 def main():
     parser = argparse.ArgumentParser(description="Analyze fraud report network graph.")
     parser.add_argument(

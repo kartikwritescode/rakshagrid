@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import { FileSearch, ShieldAlert, CheckCircle2 } from 'lucide-react';
-import OnboardingGuide from '../components/OnboardingGuide';
+import OnboardingGuide from '../components/common/OnboardingGuide';
 
 export default function IntelligencePage() {
   const router = useRouter();

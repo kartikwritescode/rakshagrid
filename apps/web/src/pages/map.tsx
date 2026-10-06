@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import dynamic from 'next/dynamic';
 import { MapPin, Filter, Search, RefreshCw, ShieldAlert, Layers } from 'lucide-react';
-import OnboardingGuide from '../components/OnboardingGuide';
+import OnboardingGuide from '../components/common/OnboardingGuide';
 import { crimeService } from '../services/crimeService';
 
 const LeafletCrimeMap = dynamic(
-  () => import('../components/LeafletCrimeMap'),
+  () => import('../components/map/LeafletCrimeMap'),
   { ssr: false }
 );
 

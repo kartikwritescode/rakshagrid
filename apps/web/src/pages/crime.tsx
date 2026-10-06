@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
 import { ShieldAlert, Upload, Camera, Video, CheckCircle2, AlertTriangle, Loader2 } from 'lucide-react';
-import OnboardingGuide from '../components/OnboardingGuide';
+import OnboardingGuide from '../components/common/OnboardingGuide';
 import { useCrimeDetection } from '../hooks/useCrimeDetection';
 
 export default function CrimePage() {
@@ -91,6 +91,16 @@ export default function CrimePage() {
 
         <div className="glass-panel p-6 rounded-2xl border-white/5 space-y-4">
           <h3 className="font-bold text-white text-sm uppercase tracking-wider font-mono">Prediction Telemetry Output</h3>
+
+          {error && (
+            <div className="p-4 rounded-xl border bg-amber-500/10 border-amber-500/30 text-amber-300 flex items-center gap-3">
+              <AlertTriangle className="w-5 h-5 text-amber-400 shrink-0" />
+              <div>
+                <h4 className="font-bold text-xs uppercase font-mono">Service Notice</h4>
+                <p className="text-[11px] text-slate-300 font-mono mt-0.5">{error}</p>
+              </div>
+            </div>
+          )}
 
           {result ? (
             <div className="space-y-4 font-mono text-xs">

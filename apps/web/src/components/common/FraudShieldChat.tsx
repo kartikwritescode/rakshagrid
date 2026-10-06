@@ -2,7 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Mic, MicOff, Send, Loader2, Bot, User, ShieldCheck } from 'lucide-react';
 import { RiskScorePanel } from './RiskScorePanel';
 import ReactMarkdown from 'react-markdown';
-import { scamService } from '../services/scamService';
+import { scamService } from '../../services/scamService';
+import { chatService } from '../../services/chatService';
 
 declare global {
   interface Window {
@@ -114,8 +115,17 @@ export const FraudShieldChat: React.FC = () => {
       const fullTranscript = newMessages.map(m => `${m.role === 'user' ? 'Citizen' : 'AI'}: ${m.content}`).join('\n');
       calculateRiskScore(fullTranscript);
 
-      const assistantMessage = `Thank you for sharing. I've analyzed your text using the Raksha Grid Multi-Tier Scam Interceptor. Your current risk level is being displayed on the right panel.`;
-      setMessages([...newMessages, { role: 'assistant', content: assistantMessage }]);
+      try {
+        const chatRes = await chatService.sendMessage({
+          messages: newMessages.map(m => ({ role: m.role, content: m.content })),
+          transcript: fullTranscript
+        });
+        setMessages([...newMessages, { role: 'assistant', content: chatRes.reply }]);
+      } catch (chatErr) {
+        console.error('Chat endpoint failed:', chatErr);
+        const assistantMessage = `⚠️ The Raksha Grid AI chat service is currently unreachable. Please check backend connectivity. (Scam risk assessment remains available on the right panel)`;
+        setMessages([...newMessages, { role: 'assistant', content: assistantMessage }]);
+      }
     } catch (error) {
       console.error('Error handling send:', error);
     } finally {

@@ -1,25 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { TableSkeleton } from '../components/Skeleton';
-import { Users, ArrowRight, ShieldAlert } from 'lucide-react';
-import OnboardingGuide from '../components/OnboardingGuide';
-
-interface Cluster {
-  id: number;
-  nodes: string[];
-}
+import { TableSkeleton } from '../components/common/Skeleton';
+import { Users, ArrowRight, ShieldAlert, Database } from 'lucide-react';
+import OnboardingGuide from '../components/common/OnboardingGuide';
+import { graphService, ClusterItemData } from '../services/graphService';
 
 export default function ClustersPage() {
-  const [clusters, setClusters] = useState<Cluster[]>([]);
+  const [clusters, setClusters] = useState<ClusterItemData[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    setLoading(true);
-    setClusters([
-      { id: 1, nodes: ['phone:+919876543210', 'device:dev_8f21a', 'victim:VIC-9021', 'victim:VIC-4412'] },
-      { id: 2, nodes: ['upi:scam@okaxis', 'account:501002345678', 'victim:VIC-9021'] }
-    ]);
-    setLoading(false);
+    async function fetchClusters() {
+      try {
+        setLoading(true);
+        const data = await graphService.getClusters();
+        setClusters(data.clusters || []);
+        setError(null);
+      } catch (err) {
+        console.error('Failed to load clusters:', err);
+        setError('Failed to fetch syndicate clusters.');
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchClusters();
   }, []);
 
   return (
@@ -36,13 +41,22 @@ export default function ClustersPage() {
             Detected Fraud Clusters
           </h1>
           <p className="text-slate-400 text-xs font-mono mt-1">
-            Mule rings and infrastructure networks
+            Mule rings and infrastructure networks ({clusters.length} active communities)
           </p>
         </div>
       </div>
 
       {loading ? (
         <TableSkeleton />
+      ) : clusters.length === 0 ? (
+        <div className="glass-panel p-12 rounded-2xl border-white/5 text-center flex flex-col items-center justify-center space-y-3">
+          <Database className="w-10 h-10 text-slate-600 animate-pulse" />
+          <h3 className="text-base font-bold text-slate-300">No Syndicate Clusters Detected</h3>
+          <p className="text-xs text-slate-500 max-w-md font-mono">
+            No connected crime syndicates or multi-victim rings have been discovered yet.
+            Clusters will automatically form as matching payment and contact nodes are registered.
+          </p>
+        </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {clusters.map((cluster) => (
@@ -50,29 +64,41 @@ export default function ClustersPage() {
               <div className="flex items-center justify-between border-b border-white/5 pb-3">
                 <div className="flex items-center gap-2">
                   <ShieldAlert className="w-5 h-5 text-rose-500" />
-                  <h3 className="font-bold text-white font-mono text-sm uppercase">Cluster #{cluster.id}</h3>
+                  <h3 className="font-bold text-white font-mono text-sm uppercase">Syndicate Ring #{cluster.id}</h3>
                 </div>
-                <span className="text-xs text-cyan-400 font-mono font-bold">{cluster.nodes.length} Linked Entities</span>
+                <div className="flex items-center gap-3">
+                  {cluster.risk_score && (
+                    <span className="text-[10px] bg-rose-500/10 text-rose-400 border border-rose-500/20 px-2 py-0.5 rounded font-mono font-bold">
+                      Risk: {(cluster.risk_score * 100).toFixed(0)}%
+                    </span>
+                  )}
+                  <span className="text-xs text-cyan-400 font-mono font-bold">{cluster.size} Entities</span>
+                </div>
               </div>
 
               <div className="space-y-2">
                 <p className="text-[10px] text-slate-500 uppercase font-mono">Linked Entity IDs</p>
                 <div className="flex flex-wrap gap-2">
-                  {cluster.nodes.map((node, i) => (
-                    <span key={i} className="px-2.5 py-1 rounded bg-black/40 border border-white/10 text-xs font-mono text-slate-300">
+                  {cluster.nodes.map((node) => (
+                    <span 
+                      key={node}
+                      className="px-2.5 py-1 bg-slate-900 border border-slate-800 text-slate-300 text-xs font-mono rounded-lg break-all"
+                    >
                       {node}
                     </span>
                   ))}
                 </div>
               </div>
 
-              <Link
-                href={`/chat?cluster=${cluster.id}`}
-                className="inline-flex items-center gap-2 text-xs text-cyan-400 font-bold hover:underline font-mono pt-2"
-              >
-                Open Cluster Intelligence Chat
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
+              <div className="pt-2">
+                <Link
+                  href={`/graph`}
+                  className="inline-flex items-center gap-1.5 text-xs text-cyan-400 hover:text-cyan-300 font-mono font-bold uppercase tracking-wider"
+                >
+                  Explore in Graph Explorer
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
             </div>
           ))}
         </div>

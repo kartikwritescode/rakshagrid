@@ -11,9 +11,11 @@ export async function apiClient<T>(
 ): Promise<T> {
   const url = endpoint.startsWith('http') ? endpoint : `${API_BASE_URL}${endpoint}`;
   
-  const headers = {
+  const apiKey = process.env.NEXT_PUBLIC_API_KEY || 'rakshagrid-master-key-2026';
+  const headers: Record<string, string> = {
     ...(options.body instanceof FormData ? {} : { 'Content-Type': 'application/json' }),
-    ...(options.headers || {}),
+    'X-API-Key': apiKey,
+    ...((options.headers as Record<string, string>) || {}),
   };
 
   const config: RequestInit = {

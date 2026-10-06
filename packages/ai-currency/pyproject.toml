@@ -19,4 +19,5 @@ dependencies = [
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["rakshagrid.ai_currency*"]
+include = ["rakshagrid.ai_currency*", "rakshagrid.currency*", "src*"]
+

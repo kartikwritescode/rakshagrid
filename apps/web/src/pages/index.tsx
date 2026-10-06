@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import StatCard from '../components/StatCard';
-import { TableSkeleton } from '../components/Skeleton';
-import { NodeDistributionChart, RiskProfileChart } from '../components/AnalyticsCharts';
+import StatCard from '../components/common/StatCard';
+import { TableSkeleton } from '../components/common/Skeleton';
+import { NodeDistributionChart, RiskProfileChart } from '../components/common/AnalyticsCharts';
 import { 
   FileText, 
   Network, 
@@ -14,8 +14,9 @@ import {
   AlertTriangle,
   Terminal
 } from 'lucide-react';
-import OnboardingGuide from '../components/OnboardingGuide';
+import OnboardingGuide from '../components/common/OnboardingGuide';
 import { crimeService } from '../services/crimeService';
+import { graphService } from '../services/graphService';
 
 interface Report {
   _id: string;
@@ -50,23 +51,32 @@ export default function Dashboard() {
       try {
         setLoading(true);
         const crimeHotspots = await crimeService.getHotspots().catch(() => ({ hotspots: [] }));
-        
-        const mockReports: Report[] = [
-          { _id: '1', victimId: 'VIC-9021', victimName: 'Ramesh Kumar', phoneNumber: '+91 98765 43210', upiId: 'scam@okaxis', bankAccount: '501002345678', deviceFingerprint: 'dev_8f21a', reportTimestamp: new Date().toISOString() },
-          { _id: '2', victimId: 'VIC-4412', victimName: 'Priya Sharma', phoneNumber: '+91 98112 33445', upiId: 'refund@paytm', bankAccount: '309911223344', deviceFingerprint: 'dev_11b4c', reportTimestamp: new Date().toISOString() }
-        ];
-        setReports(mockReports);
+        const reportsRes = await graphService.getReports().catch(() => ({ reports: [], total: 0 }));
+        const graphData = await graphService.getFullGraph().catch(() => ({
+          nodes: [],
+          links: [],
+          centrality: { pagerank: {}, betweenness: {} },
+          confidence_scores: {},
+          syndicates_detected: 0
+        }));
 
-        const mockAnalysis: AnalysisData = {
-          communities: [{ id: 1, nodes: ['1', '2', '3', '4', '5', '6'] }],
+        setReports(reportsRes.reports || []);
+
+        const nodeTypeCounts: Record<string, number> = {};
+        (graphData.nodes || []).forEach(n => {
+          nodeTypeCounts[n.type] = (nodeTypeCounts[n.type] || 0) + 1;
+        });
+
+        const realAnalysis: AnalysisData = {
+          communities: Array.from({ length: graphData.syndicates_detected || 0 }).map((_, i) => ({ id: i, nodes: [] })),
           "graph stats": {
-            totalNodes: crimeHotspots.hotspots.length > 0 ? crimeHotspots.hotspots.length * 15 : 42,
-            totalEdges: 68,
-            nodeTypeCounts: { Victim: 18, Phone: 12, UPI: 8, BankAccount: 4 }
+            totalNodes: graphData.nodes?.length || 0,
+            totalEdges: graphData.links?.length || 0,
+            nodeTypeCounts: Object.keys(nodeTypeCounts).length > 0 ? nodeTypeCounts : { Incident: 0 }
           },
-          "confidence scores": { "phone:+919876543210": 0.92, "device:dev_8f21a": 0.88 }
+          "confidence scores": graphData.confidence_scores || {}
         };
-        setAnalysis(mockAnalysis);
+        setAnalysis(realAnalysis);
         
         const timestamp = new Date().toLocaleTimeString();
         setLogs([

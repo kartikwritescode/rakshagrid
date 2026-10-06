@@ -65,6 +65,7 @@ data/sources/
 storage/uploads/
 storage/outputs/
 logs/
+scratch/
 
 # Operating System & IDE Files
 .DS_Store

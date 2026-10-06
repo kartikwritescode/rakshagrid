@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import { Activity, BarChart2, Zap } from 'lucide-react';
-import OnboardingGuide from '../components/OnboardingGuide';
+import OnboardingGuide from '../components/common/OnboardingGuide';
 
 export default function AnalyticsPage() {
   return (

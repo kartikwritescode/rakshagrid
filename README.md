@@ -10,7 +10,7 @@
 
 *An Enterprise Multi-Tier AI Platform for Digital Arrest Scam Interception, Audio Deepfake Voice Biometrics, Counterfeit Currency Scanning, and Geospatial Crime Intelligence.*
 
-[🚀 Quick Start](#-quick-start--local-walkthrough) • [✨ Key Features](#-key-features) • [📡 API Documentation](#-api-endpoints) • [🏗️ Architecture](#%EF%B8%8F-monorepo-architecture) • [🧪 Verification](#-verification--testing)
+[📖 Setup Guide](guide.md) • [🚀 Quick Start](#-quick-start--local-walkthrough) • [✨ Key Features](#-key-features) • [📡 API Documentation](#-api-endpoints) • [🏗️ Architecture](#%EF%B8%8F-monorepo-architecture) • [🧪 Verification](#-verification--testing)
 
 </div>
 

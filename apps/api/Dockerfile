@@ -23,4 +23,4 @@ RUN pip install --no-cache-dir --no-deps -e packages/common -e packages/ai-scam 
 
 EXPOSE 8000
 
-CMD ["uvicorn", "rakshagrid.api.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "apps.api.src.main:app", "--host", "0.0.0.0", "--port", "8000"]

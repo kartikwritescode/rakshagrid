@@ -1,8 +1,13 @@
-# ml/module2/predict.py
+# packages/ai-scam/rakshagrid/ai_scam/predict.py
 """Public interface for Module 2: Scam Call Interceptor & Digital Arrest Detection."""
 
-from rakshagrid.common.exceptions.base import MLInferenceException
+from rakshagrid.common.exceptions.base import (
+    MLInferenceException,
+    ValidationException,
+    AudioTranscriptionException,
+)
 from rakshagrid.common.logging.logger import setup_logger
+from rakshagrid.ai_scam.config import scam_config
 from rakshagrid.ai_scam.preprocessing.text_processor import extract_features, compute_rules_score
 from rakshagrid.ai_scam.model.rules import score_lexicon
 from rakshagrid.ai_scam.model.tfidf import get_scam_probability as tfidf_prob_fn
@@ -14,20 +19,22 @@ from rakshagrid.ai_scam.postprocessing.risk_calculator import format_verdict
 
 logger = setup_logger("rakshagrid.ai_scam.predict")
 
+
 def predict(transcript: str) -> dict:
     """
     Analyzes a call transcript through the full feature-augmented stacked ensemble.
     Falls back to LLM ONLY if the ensemble flags the call as needs_review.
-    
+
     Args:
         transcript (str): The transcript text of the call/message.
-        
+
     Returns:
         dict: Complete structured verdict payload.
     """
+    if not isinstance(transcript, str) or not transcript.strip():
+        raise ValidationException("Transcript text cannot be empty.")
+
     text = transcript.strip()
-    if not text:
-        raise ValueError("Transcript text cannot be empty.")
 
     try:
         # 1. Layer A: Fast rules/lexicon scorer
@@ -51,17 +58,17 @@ def predict(transcript: str) -> dict:
         final_band = ensemble_res["band"]
         stage = ensemble_res["method"]
 
-        # Rules Safety Override: if rules layer fires hard (>= 0.30) but ensemble is "low", force to needs_review
-        if rules_score >= 0.30 and final_band == "low":
+        # Rules Safety Override: Centralized threshold
+        if rules_score >= scam_config.RULES_SAFETY_OVERRIDE_THRESHOLD and final_band == "low":
             final_band = "needs_review"
             stage = "rules_safety_override"
 
         # Route self-referential queries to LLM fallback
         text_lower = text.lower()
         is_self_referential = (
-            "is it a scam" in text_lower or
-            "is it safe" in text_lower or
-            "is this a scam" in text_lower
+            "is it a scam" in text_lower
+            or "is it safe" in text_lower
+            or "is this a scam" in text_lower
         )
 
         llm_res = None
@@ -81,12 +88,12 @@ def predict(transcript: str) -> dict:
             "rules": float(rules_score),
             "tfidf": float(tfidf_prob),
             "transformer": float(trans_prob),
-            "ensemble": float(ensemble_res["score"])
+            "ensemble": float(ensemble_res["score"]),
         }
         if llm_res and "score" in llm_res:
             component_scores["llm_fallback"] = float(llm_res["score"])
 
-        return format_verdict(
+        verdict = format_verdict(
             stage=stage,
             final_score=final_score,
             final_band=final_band,
@@ -95,44 +102,54 @@ def predict(transcript: str) -> dict:
             component_scores=component_scores,
             eng_feats=eng_feats,
             transcript=text,
-            llm_res=llm_res
+            llm_res=llm_res,
         )
+        verdict["stt_status"] = "not_applicable"
+        return verdict
+    except (ValidationException, AudioTranscriptionException):
+        raise
     except Exception as e:
-        logger.error(f"Prediction error in module2: {e}")
-        raise MLInferenceException(message=str(e), module_name="module2")
+        logger.error(f"Prediction error in ai-scam: {e}")
+        raise MLInferenceException(message=str(e), module_name="ai-scam")
 
 
 def predict_audio(audio_path: str) -> dict:
     """
     Transcribes call audio using Whisper and runs the text classification pipeline.
+    Preserves AudioTranscriptionException when STT fails; never fabricates transcripts.
     """
-    try:
-        transcript = transcribe_audio(audio_path)
-        if not transcript.strip() or transcript.startswith("[Audio transcription"):
-            raise ValueError(f"Audio transcription failed: {transcript}")
-        verdict = predict(transcript)
-        verdict["transcript"] = transcript
-        return verdict
-    except Exception as e:
-        logger.error(f"Audio prediction error in module2: {e}")
-        raise MLInferenceException(message=str(e), module_name="module2")
+    # 1. Genuinely transcribe audio; raises AudioTranscriptionException if STT fails
+    transcript = transcribe_audio(audio_path)
+    if not transcript or not transcript.strip():
+        raise AudioTranscriptionException(
+            message="Audio transcription returned an empty transcript.",
+            reason_code="EMPTY_TRANSCRIPT",
+        )
+
+    # 2. Score real transcript
+    verdict = predict(transcript)
+    verdict["transcript"] = transcript
+    verdict["stt_status"] = "success"
+    return verdict
 
 
-def stream_predict(transcript_chunks: list) -> list:
-    """
-    Generates streaming payload items for transcript chunks.
-    """
+def evaluate_stream_chunk(running_text: str) -> dict:
+    """Evaluates incremental text for streaming analysis."""
+    rules_res = score_lexicon(running_text)
+    return {
+        "elapsed_chars": len(running_text),
+        "risk_score": round(rules_res["score"], 4),
+        "risk_band": rules_res["band"],
+        "fired_features": [f["feature"] for f in rules_res.get("fired", [])],
+        "fired_details": rules_res.get("fired", []),
+    }
+
+
+def stream_predict(transcript_chunks: list[str]) -> list[dict]:
+    """Generates sequential evaluations for transcript chunks."""
     results = []
     running_text = ""
     for chunk in transcript_chunks:
-        running_text += " " + chunk.strip()
-        rules_res = score_lexicon(running_text)
-        payload = {
-            "elapsed_chars": len(running_text),
-            "risk_score": rules_res["score"],
-            "risk_band": rules_res["band"],
-            "fired_features": [f["feature"] for f in rules_res.get("fired", [])],
-            "fired_details": rules_res.get("fired", [])
-        }
-        results.append(payload)
+        running_text += (" " if running_text else "") + chunk.strip()
+        results.append(evaluate_stream_chunk(running_text))
     return results

@@ -1,18 +1,26 @@
 # packages/ai-currency/rakshagrid/ai_currency/config/currency_config.py
-"""Configuration for Module 1: Counterfeit Currency Detection."""
+"""Configuration forwarder for currency detection."""
 
-from pathlib import Path
-from rakshagrid.common.configs.base_config import artifact_config
-from rakshagrid.common.constants.risk_bands import CALIBRATION
+from rakshagrid.ai_currency.config import (
+    CurrencyConfig,
+    currency_settings,
+    get_model_path,
+    MODEL_PATH,
+    IMG_SIZE,
+    CONFIDENCE_THRESHOLD,
+    MAX_UPLOAD_SIZE_BYTES,
+    ALLOWED_MIME_TYPES,
+    CLASS_NAMES,
+)
 
-MODEL_PATH: str = str(artifact_config.resolve_model_path("currency_model.h5", required=False, module_name="ai-currency"))
-IMG_SIZE = (224, 224)
-CONFIDENCE_THRESHOLD = CALIBRATION.currency_confidence_threshold
-
-CLASS_NAMES = [
-    "real",
-    "fake_print_defect",
-    "fake_color_shift",
-    "fake_missing_thread",
-    "fake_missing_microprint"
+__all__ = [
+    "CurrencyConfig",
+    "currency_settings",
+    "get_model_path",
+    "MODEL_PATH",
+    "IMG_SIZE",
+    "CONFIDENCE_THRESHOLD",
+    "MAX_UPLOAD_SIZE_BYTES",
+    "ALLOWED_MIME_TYPES",
+    "CLASS_NAMES",
 ]

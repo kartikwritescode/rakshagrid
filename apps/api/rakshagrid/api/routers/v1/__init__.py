@@ -1,14 +1,24 @@
-# apps/api/src/routers/v1/__init__.py
-from .scam import router as scam_router
-from .currency import router as currency_router
-from .crime import router as crime_router
-from .health import router as health_router
-from .audio import router as audio_router
+# apps/api/rakshagrid/api/routers/v1/__init__.py
+"""Re-export routers from apps.api.src.routers.v1."""
+
+from apps.api.src.routers.v1 import (
+    health_router,
+    scam_router,
+    audio_router,
+    currency_router,
+    crime_router,
+    graph_router,
+    reports_router,
+    chat_router,
+)
 
 __all__ = [
+    "health_router",
     "scam_router",
+    "audio_router",
     "currency_router",
     "crime_router",
-    "health_router",
-    "audio_router",
+    "graph_router",
+    "reports_router",
+    "chat_router",
 ]

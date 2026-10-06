@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import { Clock, ShieldAlert, CheckCircle2, Search } from 'lucide-react';
-import OnboardingGuide from '../components/OnboardingGuide';
+import OnboardingGuide from '../components/common/OnboardingGuide';
 import { crimeService } from '../services/crimeService';
 
 export default function IncidentsPage() {

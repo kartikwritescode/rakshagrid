@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
 import { FileText, Upload, Copy, Check, Loader2 } from 'lucide-react';
-import OnboardingGuide from '../components/OnboardingGuide';
+import OnboardingGuide from '../components/common/OnboardingGuide';
 import { useTranscriber } from '../hooks/useTranscriber';
 
 export default function TranscriptionPage() {

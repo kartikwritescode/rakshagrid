@@ -1,73 +1,90 @@
-# backend/fastapi/app/routers/crime_router.py
-"""Router for Module 4: VigilGrid Geospatial Crime Intelligence."""
+# apps/api/src/routers/v1/crime.py
+"""Router for Module 4: VigilGrid Geospatial Crime Pattern Intelligence."""
 
-import time
-from fastapi import APIRouter, Query, UploadFile, File, Form, HTTPException, status
-try:
-    from apps.api.src.schemas.crime_schema import CrimeHealthResponse, HotspotsResponse, PointsResponse, PatrolAllocationResponse
-    from apps.api.src.services.crime_service import crime_service
-except ImportError:
-    from schemas.crime_schema import CrimeHealthResponse, HotspotsResponse, PointsResponse, PatrolAllocationResponse
-    from services.crime_service import crime_service
+import asyncio
+from typing import Optional
+from fastapi import APIRouter, Depends, Query, UploadFile, File, Form, status
+from fastapi.responses import JSONResponse
+from apps.api.src.core.security import verify_api_key
 
-router = APIRouter(prefix="/api/crime", tags=["Geospatial Crime Intelligence"])
+from apps.api.src.schemas.crime_schema import (
+    CrimeHealthResponse,
+    HotspotsResponse,
+    PointsResponse,
+    PatrolAllocationResponse,
+    CrimeMediaNotImplementedResponse,
+)
+from apps.api.src.services.crime_service import crime_service
+
+router = APIRouter(prefix="/crime", tags=["Geospatial Crime Intelligence"])
+
 
 @router.get("/health", response_model=CrimeHealthResponse)
-def crime_health():
-    """Returns runtime health status of the VigilGrid hotspot engine."""
-    return crime_service.get_status()
+async def crime_health():
+    """Returns runtime health status of the VigilGrid hotspot engine (public health probe)."""
+    return await asyncio.to_thread(crime_service.get_status)
 
-@router.get("/hotspots", response_model=HotspotsResponse)
-def get_hotspots():
-    """Returns detected DBSCAN crime hotspot clusters ranked by risk weight."""
-    return {"hotspots": crime_service.get_hotspots()}
 
-@router.get("/points", response_model=PointsResponse)
-@router.get("/incidents")
-def get_incidents(
-    limit: int = Query(default=5000, le=40000, description="Cap payload size for map rendering"),
-    crime_type: str = Query(default=None),
-    severity: str = Query(default=None)
+@router.get("/hotspots", response_model=HotspotsResponse, dependencies=[Depends(verify_api_key)])
+async def get_hotspots():
+    """Returns detected DBSCAN crime hotspot clusters ranked by composite risk weight (Protected)."""
+    hotspots = await asyncio.to_thread(crime_service.get_hotspots)
+    return {"hotspots": hotspots}
+
+
+@router.get("/points", response_model=PointsResponse, dependencies=[Depends(verify_api_key)])
+@router.get("/incidents", response_model=PointsResponse, dependencies=[Depends(verify_api_key)])
+async def get_points(
+    limit: int = Query(5000, description="Max points to return", ge=1, le=50000)
 ):
-    """Returns geocoded crime incident point cloud formatted for Leaflet.js map markers."""
-    pts = crime_service.get_points(limit=limit)
-    formatted = []
-    for idx, p in enumerate(pts):
-        formatted.append({
-            "id": p.get("Report Number", f"INC-{idx}"),
-            "crime_type": p.get("Crime Description", "General Crime"),
-            "category": p.get("Crime Domain", "Property Crime"),
-            "confidence": 0.88 if p.get("Crime Domain") == "Violent Crime" else 0.94,
-            "timestamp": str(p.get("Date of Occurrence", "2026-07-01")),
-            "city": p.get("City", "Unknown"),
-            "lat": float(p.get("lat", 19.0760)),
-            "lon": float(p.get("lon", 72.8777)),
-            "severity": "Critical" if p.get("Crime Domain") == "Violent Crime" else "Moderate",
-            "status": "Verified" if p.get("is_case_closed") else "Under Investigation",
-            "units_deployed": p.get("Police Deployed", 2)
-        })
-    return {"incidents": formatted, "points": pts, "total": len(formatted)}
+    """Returns raw incident point cloud formatted for Leaflet.js map markers (Protected)."""
+    pts = await asyncio.to_thread(crime_service.get_points, limit=limit)
+    return {"points": pts, "total": len(pts)}
 
-@router.post("/predict", status_code=status.HTTP_200_OK)
-async def predict_crime(
-    file: UploadFile = File(None),
-    city: str = Form(default="Mumbai"),
-    crime_description: str = Form(default="Cyber Theft")
+
+@router.get("/patrol-allocation", response_model=PatrolAllocationResponse, dependencies=[Depends(verify_api_key)])
+async def get_patrol_allocation(
+    units: Optional[int] = Query(None, description="Total patrol units available", ge=0, le=500),
+    n_units: Optional[int] = Query(None, description="Patrol units alias (n_units)", ge=0, le=500),
 ):
-    """Analyzes uploaded crime scene image/media or incident telemetry."""
-    start_time = time.time()
+    """Allocates patrol resource units across hotspot clusters proportionally to risk weights (Protected)."""
+    target_units = n_units if n_units is not None else (units if units is not None else 10)
+    allocations = await asyncio.to_thread(crime_service.allocate_patrols, n_units=target_units)
     return {
-        "status": "analyzed",
-        "crime_type": crime_description,
-        "category": "Cyber Crime",
-        "confidence": 0.92,
-        "location": city,
-        "severity": "High",
-        "processing_time_ms": round((time.time() - start_time) * 1000, 2),
-        "filename": file.filename if file else None
+        "n_units": target_units,
+        "allocation": allocations,
     }
 
-@router.get("/patrol-allocation", response_model=PatrolAllocationResponse)
-def get_patrol_allocation(n_units: int = Query(default=10, ge=1, le=100)):
-    """Allocates patrol units to top priority crime hotspots."""
-    return {"n_units": n_units, "allocation": crime_service.allocate_patrols(n_units=n_units)}
+
+@router.post(
+    "/predict",
+    status_code=status.HTTP_501_NOT_IMPLEMENTED,
+    response_model=CrimeMediaNotImplementedResponse,
+    dependencies=[Depends(verify_api_key)],
+    responses={
+        501: {
+            "model": CrimeMediaNotImplementedResponse,
+            "description": "Crime media analysis model is not implemented",
+        }
+    },
+)
+async def predict_crime_incident(
+    city: Optional[str] = Form(None),
+    crime_description: Optional[str] = Form(None),
+    latitude: Optional[float] = Form(None),
+    longitude: Optional[float] = Form(None),
+    file: Optional[UploadFile] = File(None),
+):
+    """Crime scene media analysis and automated incident prediction is not yet implemented.
+
+    Returns HTTP 501 Not Implemented with a structured response indicating
+    that media analysis is currently unavailable. Never fabricates predictions.
+    """
+    return JSONResponse(
+        status_code=status.HTTP_501_NOT_IMPLEMENTED,
+        content={
+            "error": True,
+            "code": "MEDIA_ANALYSIS_NOT_IMPLEMENTED",
+            "message": "Crime media analysis is not currently available.",
+        },
+    )

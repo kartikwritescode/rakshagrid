@@ -94,3 +94,22 @@ html, body {
   border-color: rgba(56, 189, 248, 0.2);
   box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.1), 0 0 20px rgba(56, 189, 248, 0.1);
 }
+
+/* Sleek dark tactical theme for OpenStreetMap Leaflet tiles (Eliminates Carto watermark) */
+.leaflet-container {
+  background: #030712 !important;
+  font-family: inherit;
+}
+
+.map-tiles-dark {
+  filter: brightness(0.6) invert(1) contrast(3) hue-rotate(200deg) saturate(0.3);
+}
+
+.leaflet-control-attribution {
+  background: rgba(3, 7, 18, 0.8) !important;
+  color: #94a3b8 !important;
+}
+
+.leaflet-control-attribution a {
+  color: #38bdf8 !important;
+}

@@ -3,7 +3,6 @@
 
 import os
 import torch
-from transformers import AutoTokenizer, AutoModelForSequenceClassification
 from rakshagrid.common.exceptions.base import MissingModelArtifactError, MLInferenceException
 from rakshagrid.ai_scam.config import scam_config
 from rakshagrid.ai_scam.utils.helpers import get_risk_band
@@ -15,6 +14,7 @@ _device = None
 def _load_model():
     global _tokenizer, _model, _device
     if _tokenizer is None or _model is None:
+        from transformers import AutoTokenizer, AutoModelForSequenceClassification
         model_path = scam_config.TRANSFORMER_MODEL_PATH
         if not os.path.exists(model_path):
             raise MissingModelArtifactError(

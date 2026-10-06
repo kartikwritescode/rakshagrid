@@ -1,13 +1,4 @@
-# backend/fastapi/app/schemas/currency_schema.py
-"""Pydantic schemas for Currency Counterfeit Analysis endpoints."""
+# apps/api/rakshagrid/api/schemas/currency_schema.py
+from apps.api.src.schemas.currency_schema import CurrencyResponse
 
-from pydantic import BaseModel
-from typing import Dict, Optional
-
-class CurrencyResponse(BaseModel):
-    status: str
-    predicted_label: str
-    confidence: float
-    is_genuine: bool
-    class_probabilities: Dict[str, float]
-    processing_time_ms: Optional[float] = None
+__all__ = ["CurrencyResponse"]

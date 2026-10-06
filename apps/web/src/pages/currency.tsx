@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
 import { Upload, CheckCircle2, AlertTriangle, ShieldCheck, Clock, Image as ImageIcon, Loader2 } from 'lucide-react';
-import OnboardingGuide from '../components/OnboardingGuide';
+import OnboardingGuide from '../components/common/OnboardingGuide';
 import { useCurrencyScanner } from '../hooks/useCurrencyScanner';
 
 export default function CurrencyPage() {

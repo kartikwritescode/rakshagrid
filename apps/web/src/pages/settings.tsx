@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
 import { Settings as SettingsIcon, Save } from 'lucide-react';
-import OnboardingGuide from '../components/OnboardingGuide';
+import OnboardingGuide from '../components/common/OnboardingGuide';
+import { API_BASE_URL } from '../constants/apiEndpoints';
 
 export default function SettingsPage() {
-  const [apiUrl, setApiUrl] = useState("http://localhost:8000");
+  const [apiUrl, setApiUrl] = useState(API_BASE_URL);
   const [highThreshold, setHighThreshold] = useState("0.55");
   const [lowThreshold, setLowThreshold] = useState("0.12");
   const [saved, setSaved] = useState(false);

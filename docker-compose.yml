@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   backend:
     build:
@@ -11,11 +9,13 @@ services:
     environment:
       - PORT=8000
       - HOST=0.0.0.0
-      - DEBUG=True
-      - GROQ_API_KEY=${GROQ_API_KEY}
+      - DEBUG=False
+      - GROQ_API_KEY=${GROQ_API_KEY:-}
+      - RAKSHAGRID_API_KEY=${RAKSHAGRID_API_KEY:-rakshagrid-master-key-2026}
     volumes:
       - ./storage:/workspace/storage
       - ./artifacts:/workspace/artifacts
+      - ./data:/workspace/data:ro
     restart: unless-stopped
 
   frontend:

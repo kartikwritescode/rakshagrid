@@ -26,3 +26,10 @@ data/
 
 2. **Geospatial Incidents (`processed/points.parquet`)**:
    - Apache Parquet file containing lat/long coordinates, timestamps, and crime classifications used by `rakshagrid.ai_crime` to compute Haversine DBSCAN hotspots.
+
+## Model Weights & Artifacts
+For machine learning model weights (such as the EfficientNet-B0 counterfeit banknote classifier), provenance, training pipelines, and reproduction instructions, see:
+- [`docs/MODELS.md`](../docs/MODELS.md)
+- [`pipelines/notebooks/currency_model.ipynb`](../pipelines/notebooks/currency_model.ipynb)
+Model binary artifacts (`*.h5`, `*.keras`, `*.safetensors`, `*.pt`) reside in `storage/models/` and are excluded from git version control.
+
